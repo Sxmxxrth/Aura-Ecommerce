@@ -17,7 +17,6 @@ import { ToastComponent } from "./components/toast.component.js";
 import { HomePage } from "./pages/home.page.js";
 import { ShopPage } from "./pages/shop.page.js";
 import { ProductPage } from "./pages/product.page.js";
-import { ContactPage } from "./pages/contact.page.js";
 
 class App {
   static init() {
@@ -30,7 +29,6 @@ class App {
     HomePage.init();
     ShopPage.init();
     ProductPage.init();
-    ContactPage.init();
 
     console.log("%c[AURA E-Commerce] App initialized successfully.", "color: #E67E22; font-weight: bold;");
   }
