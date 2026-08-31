@@ -38,7 +38,7 @@
   /* Dark overlay on top of the background image */
   background: 
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85")
+    url("../../assets/images/hero-banner.jpg")
     center / cover no-repeat;
   /*       ↑        ↑       ↑
      center = image centered

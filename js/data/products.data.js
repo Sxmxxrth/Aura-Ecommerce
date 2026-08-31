@@ -3,8 +3,7 @@
   PRODUCT CATALOG DATA (products.data.js)
   
   Our central mock database of clothing products.
-  Each object holds the product id, name, category,
-  prices, images, sizes, and colors.
+  Uses local self-contained assets in assets/images/
   =============================================
 */
 
@@ -18,11 +17,11 @@ export const PRODUCTS_DATA = [
     oldPrice: 150,
     rating: 5,
     reviewCount: 48,
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/trench-coat-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/trench-coat-1.jpg",
+      "assets/images/products/trench-coat-2.jpg",
+      "assets/images/products/trench-coat-3.jpg"
     ],
     description: "A timeless, warm double-breasted coat crafted from a premium virgin wool blend. Features storm flaps, horn buttons, and an elegant relaxed drape.",
     sizes: ["S", "M", "L", "XL"],
@@ -41,10 +40,10 @@ export const PRODUCTS_DATA = [
     oldPrice: 175,
     rating: 5,
     reviewCount: 34,
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/wool-blazer-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/wool-blazer-1.jpg",
+      "assets/images/products/wool-blazer-2.jpg"
     ],
     description: "Sharp and versatile modern blazer with half-canvas construction that contours to your body over time for a custom fit.",
     sizes: ["M", "L", "XL"],
@@ -62,10 +61,10 @@ export const PRODUCTS_DATA = [
     oldPrice: 120,
     rating: 5,
     reviewCount: 62,
-    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/silk-dress-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1568252542512-9fe8fe9c87bb?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/silk-dress-1.jpg",
+      "assets/images/products/silk-dress-2.jpg"
     ],
     description: "Sculpted on the bias grain from heavyweight 22-momme Mulberry silk for an effortless liquid silhouette.",
     sizes: ["XS", "S", "M"],
@@ -84,10 +83,10 @@ export const PRODUCTS_DATA = [
     oldPrice: null,
     rating: 5,
     reviewCount: 29,
-    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/knit-sweater-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/knit-sweater-1.jpg",
+      "assets/images/products/knit-sweater-2.jpg"
     ],
     description: "Cloud-soft turtleneck spun from hypoallergenic Peruvian Royal Alpaca and organic Pima cotton yarns.",
     sizes: ["S", "M", "L"],
@@ -105,10 +104,10 @@ export const PRODUCTS_DATA = [
     oldPrice: 70,
     rating: 5,
     reviewCount: 53,
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/poplin-shirt-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/poplin-shirt-1.jpg",
+      "assets/images/products/poplin-shirt-2.jpg"
     ],
     description: "Two-ply Giza long-staple Egyptian cotton poplin with genuine mother-of-pearl buttons.",
     sizes: ["S", "M", "L", "XL"],
@@ -126,10 +125,10 @@ export const PRODUCTS_DATA = [
     oldPrice: 130,
     rating: 5,
     reviewCount: 78,
-    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+    image: "assets/images/products/leather-tote-1.jpg",
     images: [
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80"
+      "assets/images/products/leather-tote-1.jpg",
+      "assets/images/products/leather-tote-2.jpg"
     ],
     description: "Certified vegetable-tanned full-grain calf leather crafted with durable hand-burnished edges.",
     sizes: ["One Size"],
