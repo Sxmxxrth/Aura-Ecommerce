@@ -1,0 +1,29 @@
+/*
+  =============================================
+  CSS RESET (reset.css)
+
+  Every browser adds its own default padding,
+  margins, and font sizes to HTML elements.
+  
+  This file removes all of that so our design
+  looks the same on Chrome, Safari, Firefox etc.
+  =============================================
+*/
+
+* {
+  margin: 0;          /* Remove default spacing around everything */
+  padding: 0;
+  box-sizing: border-box;  /* Makes width/height include padding + border */
+}
+
+body {
+  font-family: var(--font-family-base);   /* Use our chosen font from variables.css */
+  background-color: var(--color-bg-body); /* Light grey background */
+  color: var(--color-text-main);          /* Default dark text */
+  line-height: 1.6;                       /* Comfortable line spacing */
+}
+
+a {
+  color: inherit;            /* Links use the same color as surrounding text */
+  text-decoration: none;     /* No ugly underlines */
+}

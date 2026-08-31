@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA — Modern Clothing Brand</title>
+  <meta name="description" content="Discover AURA: Modern streetwear, virgin wool tailoring, and luxury everyday essentials." />
+
+  <!-- Master Stylesheet Bundle -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="promo-bar">
+    🔥 Seasonal Special: Get <span>20% OFF</span> with code <span>TEEN20</span>! Free Shipping on orders over $100!
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="logo">AURA<span>.</span></a>
+    
+    <!-- Hamburger Menu Button (visible on mobile only) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-actions" style="display: flex; gap: 16px; align-items: center;">
+      <!-- Shopping Bag Button with Reactive Badge -->
+      <button class="open-cart-btn" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Shopping Cart">
+        🛒 <span id="cart-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+      </button>
+
+      <!-- Wishlist Button with Reactive Badge -->
+      <button onclick="alert('You have ' + (window.__auraApp ? wishlistService.getState().count : 0) + ' items saved in your wishlist!')" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Wishlist">
+        ❤️ <span id="wishlist-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    
+    <!-- Hero Banner with Promotional Countdown -->
+    <section class="hero">
+      <h1>Modern Streetwear &amp; Everyday Elegance</h1>
+      <p>Discover our latest collection of premium wool coats, cozy knitwear, and trendy accessories.</p>
+      
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary">Shop Collection 🛍️</a>
+        <a href="collections.html" class="btn btn-secondary">View Lookbooks 📖</a>
+      </div>
+
+      <!-- Live Countdown Timer -->
+      <div class="countdown-box">
+        <div class="time-item">
+          <span id="cd-days">02</span>
+          <small>Days</small>
+        </div>
+        <div class="time-item">
+          <span id="cd-hours">12</span>
+          <small>Hours</small>
+        </div>
+        <div class="time-item">
+          <span id="cd-mins">45</span>
+          <small>Mins</small>
+        </div>
+        <div class="time-item">
+          <span id="cd-secs">30</span>
+          <small>Secs</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Styles Section -->
+    <section>
+      <div style="text-align: center; margin-bottom: var(--space-8);">
+        <h2>🔥 Trending Styles</h2>
+        <p style="color: var(--color-text-secondary); margin-top: 8px;">Handpicked favorites from our new seasonal drop</p>
+      </div>
+
+      <!-- Product Grid (Populated dynamically by HomePage controller in JavaScript) -->
+      <div class="product-grid" id="home-products"></div>
+
+      <div style="text-align: center; margin-bottom: var(--space-12);">
+        <a href="shop.html" class="btn btn-primary">Explore Full Catalog →</a>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      CLIENT TESTIMONIALS SECTION
+      
+      Social proof from happy customers.
+      .testimonials-grid auto-fits 3 columns.
+      ========================================
+    -->
+    <section>
+      
+      <div style="text-align: center; margin-bottom: var(--space-8);">
+        <h2>⭐ Client Testimonials</h2>
+        <p style="color: var(--color-text-secondary); margin-top: 8px;">Real reviews from happy shoppers</p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Review 1 -->
+        <div class="testimonial-card">
+          <div class="product-rating" style="margin-bottom: var(--space-2);">★★★★★</div>
+          <p class="testimonial-quote">"The quality of the trench coat blew me away! Fits perfectly and looks super stylish."</p>
+          <div class="testimonial-author">— Sarah M., New York</div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-card">
+          <div class="product-rating" style="margin-bottom: var(--space-2);">★★★★★</div>
+          <p class="testimonial-quote">"Fast delivery and the knit sweater is ultra soft. Will definitely shop here again!"</p>
+          <div class="testimonial-author">— Alex K., London</div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-card">
+          <div class="product-rating" style="margin-bottom: var(--space-2);">★★★★★</div>
+          <p class="testimonial-quote">"Best online shopping experience. Clean design, sustainable materials, and easy checkout."</p>
+          <div class="testimonial-author">— Chloe D., Paris</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--
+      ========================================
+      NEWSLETTER SUBSCRIPTION SECTION
+      
+      <form> — an interactive HTML form
+      <input type="email"> — enforces valid email format
+      <button type="submit"> — triggers the form submit
+      ========================================
+    -->
+    <section class="newsletter-box">
+      <h2>💌 Join Our VIP Club</h2>
+      <p>Get exclusive drops, early bird discounts, and 20% off your first purchase.</p>
+      
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed! Use promo code TEEN20 for 20% off 🎉');">
+        <input 
+          type="email" 
+          class="newsletter-input" 
+          placeholder="Enter your email address..." 
+          required 
+        />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      
+      <!-- Column 1: Brand Info -->
+      <div class="footer-col">
+        <h3 style="color: white; margin-bottom: var(--space-3); letter-spacing: 2px;">
+          AURA<span style="color: var(--color-accent);">.</span>
+        </h3>
+        <p style="color: #A0A0A0; font-size: var(--font-size-sm); line-height: 1.6;">
+          A fresh, modern fashion brand built for comfort, minimalism, and daily style.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Catalog</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Care -->
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">FAQs</a></li>
+          <li><a href="contact.html">Shipping &amp; Returns</a></li>
+          <li><a href="contact.html">Size Guide</a></li>
+          <li><a href="contact.html">Track My Order</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright Strip -->
+    <div class="footer-bottom">
+      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Shopping Bag 🛒</h3>
+      <button class="drawer-close-btn close-cart-btn" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span>Subtotal:</span>
+        <span id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="window.__auraApp.checkout()">
+        Proceed to Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Feedback Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Master ES Module Entry Point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

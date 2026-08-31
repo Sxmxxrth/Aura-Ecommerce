@@ -1,0 +1,77 @@
+/*
+  =============================================
+  SHOP PAGE STYLES (shop.css)
+  
+  Layout for the product catalog with faceted
+  sidebar category filters and search bar.
+  =============================================
+*/
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+.filter-box {
+  background-color: var(--color-bg-surface);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid #EEEEEE;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  margin-bottom: var(--space-5);
+}
+
+.filter-box h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: var(--space-2);
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-btn {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.search-input {
+  width: 100%;
+  background-color: var(--color-bg-body);
+  border: 1px solid #DDDDDD;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  transition: border-color 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+}

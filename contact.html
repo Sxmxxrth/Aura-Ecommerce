@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us &amp; FAQs — AURA Clothing</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="promo-bar">
+    🔥 Seasonal Special: Get <span>20% OFF</span> with code <span>TEEN20</span>! Free Shipping on orders over $100!
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="logo">AURA<span>.</span></a>
+    
+    <!-- Hamburger Menu Button (visible on mobile only) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="nav-actions" style="display: flex; gap: 16px; align-items: center;">
+      <button class="open-cart-btn" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Shopping Cart">
+        🛒 <span id="cart-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+      </button>
+
+      <button onclick="alert('You have saved items in your wishlist!')" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Wishlist">
+        ❤️ <span id="wishlist-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="text-align: center; margin-top: var(--space-4); margin-bottom: var(--space-8);">
+      <h2>Get In Touch &amp; Help Center</h2>
+      <p style="color: var(--color-text-secondary); margin-top: 4px;">Questions about sizing, express shipping, or returns? Our concierge is here to help.</p>
+    </div>
+
+    <!-- Contact Form & Info Grid -->
+    <div class="contact-layout">
+      
+      <!-- Contact Form -->
+      <div class="contact-form-card">
+        <h3 style="margin-bottom: var(--space-4);">✉️ Send Us an Inquiry</h3>
+        
+        <form id="contact-form">
+          <div class="contact-form-group">
+            <label for="contact-name">Full Name</label>
+            <input type="text" id="contact-name" class="contact-input" placeholder="e.g. Alex Morgan" required />
+          </div>
+
+          <div class="contact-form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" class="contact-input" placeholder="e.g. alex@example.com" required />
+          </div>
+
+          <div class="contact-form-group">
+            <label for="contact-subject">Inquiry Type</label>
+            <select class="contact-input" id="contact-subject">
+              <option>Order Tracking &amp; Delivery</option>
+              <option>Size &amp; Fit Consultation</option>
+              <option>Returns &amp; Exchanges</option>
+              <option>General Brand Question</option>
+            </select>
+          </div>
+
+          <div class="contact-form-group">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" class="contact-input" rows="4" placeholder="How can our team assist you today?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message 🚀</button>
+        </form>
+      </div>
+
+      <!-- Store Info & Hours -->
+      <div>
+        <div class="contact-form-card" style="margin-bottom: var(--space-4);">
+          <h3 style="margin-bottom: var(--space-3);">📍 Flagship Showroom</h3>
+          <p style="color: var(--color-text-secondary); line-height: 1.7; margin-bottom: var(--space-3); font-size: var(--font-size-sm);">
+            <strong>AURA Studios NYC</strong><br />
+            120 Fashion Blvd, Suite 400<br />
+            New York, NY 10012, USA
+          </p>
+          <p style="color: var(--color-text-secondary); line-height: 1.7; font-size: var(--font-size-sm);">
+            <strong>📞 Direct:</strong> +1 (800) 555-AURA<br />
+            <strong>📧 Concierge:</strong> support@auraclothing.com<br />
+            <strong>⏰ Showroom Hours:</strong> Mon - Sat: 9am - 7pm EST
+          </p>
+        </div>
+
+        <div style="background: var(--color-accent-subtle); padding: var(--space-5); border-radius: var(--radius-md); border: 1px dashed var(--color-accent);">
+          <h4 style="color: var(--color-accent-hover); margin-bottom: var(--space-2);">⚡ Complimentary Returns</h4>
+          <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: 1.6;">
+            Need a different size? Mention your order number and we will generate an instant prepaid courier label for you!
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Frequently Asked Questions (FAQs) -->
+    <div style="text-align: center; margin-bottom: var(--space-6);">
+      <h2>❓ Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-box">
+      <div class="faq-item">
+        <h4>How long does delivery take?</h4>
+        <p style="color: var(--color-text-secondary); margin-top: 4px; font-size: var(--font-size-sm);">Standard domestic shipping takes 3-5 business days. Express courier takes 1-2 business days. Free shipping applies to all orders over $100!</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What is your return &amp; exchange policy?</h4>
+        <p style="color: var(--color-text-secondary); margin-top: 4px; font-size: var(--font-size-sm);">We provide a 30-day trial guarantee. If your piece does not fit perfectly, return it unworn with original tags for a complimentary size exchange or full refund.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do I apply my discount voucher?</h4>
+        <p style="color: var(--color-text-secondary); margin-top: 4px; font-size: var(--font-size-sm);">Enter promo code <strong>TEEN20</strong> at checkout to apply a 20% discount across your entire shopping bag!</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3 style="color: white; margin-bottom: var(--space-3); letter-spacing: 2px;">
+          AURA<span style="color: var(--color-accent);">.</span>
+        </h3>
+        <p style="color: #A0A0A0; font-size: var(--font-size-sm); line-height: 1.6;">
+          A fresh, modern fashion brand built for comfort, minimalism, and daily style.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Catalog</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">FAQs</a></li>
+          <li><a href="contact.html">Shipping &amp; Returns</a></li>
+          <li><a href="contact.html">Size Guide</a></li>
+          <li><a href="contact.html">Track My Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Shopping Bag 🛒</h3>
+      <button class="drawer-close-btn close-cart-btn" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span>Subtotal:</span>
+        <span id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="window.__auraApp.checkout()">
+        Proceed to Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Feedback Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Master ES Module Entry Point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

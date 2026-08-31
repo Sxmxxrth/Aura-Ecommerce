@@ -1,0 +1,190 @@
+/*
+  =============================================
+  PRODUCT CARD STYLES (product-card.css)
+
+  The cards you see on the home page and shop 
+  page showing product image, name, price, etc.
+  =============================================
+*/
+
+
+/*
+  PRODUCT GRID
+  
+  CSS Grid is perfect for card layouts!
+  
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+  
+  Let's break this down:
+  - repeat(auto-fill, ...)  → create as many columns as will fit
+  - minmax(260px, 1fr)      → each column is at least 260px wide,
+                               but can stretch to fill space
+  
+  Result: 4 cards on big screens, 2 on tablets, 1 on phones!
+  All automatic — no media queries needed! 🎉
+*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6);               /* 24px between cards */
+  margin-bottom: var(--space-8);
+}
+
+
+/*
+  INDIVIDUAL PRODUCT CARD
+  
+  - White background
+  - Rounded corners
+  - Subtle shadow
+  - On hover: lifts up + shadow grows (feels interactive!)
+*/
+.product-card {
+  background-color: var(--color-bg-surface);  /* White */
+  border-radius: var(--radius-md);            /* 8px rounded */
+  overflow: hidden;                /* Clips the image to rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Very subtle shadow */
+  
+  /* Smooth hover animation */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  /* Stack children vertically */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect — card lifts up */
+.product-card:hover {
+  transform: translateY(-4px);                /* Floats up 4px */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* Bigger shadow */
+}
+
+
+/*
+  IMAGE CONTAINER
+  
+  Fixed height so all cards look uniform.
+  overflow: hidden clips the image when it 
+  zooms on hover.
+*/
+.product-image-wrap {
+  height: 320px;
+  overflow: hidden;
+  background-color: #F3EFEA;     /* Light beige placeholder while image loads */
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* Image fills the box, crops if needed */
+  
+  /* Smooth zoom on hover */
+  transition: transform 0.35s ease;
+}
+
+/* When hovering the CARD → image zooms in slightly */
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.06);        /* 6% zoom — subtle but noticeable */
+}
+
+
+/*
+  PRODUCT INFO SECTION
+  (name, category, rating, price, buttons)
+*/
+.product-info {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;                  /* Stretches to fill remaining card space */
+}
+
+/* Category label — tiny uppercase text */
+.product-meta {
+  font-size: var(--font-size-xs);
+  color: #888888;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4px;
+}
+
+/* Product name */
+.product-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-main);
+  margin-bottom: var(--space-2);
+}
+
+/* Star rating */
+.product-rating {
+  color: var(--color-warning);           /* Gold stars */
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+/* Price */
+.product-price {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Old/original price — crossed out */
+.original-price {
+  font-size: var(--font-size-sm);
+  color: #888888;
+  text-decoration: line-through;         /* Strikethrough line */
+  margin-left: var(--space-2);
+  font-weight: normal;
+}
+
+
+/*
+  ACTION BUTTONS ROW
+  
+  Two buttons side by side:
+  - "Add to Bag" (dark filled)
+  - "Details" (white outlined)
+  
+  margin-top: auto pushes the buttons to the 
+  bottom of the card — even if product names 
+  have different lengths!
+*/
+.product-actions {
+  margin-top: auto;
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Shared button base for card actions */
+.btn-card {
+  flex: 1;                       /* Both buttons share equal width */
+  padding: 0.5rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);  /* Dark filled */
+  color: var(--color-text-inverse);        /* White text */
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;                   /* Remove underline from <a> tags */
+}
+
+.btn-card:hover {
+  background-color: var(--color-accent);   /* Orange on hover */
+  border-color: var(--color-accent);
+}
+
+/* Outline variant — white with dark border */
+.btn-card-outline {
+  background-color: var(--color-bg-surface);
+  color: var(--color-primary);
+}
+
+.btn-card-outline:hover {
+  background-color: #F3EFEA;
+}

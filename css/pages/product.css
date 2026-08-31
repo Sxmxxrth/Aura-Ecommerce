@@ -1,0 +1,152 @@
+/*
+  =============================================
+  PRODUCT DETAILS PAGE STYLES (product.css)
+  
+  Styles for gallery image switcher, size/color
+  selectors, and review submission form.
+  =============================================
+*/
+
+.pdp-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  background-color: var(--color-bg-surface);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid #EEEEEE;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-top: var(--space-4);
+}
+
+.pdp-main-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  background-color: #F3EFEA;
+}
+
+.pdp-thumbs {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.pdp-thumb {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  transition: all 0.15s ease;
+}
+
+.pdp-thumb:hover,
+.pdp-thumb.active {
+  opacity: 1;
+  border-color: var(--color-accent);
+}
+
+.pdp-info h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+}
+
+.pdp-price {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin: var(--space-4) 0;
+}
+
+.option-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  margin: var(--space-4) 0 var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.size-selector, .color-selector {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.size-option {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid #DDDDDD;
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  transition: all 0.15s ease;
+}
+
+.size-option:hover {
+  border-color: var(--color-primary);
+}
+
+.size-option.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #DDDDDD;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+.color-option.active {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+/* Reviews Box */
+.reviews-box {
+  background-color: var(--color-bg-surface);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid #EEEEEE;
+  margin-top: var(--space-8);
+}
+
+.review-item {
+  border-bottom: 1px solid #EEEEEE;
+  padding: var(--space-4) 0;
+}
+
+.review-form {
+  margin-top: var(--space-6);
+  background-color: var(--color-bg-body);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  border: 1px solid #DDDDDD;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  font-family: inherit;
+}
+
+@media (max-width: 768px) {
+  .pdp-container {
+    grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
+}

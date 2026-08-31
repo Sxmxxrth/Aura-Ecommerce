@@ -1,0 +1,236 @@
+/*
+  =============================================
+  NAVBAR & PROMO BAR STYLES (navbar.css)
+
+  The promo bar is the dark announcement strip
+  at the very top of every page.
+
+  Let's break down each property:
+  =============================================
+*/
+
+.promo-bar {
+  /* Dark background matching our brand color */
+  background-color: var(--color-primary);
+
+  /* White text so it's readable on dark background */
+  color: var(--color-text-inverse);
+
+  /* Center the text horizontally */
+  text-align: center;
+
+  /* Add some breathing room: 8px top/bottom, 16px left/right */
+  padding: var(--space-2) var(--space-4);
+
+  /* Slightly smaller text — it's secondary info */
+  font-size: var(--font-size-sm);
+
+  /* Medium weight — not too thin, not too bold */
+  font-weight: var(--font-weight-medium);
+}
+
+/* 
+  The <span> tags inside highlight the discount 
+  amount and promo code in bright yellow/gold 
+*/
+.promo-bar span {
+  color: var(--color-warning);           /* Gold/yellow color */
+  font-weight: var(--font-weight-bold);  /* Make it stand out */
+}
+
+
+/*
+  =============================================
+  NAVBAR STYLES
+  
+  Key concept: FLEXBOX
+  
+  display: flex     → children sit side by side
+  justify-content: space-between → pushes logo 
+                     to left, links to right
+  align-items: center → vertically centers them
+  
+  position: sticky  → navbar sticks to the top
+                     when you scroll down!
+  =============================================
+*/
+
+.navbar {
+  display: flex;                           /* Side-by-side layout */
+  justify-content: space-between;          /* Logo ←→ Links */
+  align-items: center;                     /* Vertically centered */
+  background-color: var(--color-bg-surface);  /* White background */
+  padding: var(--space-4) var(--space-8);  /* 16px top/bottom, 32px left/right */
+  border-bottom: 1px solid #EEEEEE;       /* Thin grey line underneath */
+
+  /* STICKY: stays at top when scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 100;   /* Sits above other content */
+}
+
+
+/*
+  LOGO
+  - Big bold text
+  - Letter spacing makes it look premium
+  - The <span> inside (the dot) is orange
+*/
+.logo {
+  font-size: var(--font-size-lg);          /* 20px */
+  font-weight: var(--font-weight-bold);    /* Thick/bold */
+  letter-spacing: 2px;                     /* S P A C E D  O U T */
+  color: var(--color-primary);             /* Dark black */
+}
+
+.logo span {
+  color: var(--color-accent);              /* Orange dot! */
+}
+
+
+/*
+  NAV LINKS
+  
+  display: flex → all links sit in a row
+  gap: 1.5rem   → 24px spacing between each link
+*/
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/*
+  Each individual link:
+  - Small text, slightly bold
+  - Grey by default
+  - Has a hidden orange underline that 
+    slides in from the left on hover!
+*/
+.nav-links a {
+  font-size: var(--font-size-sm);          /* 14px */
+  font-weight: 600;                        /* Semi-bold */
+  color: var(--color-text-secondary);      /* Grey */
+  position: relative;                      /* Needed for the underline trick */
+  padding: 4px 0;
+}
+
+/*
+  UNDERLINE ANIMATION
+  
+  ::after creates an invisible element below the link.
+  - width: 0 → starts hidden
+  - On hover → width becomes 100% (slides in!)
+  - transition makes it animate smoothly
+*/
+.nav-links a::after {
+  content: "";                             /* Required to make ::after work */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;                               /* Hidden by default */
+  height: 2px;                            /* Thin line */
+  background-color: var(--color-accent);  /* Orange */
+  transition: width 0.15s ease;           /* Smooth slide animation */
+}
+
+/* When you hover OR link is active → underline slides in */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;                            /* Full width = visible! */
+}
+
+/* Active link is orange colored */
+.nav-links a.active {
+  color: var(--color-accent);
+}
+
+
+/*
+  =============================================
+  HAMBURGER MENU BUTTON (Mobile Only)
+  
+  Hidden on desktop. On screens < 768px, it
+  appears and toggles the nav links open/closed.
+  =============================================
+*/
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Animate hamburger into an X when menu is open */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/*
+  =============================================
+  MOBILE RESPONSIVE LAYOUT
+  
+  @media (max-width: 768px) means:
+  "Apply these styles ONLY when the browser
+   window is 768px wide or narrower" (tablets & phones)
+  =============================================
+*/
+@media (max-width: 768px) {
+  /* Show the hamburger button */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-surface);
+    flex-direction: column;
+    padding: var(--space-4);
+    gap: 0;
+    border-bottom: 1px solid #EEEEEE;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    z-index: 99;
+  }
+
+  /* Show nav links when .active class is toggled by JS */
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid #F5F5F5;
+    font-size: var(--font-size-base);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  /* Reduce navbar horizontal padding */
+  .navbar {
+    padding: var(--space-3) var(--space-4);
+  }
+}
