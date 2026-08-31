@@ -4,9 +4,10 @@
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Demo & Repository
 
-[**View Live Website →**](#) *(Deploy to GitHub Pages for live link)*
+- 🔗 **Live Website:** [https://sxmxxrth.github.io/Aura-Ecommerce/](https://sxmxxrth.github.io/Aura-Ecommerce/)
+- 💻 **GitHub Repository:** [https://github.com/Sxmxxrth/Aura-Ecommerce](https://github.com/Sxmxxrth/Aura-Ecommerce)
 
 ---
 
@@ -14,12 +15,10 @@
 
 | Page | Description |
 |------|-------------|
-| **Home** (`index.html`) | Hero banner with countdown timer, trending products, testimonials, newsletter |
+| **Home** (`index.html`) | Hero banner with countdown timer, trending products, testimonials, VIP club |
 | **Shop** (`shop.html`) | Full catalog with sidebar category filters and live search |
 | **Product Details** (`product.html`) | Dynamic product page with image gallery, size/color selectors, reviews |
 | **Collections** (`collections.html`) | Curated lookbook cards for Men, Women, and New Arrivals |
-| **About Us** (`about.html`) | Brand story, heritage, and sustainability pillars |
-| **Contact** (`contact.html`) | Inquiry form, showroom info, and FAQ section |
 
 ---
 
