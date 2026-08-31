@@ -1,0 +1,32 @@
+/*
+  =============================================
+  1. DESIGN TOKENS (variables.css)
+  
+  Central color palette and simple settings.
+  =============================================
+*/
+
+:root {
+  /* Brand Colors */
+  --primary: #111111;          /* Dark black */
+  --accent: #E67E22;           /* Warm orange for buttons and highlights */
+  --accent-light: #FFF3E0;     /* Soft peach background */
+  
+  /* Background Colors */
+  --bg-body: #F9F9F9;          /* Light grey page background */
+  --bg-card: #FFFFFF;          /* Pure white cards */
+  
+  /* Text Colors */
+  --text-main: #222222;        /* Dark text */
+  --text-muted: #777777;       /* Grey text for descriptions */
+  --border-color: #EAEAEA;     /* Light grey border */
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  
+  /* Spacing */
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}

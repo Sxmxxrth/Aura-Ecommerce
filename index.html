@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURA — Modern Clothing Brand</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 
     <div class="nav-actions">
       <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="openCart()" aria-label="Shopping Cart">
+      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="Shopping Cart">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -35,7 +35,7 @@
       </button>
 
       <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="showWishlistAlert()" aria-label="Wishlist">
+      <button class="nav-icon-btn" onclick="window.__aura.showWishlistAlert()" aria-label="Wishlist">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
         </svg>
@@ -85,7 +85,7 @@
         <p style="color: #777; margin-top: 6px;">Handpicked favorites from our new seasonal drop</p>
       </div>
 
-      <!-- 4 Product Cards rendered by script.js -->
+      <!-- 4 Product Cards rendered dynamically by home.page.js -->
       <div class="product-grid" id="home-products"></div>
 
       <div style="text-align: center; margin-bottom: 40px;">
@@ -157,16 +157,16 @@
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 AURA Clothing Co. Basic Desktop Website.
+      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
   <aside class="cart-drawer" id="cart-drawer">
     <div class="drawer-header">
       <h3>Shopping Bag 🛒</h3>
-      <button class="drawer-close-btn" onclick="closeCart()">&times;</button>
+      <button class="drawer-close-btn" onclick="window.__aura.closeCart()">&times;</button>
     </div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
@@ -174,13 +174,13 @@
         <span>Subtotal:</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">
+      <button class="btn btn-primary" style="width: 100%;" onclick="window.__aura.checkout()">
         Proceed to Checkout →
       </button>
     </div>
   </aside>
 
-  <!-- Single Simple JavaScript File -->
-  <script src="js/script.js"></script>
+  <!-- Modular JavaScript Entry Point -->
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

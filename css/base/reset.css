@@ -1,0 +1,32 @@
+/*
+  =============================================
+  2. CSS RESET (reset.css)
+  
+  Cleans up browser defaults so styling is consistent.
+  =============================================
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Main Container (Desktop width limit) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}

@@ -1,0 +1,26 @@
+/*
+  =============================================
+  MASTER STYLESHEET BUNDLE (main.css)
+  
+  Imports all stylesheets in the proper architectural order:
+  1. Base layer (Variables, Reset)
+  2. Components layer (Navbar, Buttons, Cards, Drawer, Footer)
+  3. Pages layer (Home, Shop, Product)
+  =============================================
+*/
+
+/* 1. Base Layer */
+@import url("./base/variables.css");
+@import url("./base/reset.css");
+
+/* 2. Components Layer */
+@import url("./components/navbar.css");
+@import url("./components/buttons.css");
+@import url("./components/product-card.css");
+@import url("./components/cart-drawer.css");
+@import url("./components/footer.css");
+
+/* 3. Pages Layer */
+@import url("./pages/home.css");
+@import url("./pages/shop.css");
+@import url("./pages/product.css");

@@ -1,0 +1,64 @@
+/*
+  =============================================
+  4. BUTTON STYLES (buttons.css)
+  =============================================
+*/
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: #D35400;
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--primary);
+  border-color: #CCCCCC;
+}
+
+.btn-secondary:hover {
+  background-color: #F0F0F0;
+}
+
+.btn-card {
+  flex: 1;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-card:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-card-outline {
+  background-color: #FFFFFF;
+  color: var(--primary);
+}
+
+.btn-card-outline:hover {
+  background-color: #F5F5F5;
+}
