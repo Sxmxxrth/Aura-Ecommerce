@@ -4,12 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop Catalog — AURA Clothing</title>
-  <meta name="description" content="Browse our complete collection of modern apparel, coats, dresses, and shirts." />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
+  <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
     🔥 Seasonal Special: Get <span>20% OFF</span> with code <span>TEEN20</span>! Free Shipping on orders over $100!
   </div>
@@ -18,22 +17,15 @@
   <header class="navbar">
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
-    <!-- Hamburger Menu Button (visible on mobile only) -->
-    <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="nav-links" id="nav-links">
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
       <a href="collections.html">Collections</a>
     </nav>
 
     <div class="nav-actions">
-      <!-- Shopping Bag Button with SVG Vector Icon & Reactive Badge -->
-      <button class="nav-icon-btn open-cart-btn" aria-label="Shopping Cart">
+      <!-- Shopping Bag Button -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="Shopping Cart">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -42,8 +34,8 @@
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
 
-      <!-- Wishlist Button with SVG Vector Icon & Reactive Badge -->
-      <button class="nav-icon-btn" onclick="alert('You have saved items in your wishlist!')" aria-label="Wishlist">
+      <!-- Wishlist Button -->
+      <button class="nav-icon-btn" onclick="showWishlistAlert()" aria-label="Wishlist">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
         </svg>
@@ -52,34 +44,35 @@
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="container">
-    <div style="margin-top: var(--space-4); margin-bottom: var(--space-4);">
+    <div>
       <h2>All Clothes &amp; Apparel</h2>
-      <p style="color: var(--color-text-secondary); margin-top: 4px;">Filter by category or search for your favorite piece</p>
+      <p style="color: #777; margin-top: 4px;">Filter by category or search for your favorite piece</p>
     </div>
 
     <div class="shop-layout">
       <!-- Sidebar Filters -->
       <aside>
-        <!-- Search Filter -->
+        <!-- Search Box -->
         <div class="filter-box">
           <h3>🔍 Search</h3>
-          <input type="text" class="search-input" id="search-box" placeholder="Type coat, dress, shirt..." />
+          <input type="text" class="search-input" id="search-box" oninput="renderShopProducts()" placeholder="Type coat, dress, shirt..." />
         </div>
 
-        <!-- Category Filters -->
+        <!-- Categories -->
         <div class="filter-box">
           <h3>Categories</h3>
           <ul class="filter-list">
-            <li><button class="filter-btn active" data-category="all">✨ All Items (6)</button></li>
-            <li><button class="filter-btn" data-category="women">👗 Women's (3)</button></li>
-            <li><button class="filter-btn" data-category="men">👔 Men's (2)</button></li>
-            <li><button class="filter-btn" data-category="accessories">👜 Accessories (1)</button></li>
+            <li><button class="filter-btn active" data-category="all" onclick="filterByCategory('all', this)">✨ All Items (6)</button></li>
+            <li><button class="filter-btn" data-category="women" onclick="filterByCategory('women', this)">👗 Women's (3)</button></li>
+            <li><button class="filter-btn" data-category="men" onclick="filterByCategory('men', this)">👔 Men's (2)</button></li>
+            <li><button class="filter-btn" data-category="accessories" onclick="filterByCategory('accessories', this)">👜 Accessories (1)</button></li>
           </ul>
         </div>
       </aside>
 
-      <!-- Products Grid (Rendered dynamically by ShopPage controller in JavaScript) -->
+      <!-- Products Grid -->
       <section>
         <div class="product-grid" id="shop-products"></div>
       </section>
@@ -90,13 +83,14 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3 style="color: white; margin-bottom: var(--space-3); letter-spacing: 2px;">
-          AURA<span style="color: var(--color-accent);">.</span>
+        <h3 style="color: white; margin-bottom: 8px; letter-spacing: 2px;">
+          AURA<span style="color: var(--accent);">.</span>
         </h3>
-        <p style="color: #A0A0A0; font-size: var(--font-size-sm); line-height: 1.6;">
+        <p style="color: #A0A0A0; font-size: 13px; max-width: 320px; line-height: 1.6;">
           A fresh, modern fashion brand built for comfort, minimalism, and daily style.
         </p>
       </div>
+
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul class="footer-links">
@@ -105,23 +99,19 @@
           <li><a href="collections.html">Collections</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Customer Care</h4>
-        <ul class="footer-links">
-        </ul>
-      </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
+      &copy; 2026 AURA Clothing Co. Basic Desktop Website.
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
   <aside class="cart-drawer" id="cart-drawer">
     <div class="drawer-header">
-      <h3 class="drawer-title">Shopping Bag 🛒</h3>
-      <button class="drawer-close-btn close-cart-btn" aria-label="Close Bag">&times;</button>
+      <h3>Shopping Bag 🛒</h3>
+      <button class="drawer-close-btn" onclick="closeCart()">&times;</button>
     </div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
@@ -129,16 +119,13 @@
         <span>Subtotal:</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%;" onclick="window.__auraApp.checkout()">
+      <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">
         Proceed to Checkout →
       </button>
     </div>
   </aside>
 
-  <!-- Toast Feedback Container -->
-  <div class="toast-container" id="toast-container"></div>
-
-  <!-- Master ES Module Entry Point -->
-  <script type="module" src="js/app.js"></script>
+  <!-- Single Simple JavaScript File -->
+  <script src="js/script.js"></script>
 </body>
 </html>
