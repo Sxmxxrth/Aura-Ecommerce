@@ -40,51 +40,24 @@
   - On hover: lifts up + shadow grows (feels interactive!)
 */
 .product-card {
-  background-color: var(--color-bg-surface);  /* White */
-  border-radius: var(--radius-md);            /* 8px rounded */
-  overflow: hidden;                /* Clips the image to rounded corners */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04); /* Very subtle shadow */
-  
-  /* Smooth hover animation */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-
-  /* Stack children vertically */
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid #EEEEEE;
   display: flex;
   flex-direction: column;
 }
 
-/* Hover effect — card lifts up */
-.product-card:hover {
-  transform: translateY(-4px);                /* Floats up 4px */
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); /* Bigger shadow */
-}
-
-
-/*
-  IMAGE CONTAINER
-  
-  Fixed height so all cards look uniform.
-  overflow: hidden clips the image when it 
-  zooms on hover.
-*/
 .product-image-wrap {
   height: 320px;
   overflow: hidden;
-  background-color: #F3EFEA;     /* Light beige placeholder while image loads */
+  background-color: #F3EFEA;
 }
 
 .product-image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;             /* Image fills the box, crops if needed */
-  
-  /* Smooth zoom on hover */
-  transition: transform 0.35s ease;
-}
-
-/* When hovering the CARD → image zooms in slightly */
-.product-card:hover .product-image-wrap img {
-  transform: scale(1.06);        /* 6% zoom — subtle but noticeable */
+  object-fit: cover;
 }
 
 
