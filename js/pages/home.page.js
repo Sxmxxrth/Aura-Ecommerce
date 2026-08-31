@@ -35,9 +35,11 @@ export class HomePage {
               class="product-wishlist-btn" 
               onclick="window.__auraApp.toggleWishlist(${prod.id})" 
               title="Save to Wishlist"
-              style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); width: 34px; height: 34px; border-radius: 999px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 2;"
+              style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); width: 34px; height: 34px; border-radius: 999px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 2;"
             >
-              ${isSaved ? '❤️' : '🤍'}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="${isSaved ? '#E74C3C' : 'none'}" stroke="${isSaved ? '#E74C3C' : '#222222'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
             </button>
             <a href="product.html?id=${prod.id}">
               <img src="${prod.image}" alt="${prod.name}" />

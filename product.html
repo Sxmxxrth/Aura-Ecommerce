@@ -30,13 +30,23 @@
       <a href="collections.html">Collections</a>
     </nav>
 
-    <div class="nav-actions" style="display: flex; gap: 16px; align-items: center;">
-      <button class="open-cart-btn" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Shopping Cart">
-        🛒 <span id="cart-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+    <div class="nav-actions">
+      <!-- Shopping Bag Button with SVG Vector Icon & Reactive Badge -->
+      <button class="nav-icon-btn open-cart-btn" aria-label="Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="nav-badge" id="cart-badge">0</span>
       </button>
 
-      <button onclick="alert('You have saved items in your wishlist!')" style="position: relative; font-size: 1.25rem; background: none; border: none; cursor: pointer;" aria-label="Wishlist">
-        ❤️ <span id="wishlist-badge" style="position: absolute; top: -6px; right: -8px; background: var(--color-accent); color: white; font-size: 0.75rem; font-weight: bold; min-width: 18px; height: 18px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 4px;">0</span>
+      <!-- Wishlist Button with SVG Vector Icon & Reactive Badge -->
+      <button class="nav-icon-btn" onclick="alert('You have saved items in your wishlist!')" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
       </button>
     </div>
   </header>
