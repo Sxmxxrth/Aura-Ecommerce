@@ -2,7 +2,7 @@
   =============================================
   APPLICATION BOOTSTRAP (app.js)
   
-  Master entry point that initializes UI components and pages.
+  Master entry point connecting services, components, and controllers.
   =============================================
 */
 
@@ -12,39 +12,48 @@ import { wishlistService } from "./services/wishlist.service.js";
 import { NavbarComponent } from "./components/navbar.component.js";
 import { CartDrawerComponent } from "./components/cart-drawer.component.js";
 import { CountdownComponent } from "./components/countdown.component.js";
+import { ToastComponent } from "./components/toast.component.js";
 import { HomePage } from "./pages/home.page.js";
 import { ShopPage } from "./pages/shop.page.js";
 import { ProductPage } from "./pages/product.page.js";
 
-// Global bridge for HTML onclick handlers
+// Global bridge for declarative onclick handlers
 window.__aura = {
   addToCart: (id) => {
     const prod = PRODUCTS_DATA.find(p => p.id === Number(id));
     if (prod) {
       cartService.addItem(prod, 1);
+      ToastComponent.show(`Added "${prod.name}" to your bag! 🛍️`);
       CartDrawerComponent.open();
     }
   },
   removeFromCart: (index) => {
     cartService.removeItem(index);
+    ToastComponent.show("Item removed from bag.");
   },
   openCart: () => CartDrawerComponent.open(),
   closeCart: () => CartDrawerComponent.close(),
+  toggleMobileMenu: () => NavbarComponent.toggleMobileMenu(),
+  closeMobileMenu: () => NavbarComponent.closeMobileMenu(),
   checkout: () => {
     const state = cartService.getState();
     if (state.items.length === 0) {
-      alert("Your shopping bag is empty!");
+      ToastComponent.show("Your shopping bag is empty!");
       return;
     }
-    alert(`🎉 Thank you! Order placed successfully. Total: $${state.subtotal.toFixed(2)}`);
+    alert(`🎉 Thank you for shopping with AURA!\n\nOrder Confirmed! Total: $${state.subtotal.toFixed(2)}`);
     cartService.clear();
     CartDrawerComponent.close();
   },
   toggleWishlist: (id) => {
-    wishlistService.toggle(id);
+    const isSaved = wishlistService.toggle(id);
+    const prod = PRODUCTS_DATA.find(p => p.id === Number(id));
+    const title = prod ? prod.name : "Item";
+    ToastComponent.show(isSaved ? `Saved "${title}" to Wishlist! ❤️` : `Removed "${title}" from Wishlist 🤍`);
   },
   showWishlistAlert: () => {
-    alert(`You have ${wishlistService.getCount()} item(s) in your Wishlist! ❤️`);
+    const count = wishlistService.getCount();
+    ToastComponent.show(`You have ${count} item${count === 1 ? '' : 's'} saved in your Wishlist! ❤️`);
   },
   filterCategory: (cat, btn) => {
     ShopPage.filterCategory(cat, btn);

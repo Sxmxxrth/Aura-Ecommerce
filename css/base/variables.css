@@ -2,31 +2,62 @@
   =============================================
   1. DESIGN TOKENS (variables.css)
   
-  Central color palette and simple settings.
+  Modern Luxury Fashion Design Tokens
   =============================================
 */
 
 :root {
   /* Brand Colors */
-  --primary: #111111;          /* Dark black */
-  --accent: #E67E22;           /* Warm orange for buttons and highlights */
-  --accent-light: #FFF3E0;     /* Soft peach background */
+  --primary: #121418;          /* Deep obsidian */
+  --primary-light: #242830;    /* Charcoal tone */
+  --accent: #D96B27;           /* Warm terracotta / amber */
+  --accent-hover: #C05817;     /* Deep rich amber */
+  --accent-light: #FFF5EC;     /* Warm peach tint */
+  --accent-glow: rgba(217, 107, 39, 0.2);
   
+  /* Status Colors */
+  --success: #10B981;          /* Emerald green */
+  --warning: #F59E0B;          /* Warm gold */
+  --danger: #EF4444;           /* Coral red */
+
   /* Background Colors */
-  --bg-body: #F9F9F9;          /* Light grey page background */
-  --bg-card: #FFFFFF;          /* Pure white cards */
+  --bg-body: #F8F9FA;          /* Ultra clean soft gray */
+  --bg-card: #FFFFFF;          /* Pure white */
+  --bg-surface: #F3F4F6;       /* Neutral light surface */
   
   /* Text Colors */
-  --text-main: #222222;        /* Dark text */
-  --text-muted: #777777;       /* Grey text for descriptions */
-  --border-color: #EAEAEA;     /* Light grey border */
+  --text-main: #111827;        /* Crisp dark text */
+  --text-secondary: #4B5563;   /* Slate body text */
+  --text-muted: #9CA3AF;       /* Light grey captions */
+  --text-inverse: #FFFFFF;     /* White text on dark */
+  --border-color: #E5E7EB;     /* Subtle grey border */
+  --border-focus: #D96B27;     /* Accent border */
   
   /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   
-  /* Spacing */
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-drawer: -8px 0 24px rgba(0, 0, 0, 0.15);
+  
+  /* Spacing Scale */
+  --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }

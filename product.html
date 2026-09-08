@@ -4,25 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Details — AURA Clothing</title>
+  <meta name="description" content="Detailed look at luxury tailoring, virgin wool fabric, sizes, and customer reviews." />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    🔥 Seasonal Special: Get <span>20% OFF</span> with code <span>TEEN20</span>! Free Shipping on orders over $100!
+    🔥 Seasonal Drop: Get <span>20% OFF</span> with code <span>TEEN20</span> — Free Worldwide Shipping over $100!
   </div>
 
   <!-- Navigation Bar -->
   <header class="navbar">
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
-    <nav class="nav-links">
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
+      <a href="shop.html" class="active">Shop Catalog</a>
       <a href="collections.html">Collections</a>
     </nav>
 
+    <!-- Cart & Wishlist Actions -->
     <div class="nav-actions">
       <!-- Shopping Bag Button -->
       <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="Shopping Cart">
@@ -44,67 +54,101 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Mobile Nav Backdrop -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <!-- Main Content Container -->
   <main class="container">
     <div style="margin-bottom: 16px;">
-      <a href="shop.html" style="color: #777; font-size: 14px;">← Back to All Products</a>
+      <a href="shop.html" style="color: var(--text-secondary); font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+        ← Back to Catalog
+      </a>
     </div>
 
     <!-- Product Details Two-Column Layout -->
     <div class="pdp-container">
       <!-- Left: Main Photo & Thumbnails -->
-      <div>
-        <img src="" id="pdp-main-img" class="pdp-main-img" alt="Product Image" />
+      <div class="pdp-gallery">
+        <div class="pdp-main-img-wrap">
+          <img src="" id="pdp-main-img" class="pdp-main-img" alt="Product Image" />
+        </div>
         <div class="pdp-thumbs" id="pdp-thumbs"></div>
       </div>
 
       <!-- Right: Info, Price, Description, Sizes & Button -->
       <div>
-        <span id="pdp-category" style="font-size: 12px; font-weight: bold; color: var(--accent); letter-spacing: 1px;">CATEGORY</span>
-        <h1 id="pdp-title" style="margin-top: 6px; font-size: 26px;">Product Name</h1>
+        <span id="pdp-category" class="pdp-category-chip">COLLECTION</span>
+        <h1 id="pdp-title" class="pdp-title">Product Name</h1>
         
+        <div class="product-rating" style="margin-bottom: 12px;">
+          ★★★★★ <span style="color: var(--text-muted);">(48 Customer Reviews)</span>
+        </div>
+
         <div class="pdp-price" id="pdp-price">$0.00</div>
         
-        <p id="pdp-desc" style="color: #666; line-height: 1.7; margin-bottom: 20px;">
+        <p id="pdp-desc" class="pdp-desc">
           Product description goes here.
         </p>
 
         <!-- Size Options -->
         <div class="option-title">Select Size:</div>
         <div class="size-selector">
+          <button class="size-option" type="button">XS</button>
           <button class="size-option active" type="button">S</button>
           <button class="size-option" type="button">M</button>
           <button class="size-option" type="button">L</button>
           <button class="size-option" type="button">XL</button>
         </div>
 
-        <button class="btn btn-primary" id="pdp-add-btn" style="width: 100%; padding: 14px; font-size: 16px; margin-top: 10px;">
+        <!-- Add to Bag Button -->
+        <button class="btn btn-primary" id="pdp-add-btn" style="width: 100%; padding: 16px; font-size: 16px;">
           🛍️ Add to Shopping Bag
         </button>
+
+        <!-- Trust Badges -->
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary);">
+            <span>📦</span> Free Shipping over $100
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary);">
+            <span>🔄</span> 30-Day Free Returns
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Reviews Section -->
     <section class="reviews-box">
-      <h2>💬 Customer Reviews</h2>
+      <div class="reviews-header">
+        <div>
+          <h2>Customer Reviews</h2>
+          <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">4.9 / 5.0 Average Rating based on verified purchases</p>
+        </div>
+      </div>
       
       <div id="reviews-list">
         <div class="review-item">
-          <strong>Jessica Taylor</strong> <span style="color: #F39C12;">★★★★★</span>
-          <p style="margin-top: 4px; color: #555;">"Love the material! Fits true to size and arrived in 2 days."</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong class="review-author">Jessica Taylor</strong>
+            <span style="color: var(--warning); font-size: 13px;">★★★★★</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">"The material is extraordinarily soft. Fits true to size and the cut is wonderfully relaxed."</p>
         </div>
         <div class="review-item">
-          <strong>Daniel R.</strong> <span style="color: #F39C12;">★★★★★</span>
-          <p style="margin-top: 4px; color: #555;">"Great value for money. Looks identical to the pictures online."</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong class="review-author">Daniel R.</strong>
+            <span style="color: var(--warning); font-size: 13px;">★★★★★</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">"Great value for money. Looks identical to the pictures online and packaged sustainably."</p>
         </div>
       </div>
 
       <!-- Review Submission Form -->
       <form class="review-form" id="review-form" onsubmit="window.__aura.submitReview(event)">
-        <h3 style="margin-bottom: 12px;">Leave a Review ⭐</h3>
-        <input type="text" id="rev-name" placeholder="Your Name" required />
-        <textarea id="rev-comment" rows="3" placeholder="Write your honest review here..." required></textarea>
-        <button type="submit" class="btn btn-primary">Submit Review</button>
+        <h3>Leave a Verified Review ⭐</h3>
+        <input type="text" id="rev-name" placeholder="Your Name" required aria-label="Your Name" />
+        <textarea id="rev-comment" rows="3" placeholder="Share your experience with fit, comfort, and fabric..." required aria-label="Review Content"></textarea>
+        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Submit Review</button>
       </form>
     </section>
   </main>
@@ -113,20 +157,20 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3 style="color: white; margin-bottom: 8px; letter-spacing: 2px;">
+        <h3 style="color: white; margin-bottom: 8px; font-size: 22px; letter-spacing: 2px;">
           AURA<span style="color: var(--accent);">.</span>
         </h3>
-        <p style="color: #A0A0A0; font-size: 13px; max-width: 320px; line-height: 1.6;">
-          A fresh, modern fashion brand built for comfort, minimalism, and daily style.
+        <p style="color: #9CA3AF; font-size: 14px; max-width: 380px; line-height: 1.6;">
+          A premium minimalist clothing brand dedicated to sustainable materials, timeless silhouettes, and effortless daily comfort.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Navigation</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Collections</a></li>
+          <li><a href="collections.html">Curated Collections</a></li>
         </ul>
       </div>
     </div>
@@ -138,22 +182,26 @@
 
   <!-- Slide-out Shopping Cart Drawer -->
   <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer">
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
     <div class="drawer-header">
       <h3>Shopping Bag 🛒</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()">&times;</button>
+      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
     </div>
+    <div id="cart-shipping-notice"></div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
       <div class="cart-total-row">
         <span>Subtotal:</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%;" onclick="window.__aura.checkout()">
+      <button class="btn btn-primary" style="width: 100%; padding: 14px;" onclick="window.__aura.checkout()">
         Proceed to Checkout →
       </button>
     </div>
   </aside>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <!-- Modular JavaScript Entry Point -->
   <script type="module" src="js/app.js"></script>

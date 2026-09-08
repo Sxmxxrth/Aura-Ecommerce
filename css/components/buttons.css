@@ -5,48 +5,70 @@
 */
 
 .btn {
-  display: inline-block;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   border: 1px solid transparent;
   text-align: center;
-  transition: background-color 0.2s;
+  transition: all var(--transition-normal);
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn-primary {
   background-color: var(--accent);
   color: #FFFFFF;
   border-color: var(--accent);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .btn-primary:hover {
-  background-color: #D35400;
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 6px 16px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #FFFFFF;
+  background-color: var(--bg-card);
   color: var(--primary);
-  border-color: #CCCCCC;
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background-color: #F0F0F0;
+  background-color: var(--bg-surface);
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
 }
 
+/* Product Card Action Buttons */
 .btn-card {
   flex: 1;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--primary);
   background-color: var(--primary);
   color: #FFFFFF;
   cursor: pointer;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
 }
 
 .btn-card:hover {
@@ -55,10 +77,20 @@
 }
 
 .btn-card-outline {
-  background-color: #FFFFFF;
+  background-color: var(--bg-card);
   color: var(--primary);
+  border-color: var(--border-color);
 }
 
 .btn-card-outline:hover {
-  background-color: #F5F5F5;
+  background-color: var(--bg-surface);
+  border-color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
 }

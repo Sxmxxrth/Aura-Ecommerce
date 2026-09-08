@@ -4,25 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURA — Modern Clothing Brand</title>
+  <meta name="description" content="Discover AURA: Modern streetwear, virgin wool tailoring, and luxury everyday essentials." />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    🔥 Seasonal Special: Get <span>20% OFF</span> with code <span>TEEN20</span>! Free Shipping on orders over $100!
+    🔥 Seasonal Drop: Get <span>20% OFF</span> with code <span>TEEN20</span> — Free Worldwide Shipping over $100!
   </div>
 
   <!-- Navigation Bar -->
   <header class="navbar">
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
-    <nav class="nav-links">
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <nav class="nav-links" id="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
+      <a href="shop.html">Shop Catalog</a>
       <a href="collections.html">Collections</a>
     </nav>
 
+    <!-- Cart & Wishlist Actions -->
     <div class="nav-actions">
       <!-- Shopping Bag Button -->
       <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="Shopping Cart">
@@ -44,17 +54,20 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Mobile Nav Backdrop -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <!-- Main Content Container -->
   <main class="container">
     
     <!-- Hero Banner with Countdown Timer -->
     <section class="hero">
       <h1>Modern Streetwear &amp; Everyday Elegance</h1>
-      <p>Discover our latest collection of premium wool coats, cozy knitwear, and trendy accessories.</p>
+      <p>Discover our latest capsule of premium virgin wool outerwear, relaxed tailoring, and cloud-soft knitwear.</p>
       
       <div class="hero-actions">
-        <a href="shop.html" class="btn btn-primary">Shop Collection 🛍️</a>
-        <a href="collections.html" class="btn btn-secondary">View Lookbooks 📖</a>
+        <a href="shop.html" class="btn btn-primary">Shop New Season →</a>
+        <a href="collections.html" class="btn btn-secondary">Explore Lookbooks</a>
       </div>
 
       <!-- Countdown Timer Box -->
@@ -80,55 +93,55 @@
 
     <!-- Trending Styles Section -->
     <section>
-      <div style="text-align: center; margin-bottom: 24px;">
+      <div class="section-header">
         <h2>🔥 Trending Styles</h2>
-        <p style="color: #777; margin-top: 6px;">Handpicked favorites from our new seasonal drop</p>
+        <p>Handpicked favorites crafted with sustainable, luxury materials</p>
       </div>
 
       <!-- 4 Product Cards rendered dynamically by home.page.js -->
       <div class="product-grid" id="home-products"></div>
 
-      <div style="text-align: center; margin-bottom: 40px;">
-        <a href="shop.html" class="btn btn-primary">Explore Full Catalog →</a>
+      <div style="text-align: center; margin-bottom: clamp(32px, 5vw, 60px);">
+        <a href="shop.html" class="btn btn-secondary" style="padding: 14px 28px;">Explore Full Catalog (6 Apparels) →</a>
       </div>
     </section>
 
     <!-- Client Testimonials Section -->
     <section>
-      <div style="text-align: center; margin-bottom: 24px;">
+      <div class="section-header">
         <h2>⭐ Client Testimonials</h2>
-        <p style="color: #777; margin-top: 6px;">Real reviews from happy shoppers</p>
+        <p>Verified reviews from our global style community</p>
       </div>
 
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <div class="product-rating">★★★★★</div>
-          <p class="testimonial-quote">"The quality of the trench coat blew me away! Fits perfectly and looks super stylish."</p>
-          <div class="testimonial-author">— Sarah M., New York</div>
+          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
+          <p class="testimonial-quote">"The quality of the trench coat blew me away! Heavyweight wool, impeccable stitching, and arrived in sustainable packaging."</p>
+          <div class="testimonial-author">Sarah Jenkins, New York</div>
         </div>
 
         <div class="testimonial-card">
-          <div class="product-rating">★★★★★</div>
-          <p class="testimonial-quote">"Fast delivery and the knit sweater is ultra soft. Will definitely shop here again!"</p>
-          <div class="testimonial-author">— Alex K., London</div>
+          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
+          <p class="testimonial-quote">"The Alpaca knit is ultra soft and doesn't itch at all. Minimalist style that pairs with everything in my wardrobe."</p>
+          <div class="testimonial-author">Alex Rivera, London</div>
         </div>
 
         <div class="testimonial-card">
-          <div class="product-rating">★★★★★</div>
-          <p class="testimonial-quote">"Best online shopping experience. Clean design, sustainable materials, and easy checkout."</p>
-          <div class="testimonial-author">— Chloe D., Paris</div>
+          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
+          <p class="testimonial-quote">"Super sleek mobile shopping experience. Fast checkout, responsive customer care, and luxury tailoring."</p>
+          <div class="testimonial-author">Chloe Dubois, Paris</div>
         </div>
       </div>
     </section>
 
     <!-- Newsletter VIP Section -->
     <section class="newsletter-box">
-      <h2>💌 Join Our VIP Club</h2>
-      <p>Get exclusive drops, early bird discounts, and 20% off your first purchase.</p>
+      <h2>💌 Join the AURA VIP Club</h2>
+      <p>Subscribe for exclusive early-access capsules, private sales, and 20% off your first order.</p>
       
-      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed! Use code TEEN20 for 20% off 🎉');">
-        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); window.__aura.showWishlistAlert ? alert('Subscribed! Use code TEEN20 for 20% off 🎉') : null;">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email Address" />
+        <button type="submit" class="btn btn-primary">Subscribe Now</button>
       </form>
     </section>
 
@@ -138,20 +151,20 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3 style="color: white; margin-bottom: 8px; letter-spacing: 2px;">
+        <h3 style="color: white; margin-bottom: 8px; font-size: 22px; letter-spacing: 2px;">
           AURA<span style="color: var(--accent);">.</span>
         </h3>
-        <p style="color: #A0A0A0; font-size: 13px; max-width: 320px; line-height: 1.6;">
-          A fresh, modern fashion brand built for comfort, minimalism, and daily style.
+        <p style="color: #9CA3AF; font-size: 14px; max-width: 380px; line-height: 1.6;">
+          A premium minimalist clothing brand dedicated to sustainable materials, timeless silhouettes, and effortless daily comfort.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Navigation</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Collections</a></li>
+          <li><a href="collections.html">Curated Collections</a></li>
         </ul>
       </div>
     </div>
@@ -163,24 +176,28 @@
 
   <!-- Slide-out Shopping Cart Drawer -->
   <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer">
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
     <div class="drawer-header">
       <h3>Shopping Bag 🛒</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()">&times;</button>
+      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
     </div>
+    <div id="cart-shipping-notice"></div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
       <div class="cart-total-row">
         <span>Subtotal:</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%;" onclick="window.__aura.checkout()">
+      <button class="btn btn-primary" style="width: 100%; padding: 14px;" onclick="window.__aura.checkout()">
         Proceed to Checkout →
       </button>
     </div>
   </aside>
 
-  <!-- Modular JavaScript Entry Point -->
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Master JavaScript ES Module Entry Point -->
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
