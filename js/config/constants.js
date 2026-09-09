@@ -6,7 +6,7 @@
 
 export const APP_CONFIG = {
   storeName: "AURA",
-  promoCode: "TEEN20",
+  promoCode: "ATELIER20",
   discountPercent: 20,
   freeShippingThreshold: 100,
   storageKeys: {

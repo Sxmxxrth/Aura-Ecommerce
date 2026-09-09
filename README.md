@@ -56,7 +56,7 @@ ecommerce/
 │   │   ├── home.css               # Hero banner & testimonials
 │   │   ├── shop.css               # Filter sidebar & search
 │   │   ├── product.css            # PDP gallery & review form
-│   │   └── contact.css            # Contact form & FAQ
+│   │   └── collections.css        # Curated lookbook editorial cards
 │   └── main.css                   # Master import bundle
 ├── js/
 │   ├── config/constants.js        # App configuration & promo codes
@@ -73,29 +73,29 @@ ecommerce/
 │   ├── pages/
 │   │   ├── home.page.js           # Home controller
 │   │   ├── shop.page.js           # Search & filter controller
-│   │   ├── product.page.js        # PDP gallery & swatch controller
-│   │   └── contact.page.js        # Contact form controller
+│   │   └── product.page.js        # PDP gallery & swatch controller
 │   └── app.js                     # Application bootstrap
 ├── index.html                     # Home Page
 ├── shop.html                      # Shop Catalog
 ├── product.html                   # Product Details (Dynamic)
-├── collections.html               # Lookbook Collections
-├── about.html                     # About Us
-└── contact.html                   # Contact & FAQs
+└── collections.html               # Lookbook Collections
 ```
 
 ---
 
-## 🎨 Design System
+## 🎨 Haute Couture Design System
 
 All design decisions are centralized in `css/base/variables.css`:
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--color-primary` | `#111111` | Navbar, footer, dark accents |
-| `--color-accent` | `#E67E22` | Buttons, highlights, active links |
-| `--color-bg-body` | `#F9F9F9` | Page background |
-| `--color-warning` | `#F39C12` | Star ratings, countdown, promo |
+| `--primary` | `#0F1014` | Deepest Obsidian Black (Headings, Main Buttons, Badges) |
+| `--accent` | `#B08D57` | Brushed Champagne Gold (Accents, Stars, Highlights) |
+| `--accent-light` | `#F7F3EC` | Warm Alabaster Silk (Banners, Chips) |
+| `--bg-body` | `#FAF8F5` | Warm Museum Ivory Canvas |
+| `--border-color` | `#E8E3DA` | Razor-thin Champagne Hairline |
+| `--font-serif` | `'Cormorant Garamond'` | Editorial Headlines & Brand Logo |
+| `--font-family` | `'Montserrat'` | Body Text, Product Meta, & Actions |
 
 ---
 

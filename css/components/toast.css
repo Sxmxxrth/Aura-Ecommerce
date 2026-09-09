@@ -1,37 +1,40 @@
 /*
   =============================================
-  TOAST NOTIFICATIONS (toast.css)
+  HAUTE COUTURE TOAST NOTIFICATIONS (toast.css)
   =============================================
 */
 
 .toast-container {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 28px;
+  right: 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   z-index: 2000;
   pointer-events: none;
 }
 
 .toast {
   background-color: var(--primary);
-  color: #FFFFFF;
-  padding: 12px 20px;
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  font-weight: 600;
+  color: #FAF8F5;
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   box-shadow: var(--shadow-lg);
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-left: 4px solid var(--accent);
+  gap: 12px;
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(16px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
-  max-width: 340px;
+  max-width: 380px;
 }
 
 .toast.show {
@@ -43,13 +46,15 @@
   .toast-container {
     left: 16px;
     right: 16px;
-    bottom: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
     align-items: center;
   }
 
   .toast {
     width: 100%;
     max-width: 100%;
+    font-size: 12px;
+    padding: 12px 18px;
     justify-content: center;
   }
 }

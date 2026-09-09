@@ -22,8 +22,16 @@ export class ProductPage {
     const prod = PRODUCTS_DATA.find(p => p.id === id) || PRODUCTS_DATA[0];
 
     document.getElementById("pdp-title").textContent = prod.name;
-    document.getElementById("pdp-category").textContent = `Collection: ${prod.category.toUpperCase()}`;
-    document.getElementById("pdp-price").textContent = `$${prod.price.toFixed(2)}`;
+    document.getElementById("pdp-category").textContent = `Capsule: ${prod.category.toUpperCase()}`;
+    
+    const priceEl = document.getElementById("pdp-price");
+    if (priceEl) {
+      priceEl.innerHTML = `
+        $${prod.price.toFixed(2)}
+        ${prod.oldPrice ? `<span class="original-price" style="font-size: 16px; margin-left: 10px;">$${prod.oldPrice.toFixed(2)}</span>` : ""}
+      `;
+    }
+
     document.getElementById("pdp-desc").textContent = prod.desc;
 
     const mainImg = document.getElementById("pdp-main-img");
@@ -36,7 +44,7 @@ export class ProductPage {
     const thumbsContainer = document.getElementById("pdp-thumbs");
     if (thumbsContainer && prod.images) {
       thumbsContainer.innerHTML = prod.images.map((img, idx) => `
-        <img src="${img}" class="pdp-thumb ${idx === 0 ? 'active' : ''}" onclick="window.__aura.changeImage('${img}', this)" alt="Angle ${idx + 1}" />
+        <img src="${img}" class="pdp-thumb ${idx === 0 ? 'active' : ''}" onclick="window.__aura.changeImage('${img}', this)" alt="Garment View ${idx + 1}" />
       `).join("");
     }
 
@@ -54,7 +62,7 @@ export class ProductPage {
     if (addBtn) {
       addBtn.onclick = () => {
         cartService.addItem(prod, 1);
-        ToastComponent.show(`Added "${prod.name}" (${ProductPage.currentSize}) to your bag! 🛍️`);
+        ToastComponent.show(`Added "${prod.name}" (Size ${ProductPage.currentSize}) to your bag.`);
         CartDrawerComponent.open();
       };
     }
@@ -63,11 +71,11 @@ export class ProductPage {
   static changeImage(imgSrc, thumbEl) {
     const mainImg = document.getElementById("pdp-main-img");
     if (mainImg) {
-      mainImg.style.opacity = "0.4";
+      mainImg.style.opacity = "0.3";
       setTimeout(() => {
         mainImg.src = imgSrc;
         mainImg.style.opacity = "1";
-      }, 100);
+      }, 120);
     }
 
     document.querySelectorAll(".pdp-thumb").forEach(t => t.classList.remove("active"));
@@ -84,15 +92,15 @@ export class ProductPage {
       const item = document.createElement("div");
       item.className = "review-item";
       item.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <strong class="review-author">${name}</strong>
-          <span style="color: var(--warning); font-size: 13px;">★★★★★</span>
+          <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
         </div>
-        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">"${comment}"</p>
+        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"${comment}"</p>
       `;
       list.prepend(item);
       document.getElementById("review-form").reset();
-      ToastComponent.show("Thank you! Your review was submitted. ⭐");
+      ToastComponent.show("Thank you! Your verified review has been published.");
     }
   }
 }

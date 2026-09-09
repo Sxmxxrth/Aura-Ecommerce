@@ -16,27 +16,27 @@ export class CartDrawerComponent {
     cartService.subscribe(state => {
       if (!listEl || !totalEl) return;
 
-      // Free shipping computation
+      // Complimentary shipping calculation
       const needed = APP_CONFIG.freeShippingThreshold - state.subtotal;
       if (shippingNoticeEl) {
         if (state.items.length === 0) {
           shippingNoticeEl.style.display = "none";
         } else if (needed <= 0) {
           shippingNoticeEl.style.display = "block";
-          shippingNoticeEl.innerHTML = `<span style="color: var(--success); font-weight: 700;">🎉 Free Shipping Unlocked!</span>`;
+          shippingNoticeEl.innerHTML = `<span style="color: var(--success); font-weight: 600; letter-spacing: 0.5px;">✓ Complimentary Worldwide Courier Unlocked</span>`;
         } else {
           shippingNoticeEl.style.display = "block";
-          shippingNoticeEl.innerHTML = `Add <strong style="color: var(--accent);">$${needed.toFixed(2)}</strong> more for <strong>FREE Shipping</strong>!`;
+          shippingNoticeEl.innerHTML = `Add <strong style="color: var(--accent);">$${needed.toFixed(2)}</strong> more for <strong>Complimentary Worldwide Courier</strong>`;
         }
       }
 
       if (state.items.length === 0) {
         listEl.innerHTML = `
-          <div style="text-align: center; padding: 48px 16px; color: var(--text-muted);">
-            <div style="font-size: 40px; margin-bottom: 12px;">🛍️</div>
-            <h4 style="color: var(--text-main); margin-bottom: 6px;">Your bag is empty</h4>
-            <p style="font-size: 13px; margin-bottom: 20px;">Looks like you haven't added any items yet.</p>
-            <a href="shop.html" onclick="window.__aura.closeCart()" class="btn btn-primary" style="font-size: 13px; padding: 10px 20px;">Start Shopping →</a>
+          <div style="text-align: center; padding: 56px 20px; color: var(--text-muted);">
+            <div style="font-size: 32px; margin-bottom: 16px;">⚜️</div>
+            <h4 style="font-family: var(--font-serif); font-size: 20px; color: var(--primary); margin-bottom: 8px;">Your Shopping Bag is Empty</h4>
+            <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.5;">Discover our seasonal collections of tailored outerwear and luxury essentials.</p>
+            <a href="shop.html" onclick="window.__aura.closeCart()" class="btn btn-primary" style="font-size: 11px; padding: 12px 24px;">Explore Catalog →</a>
           </div>
         `;
         totalEl.textContent = "$0.00";
@@ -52,7 +52,7 @@ export class CartDrawerComponent {
             <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
           </div>
           <button class="cart-item-remove" onclick="window.__aura.removeFromCart(${index})" title="Remove item" aria-label="Remove item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"></polyline>
               <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
             </svg>

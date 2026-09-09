@@ -6,50 +6,56 @@
 
 .shop-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: clamp(20px, 4vw, 36px);
+  grid-template-columns: 250px 1fr;
+  gap: clamp(24px, 4vw, 40px);
   margin-top: 24px;
 }
 
 .filter-box {
   background-color: var(--bg-card);
-  padding: 20px;
-  border-radius: var(--radius-md);
+  padding: 22px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   box-shadow: var(--shadow-sm);
 }
 
 .filter-box h3 {
-  font-size: 14px;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
   color: var(--primary);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .filter-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .filter-btn {
   background: none;
   border: 1px solid transparent;
   color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
   text-align: left;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   width: 100%;
   transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .filter-btn:hover {
@@ -58,10 +64,10 @@
 }
 
 .filter-btn.active {
-  background-color: var(--accent-light);
-  color: var(--accent);
-  border-color: rgba(217, 107, 39, 0.2);
-  font-weight: 700;
+  background-color: var(--primary);
+  color: #FAF8F5;
+  border-color: var(--primary);
+  font-weight: 600;
 }
 
 .search-input-wrap {
@@ -70,10 +76,11 @@
 
 .search-input {
   width: 100%;
-  padding: 12px 14px 12px 38px;
+  padding: 12px 14px 12px 40px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: 13px;
   background-color: #FFFFFF;
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -86,7 +93,7 @@
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
@@ -94,37 +101,38 @@
 }
 
 /* =============================================
-   MOBILE SHOP LAYOUT (< 768px)
+   MOBILE SHOP LAYOUT & HORIZONTAL FILTER SCROLL (< 768px)
    ============================================= */
 @media (max-width: 768px) {
   .shop-layout {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
   .shop-filters-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 
   .filter-box {
     margin-bottom: 0;
-    padding: 14px;
+    padding: 14px 16px;
   }
 
   .filter-box h3 {
     display: none;
   }
 
-  /* Horizontal Scrolling Category Pills on Mobile */
+  /* Smooth Horizontal Scrolling Category Pills on Mobile */
   .filter-list {
     flex-direction: row;
     overflow-x: auto;
-    padding-bottom: 4px;
-    gap: 8px;
+    padding-bottom: 6px;
+    gap: 10px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .filter-list::-webkit-scrollbar {
@@ -134,16 +142,19 @@
   .filter-btn {
     white-space: nowrap;
     width: auto;
-    padding: 8px 16px;
+    padding: 9px 18px;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
     background-color: var(--bg-surface);
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
   }
 
   .filter-btn.active {
     background-color: var(--primary);
-    color: #FFFFFF;
+    color: #FAF8F5;
     border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
   }
 }

@@ -61,16 +61,16 @@ export class ShopPage {
 
     const countEl = document.getElementById("shop-product-count");
     if (countEl) {
-      countEl.textContent = `Showing ${filtered.length} product${filtered.length === 1 ? '' : 's'}`;
+      countEl.textContent = `Showing ${filtered.length} creation${filtered.length === 1 ? '' : 's'}`;
     }
 
     if (filtered.length === 0) {
       container.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: white; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-          <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
-          <h3 style="color: var(--primary); margin-bottom: 6px;">No products found</h3>
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Try adjusting your search terms or clearing the filter.</p>
-          <button class="btn btn-secondary" onclick="window.__aura.filterCategory('all', document.querySelector('.filter-btn[data-category=\\'all\\']'))">View All Products</button>
+        <div style="grid-column: 1/-1; text-align: center; padding: 64px 24px; background: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div style="font-size: 36px; margin-bottom: 14px;">⚜️</div>
+          <h3 style="font-family: var(--font-serif); font-size: 22px; color: var(--primary); margin-bottom: 8px;">No Creations Found</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 20px;">We could not locate any garments matching your search criteria.</p>
+          <button class="btn btn-secondary" onclick="window.__aura.filterCategory('all', document.querySelector('.filter-btn[data-category=\\'all\\']'))">View All Creations</button>
         </div>
       `;
       return;
@@ -78,15 +78,15 @@ export class ShopPage {
 
     container.innerHTML = filtered.map(prod => {
       const isSaved = wishlistService.has(prod.id);
-      const heartFill = isSaved ? "#EF4444" : "none";
-      const heartStroke = isSaved ? "#EF4444" : "#121418";
+      const heartFill = isSaved ? "#A93226" : "none";
+      const heartStroke = isSaved ? "#A93226" : "#0F1014";
 
       return `
         <div class="product-card">
           <div class="product-image-wrap">
-            <span class="product-badge">${prod.oldPrice ? 'Sale' : 'New'}</span>
+            <span class="product-badge">${prod.oldPrice ? 'Private Sale' : 'New Arrival'}</span>
             <button class="wishlist-btn" onclick="window.__aura.toggleWishlist(${prod.id})" title="${isSaved ? 'Remove from Wishlist' : 'Save to Wishlist'}" aria-label="Wishlist">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="${heartFill}" stroke="${heartStroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="${heartFill}" stroke="${heartStroke}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
             </button>

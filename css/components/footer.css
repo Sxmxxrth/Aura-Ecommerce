@@ -1,47 +1,63 @@
 /*
   =============================================
-  7. FOOTER & NEWSLETTER (footer.css)
+  7. HAUTE COUTURE FOOTER & ATELIER GAZETTE (footer.css)
   =============================================
 */
 
-/* VIP Newsletter Box */
+/* Atelier VIP Newsletter Box */
 .newsletter-box {
-  background: linear-gradient(135deg, var(--accent-light) 0%, #FFFDF9 100%);
-  border-radius: var(--radius-lg);
-  padding: clamp(30px, 6vw, 50px) clamp(20px, 4vw, 40px);
+  background: linear-gradient(135deg, var(--accent-light) 0%, #FFFFFF 100%);
+  border-radius: var(--radius-sm);
+  padding: clamp(36px, 6vw, 56px) clamp(20px, 4vw, 48px);
   text-align: center;
-  border: 1px solid #FED7AA;
-  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 48px;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .newsletter-box h2 {
-  font-size: clamp(22px, 4vw, 28px);
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 500;
   color: var(--primary);
-  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
 
 .newsletter-box p {
   color: var(--text-secondary);
-  font-size: clamp(14px, 2vw, 16px);
-  max-width: 520px;
-  margin: 0 auto 24px;
+  font-size: clamp(14px, 1.8vw, 15.5px);
+  max-width: 540px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
 }
 
 .newsletter-form {
   display: flex;
-  max-width: 480px;
+  max-width: 460px;
   margin: 0 auto;
-  gap: 8px;
+  gap: 10px;
 }
 
 .newsletter-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 13px 18px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: 13px;
   background-color: #FFFFFF;
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -52,12 +68,13 @@
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-/* Site Footer */
+/* Site Haute Couture Footer */
 .site-footer {
   background-color: var(--primary);
-  color: #9CA3AF;
-  padding: clamp(40px, 6vw, 60px) 20px 24px;
-  margin-top: clamp(40px, 6vw, 80px);
+  color: #8E8A82;
+  padding: clamp(48px, 7vw, 72px) 20px clamp(24px, 4vw, 36px);
+  margin-top: clamp(48px, 7vw, 90px);
+  border-top: 1px solid rgba(176, 141, 87, 0.25);
 }
 
 .footer-content {
@@ -65,44 +82,83 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: clamp(24px, 5vw, 60px);
-  margin-bottom: 40px;
+  gap: clamp(28px, 6vw, 80px);
+  margin-bottom: 48px;
+}
+
+.footer-col h3 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #FAF8F5;
+  margin-bottom: 12px;
+}
+
+.footer-col h3 span {
+  color: var(--accent);
+}
+
+.footer-col p {
+  color: #8E8A82;
+  font-size: 13.5px;
+  max-width: 400px;
+  line-height: 1.7;
 }
 
 .footer-col h4 {
-  color: #FFFFFF;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  color: #FAF8F5;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
 }
 
 .footer-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .footer-links a {
-  color: #9CA3AF;
-  font-size: 14px;
-  transition: color var(--transition-fast), padding-left var(--transition-fast);
+  color: #8E8A82;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
 }
 
 .footer-links a:hover {
   color: var(--accent);
-  padding-left: 4px;
+  transform: translateX(3px);
 }
 
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 24px;
-  text-align: center;
-  font-size: 13px;
-  color: #6B7280;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #6E6A63;
+  letter-spacing: 0.5px;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 18px;
+  font-size: 11.5px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 640px) {
@@ -112,6 +168,17 @@
   
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-badges {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Details — AURA Clothing</title>
-  <meta name="description" content="Detailed look at luxury tailoring, virgin wool fabric, sizes, and customer reviews." />
+  <title>Haute Couture Garment Details — AURA Maison</title>
+  <meta name="description" content="Examine handcrafted details, pure virgin fibers, bespoke sizing, and verified patron reviews." />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    🔥 Seasonal Drop: Get <span>20% OFF</span> with code <span>TEEN20</span> — Free Worldwide Shipping over $100!
+    Atelier Season Capsule: Complimentary Worldwide Courier on Orders Over $100 — Use Code <span>ATELIER20</span>
   </div>
 
   <!-- Navigation Bar -->
@@ -19,7 +19,7 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -35,8 +35,8 @@
     <!-- Cart & Wishlist Actions -->
     <div class="nav-actions">
       <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="Shopping Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -45,8 +45,8 @@
       </button>
 
       <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.showWishlistAlert()" aria-label="Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="nav-icon-btn" onclick="window.__aura.showWishlistAlert()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
         </svg>
         <span class="nav-badge" id="wishlist-badge">0</span>
@@ -59,9 +59,9 @@
 
   <!-- Main Content Container -->
   <main class="container">
-    <div style="margin-bottom: 16px;">
-      <a href="shop.html" style="color: var(--text-secondary); font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-        ← Back to Catalog
+    <div style="margin-bottom: 20px;">
+      <a href="shop.html" style="color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;">
+        ← Return to Catalog
       </a>
     </div>
 
@@ -70,28 +70,28 @@
       <!-- Left: Main Photo & Thumbnails -->
       <div class="pdp-gallery">
         <div class="pdp-main-img-wrap">
-          <img src="" id="pdp-main-img" class="pdp-main-img" alt="Product Image" />
+          <img src="" id="pdp-main-img" class="pdp-main-img" alt="Product Angle Main View" />
         </div>
         <div class="pdp-thumbs" id="pdp-thumbs"></div>
       </div>
 
       <!-- Right: Info, Price, Description, Sizes & Button -->
       <div>
-        <span id="pdp-category" class="pdp-category-chip">COLLECTION</span>
-        <h1 id="pdp-title" class="pdp-title">Product Name</h1>
+        <span id="pdp-category" class="pdp-category-chip">Capsule</span>
+        <h1 id="pdp-title" class="pdp-title">Creation Name</h1>
         
         <div class="product-rating" style="margin-bottom: 12px;">
-          ★★★★★ <span style="color: var(--text-muted);">(48 Customer Reviews)</span>
+          ★★★★★ <span style="color: var(--text-muted);">(48 Verified Reviews)</span>
         </div>
 
         <div class="pdp-price" id="pdp-price">$0.00</div>
         
         <p id="pdp-desc" class="pdp-desc">
-          Product description goes here.
+          Creation specifications and craftsmanship notes.
         </p>
 
         <!-- Size Options -->
-        <div class="option-title">Select Size:</div>
+        <div class="option-title">Select Garment Size</div>
         <div class="size-selector">
           <button class="size-option" type="button">XS</button>
           <button class="size-option active" type="button">S</button>
@@ -101,17 +101,19 @@
         </div>
 
         <!-- Add to Bag Button -->
-        <button class="btn btn-primary" id="pdp-add-btn" style="width: 100%; padding: 16px; font-size: 16px;">
-          🛍️ Add to Shopping Bag
+        <button class="btn btn-primary" id="pdp-add-btn" style="width: 100%; padding: 16px;">
+          Add to Shopping Bag
         </button>
 
         <!-- Trust Badges -->
-        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary);">
-            <span>📦</span> Free Shipping over $100
+        <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-secondary);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>Complimentary Courier</span>
           </div>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary);">
-            <span>🔄</span> 30-Day Free Returns
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-secondary);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            <span>30-Day Atelier Returns</span>
           </div>
         </div>
       </div>
@@ -121,34 +123,34 @@
     <section class="reviews-box">
       <div class="reviews-header">
         <div>
-          <h2>Customer Reviews</h2>
-          <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">4.9 / 5.0 Average Rating based on verified purchases</p>
+          <h2>Patron Reviews</h2>
+          <p style="color: var(--text-secondary); font-size: 13.5px; margin-top: 4px;">4.9 / 5.0 Average Rating based on verified atelier orders</p>
         </div>
       </div>
       
       <div id="reviews-list">
         <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
             <strong class="review-author">Jessica Taylor</strong>
-            <span style="color: var(--warning); font-size: 13px;">★★★★★</span>
+            <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
           </div>
-          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">"The material is extraordinarily soft. Fits true to size and the cut is wonderfully relaxed."</p>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"The material is extraordinarily soft with a rich, substantial drape. Fits true to size and the cut is wonderfully relaxed yet refined."</p>
         </div>
         <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
             <strong class="review-author">Daniel R.</strong>
-            <span style="color: var(--warning); font-size: 13px;">★★★★★</span>
+            <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
           </div>
-          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">"Great value for money. Looks identical to the pictures online and packaged sustainably."</p>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"Remarkable tailoring. Looks identical to the editorial photographs and was packaged sustainably in signature box."</p>
         </div>
       </div>
 
       <!-- Review Submission Form -->
       <form class="review-form" id="review-form" onsubmit="window.__aura.submitReview(event)">
-        <h3>Leave a Verified Review ⭐</h3>
-        <input type="text" id="rev-name" placeholder="Your Name" required aria-label="Your Name" />
-        <textarea id="rev-comment" rows="3" placeholder="Share your experience with fit, comfort, and fabric..." required aria-label="Review Content"></textarea>
-        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Submit Review</button>
+        <h3>Submit Patron Review</h3>
+        <input type="text" id="rev-name" placeholder="Your Name or Initial" required aria-label="Your Name" />
+        <textarea id="rev-comment" rows="3" placeholder="Share your experience regarding drape, fabric weight, and silhouette..." required aria-label="Review Content"></textarea>
+        <button type="submit" class="btn btn-primary" style="padding: 13px 28px;">Submit Review</button>
       </form>
     </section>
   </main>
@@ -157,16 +159,14 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3 style="color: white; margin-bottom: 8px; font-size: 22px; letter-spacing: 2px;">
-          AURA<span style="color: var(--accent);">.</span>
-        </h3>
-        <p style="color: #9CA3AF; font-size: 14px; max-width: 380px; line-height: 1.6;">
-          A premium minimalist clothing brand dedicated to sustainable materials, timeless silhouettes, and effortless daily comfort.
+        <h3>AURA<span>.</span></h3>
+        <p>
+          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4>Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop Catalog</a></li>
@@ -176,7 +176,14 @@
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
+      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
+      <div class="footer-badges">
+        <span>Complimentary Delivery</span>
+        <span>•</span>
+        <span>Authenticity Guaranteed</span>
+        <span>•</span>
+        <span>Atelier Concierge</span>
+      </div>
     </div>
   </footer>
 
@@ -184,17 +191,18 @@
   <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
   <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
     <div class="drawer-header">
-      <h3>Shopping Bag 🛒</h3>
+      <h3>Shopping Bag</h3>
       <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
     </div>
     <div id="cart-shipping-notice"></div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
       <div class="cart-total-row">
-        <span>Subtotal:</span>
+        <span>Subtotal</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%; padding: 14px;" onclick="window.__aura.checkout()">
+      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
+      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
         Proceed to Checkout →
       </button>
     </div>

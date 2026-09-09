@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curated Collections — AURA Clothing</title>
-  <meta name="description" content="Explore AURA themed portals for Women's Minimalist, Men's Modern, and the Autumn/Winter capsule." />
+  <title>Curated Collections &amp; Portals — AURA Maison</title>
+  <meta name="description" content="Explore AURA themed editorial portals: Women’s Minimalist, Men’s Sartorial, and the Autumn / Winter capsule." />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    🔥 Seasonal Drop: Get <span>20% OFF</span> with code <span>TEEN20</span> — Free Worldwide Shipping over $100!
+    Atelier Season Capsule: Complimentary Worldwide Courier on Orders Over $100 — Use Code <span>ATELIER20</span>
   </div>
 
   <!-- Navigation Bar -->
@@ -19,7 +19,7 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -35,8 +35,8 @@
     <!-- Cart & Wishlist Actions -->
     <div class="nav-actions">
       <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="Shopping Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -45,8 +45,8 @@
       </button>
 
       <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.showWishlistAlert()" aria-label="Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="nav-icon-btn" onclick="window.__aura.showWishlistAlert()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
         </svg>
         <span class="nav-badge" id="wishlist-badge">0</span>
@@ -59,50 +59,50 @@
 
   <!-- Main Content Container -->
   <main class="container">
-    <div style="text-align: center; margin-top: 10px; margin-bottom: clamp(24px, 4vw, 40px);">
-      <h1 style="font-size: clamp(24px, 4vw, 34px); font-weight: 800; color: var(--primary);">Curated Fashion Collections</h1>
-      <p style="color: var(--text-secondary); margin-top: 6px; font-size: clamp(14px, 2vw, 16px);">Explore our themed portals for men, women, and seasonal capsule drops</p>
+    <div class="collections-header">
+      <h1>Curated Editorial Capsules</h1>
+      <p>Explore themed aesthetic portals tailored for women, men, and limited seasonal drops</p>
     </div>
 
-    <!-- 3 Collection Cards Grid (Responsive auto-fit) -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(16px, 3vw, 28px); margin-bottom: 40px;">
+    <!-- 3 Collection Cards Grid -->
+    <div class="collections-grid">
       
       <!-- Card 1: Women's -->
-      <div style="background: var(--bg-card); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;">
-          <img src="assets/images/collections/women.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Women's Fashion" />
+      <div class="collection-card">
+        <div class="collection-img-wrap">
+          <img src="assets/images/collections/women.jpg" alt="Women’s Minimalist Elegance Capsule" />
         </div>
-        <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
-          <span style="font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px;">3 APPARELS</span>
-          <h3 style="font-size: 18px; font-weight: 700; margin: 6px 0 10px;">👗 Women’s Minimalist Elegance</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; font-size: 14px; flex-grow: 1;">Silk gowns, oversized virgin wool trenches, and cozy knitwear designed for effortless daily layering.</p>
-          <a href="shop.html?category=women" class="btn btn-primary" style="width: 100%;">Shop Women's Capsule →</a>
+        <div class="collection-info">
+          <span class="collection-meta">3 Creations • Autumn Edit</span>
+          <h3 class="collection-title">Women’s Minimalist Elegance</h3>
+          <p class="collection-desc">Heavyweight bias-cut Mulberry silk gowns, double-faced virgin wool trenches, and cloud-soft knitwear sculpted for timeless layering.</p>
+          <a href="shop.html?category=women" class="btn btn-primary" style="width: 100%;">Explore Women's Capsule →</a>
         </div>
       </div>
 
       <!-- Card 2: Men's -->
-      <div style="background: var(--bg-card); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;">
-          <img src="assets/images/collections/men.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Men's Fashion" />
+      <div class="collection-card">
+        <div class="collection-img-wrap">
+          <img src="assets/images/collections/men.jpg" alt="Men’s Modern Sartorial Capsule" />
         </div>
-        <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
-          <span style="font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px;">2 APPARELS</span>
-          <h3 style="font-size: 18px; font-weight: 700; margin: 6px 0 10px;">👔 Men’s Modern Sartorial</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; font-size: 14px; flex-grow: 1;">Tailored wool blazers, relaxed cotton poplin button-ups, and contemporary streetwear essentials.</p>
-          <a href="shop.html?category=men" class="btn btn-primary" style="width: 100%;">Shop Men's Capsule →</a>
+        <div class="collection-info">
+          <span class="collection-meta">2 Creations • Sartorial Line</span>
+          <h3 class="collection-title">Men’s Modern Sartorial</h3>
+          <p class="collection-desc">Half-canvas Italian wool blazers, two-ply Giza long-staple Egyptian cotton shirts, and refined contemporary staples.</p>
+          <a href="shop.html?category=men" class="btn btn-primary" style="width: 100%;">Explore Men's Capsule →</a>
         </div>
       </div>
 
-      <!-- Card 3: New Arrivals -->
-      <div style="background: var(--bg-card); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;">
-          <img src="assets/images/collections/new-arrivals.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Autumn Winter Drop" />
+      <!-- Card 3: Seasonal Capsule -->
+      <div class="collection-card">
+        <div class="collection-img-wrap">
+          <img src="assets/images/collections/new-arrivals.jpg" alt="The Autumn / Winter Capsule Drop" />
         </div>
-        <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
-          <span style="font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px;">SEASON DROP</span>
-          <h3 style="font-size: 18px; font-weight: 700; margin: 6px 0 10px;">❄️ The Autumn / Winter Drop</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; font-size: 14px; flex-grow: 1;">Warm earth palettes, hypoallergenic alpaca yarns, and weather-ready outdoor luxury style.</p>
-          <a href="shop.html" class="btn btn-primary" style="width: 100%;">Shop All New Drops →</a>
+        <div class="collection-info">
+          <span class="collection-meta">Seasonal Limited Drop</span>
+          <h3 class="collection-title">The Autumn / Winter Drop</h3>
+          <p class="collection-desc">Architectural outerwear, certified vegetable-tanned leather goods, and hypoallergenic Royal Alpaca textures tailored for climate resilience.</p>
+          <a href="shop.html" class="btn btn-primary" style="width: 100%;">Explore Full Lookbook →</a>
         </div>
       </div>
 
@@ -113,16 +113,14 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3 style="color: white; margin-bottom: 8px; font-size: 22px; letter-spacing: 2px;">
-          AURA<span style="color: var(--accent);">.</span>
-        </h3>
-        <p style="color: #9CA3AF; font-size: 14px; max-width: 380px; line-height: 1.6;">
-          A premium minimalist clothing brand dedicated to sustainable materials, timeless silhouettes, and effortless daily comfort.
+        <h3>AURA<span>.</span></h3>
+        <p>
+          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4>Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop Catalog</a></li>
@@ -132,7 +130,14 @@
     </div>
 
     <div class="footer-bottom">
-      &copy; 2026 AURA Clothing Co. Senior Engineer Modular Architecture.
+      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
+      <div class="footer-badges">
+        <span>Complimentary Delivery</span>
+        <span>•</span>
+        <span>Authenticity Guaranteed</span>
+        <span>•</span>
+        <span>Atelier Concierge</span>
+      </div>
     </div>
   </footer>
 
@@ -140,17 +145,18 @@
   <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
   <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
     <div class="drawer-header">
-      <h3>Shopping Bag 🛒</h3>
+      <h3>Shopping Bag</h3>
       <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
     </div>
     <div id="cart-shipping-notice"></div>
     <div class="drawer-body" id="cart-items-list"></div>
     <div class="drawer-footer">
       <div class="cart-total-row">
-        <span>Subtotal:</span>
+        <span>Subtotal</span>
         <span id="cart-total-price">$0.00</span>
       </div>
-      <button class="btn btn-primary" style="width: 100%; padding: 14px;" onclick="window.__aura.checkout()">
+      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
+      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
         Proceed to Checkout →
       </button>
     </div>
