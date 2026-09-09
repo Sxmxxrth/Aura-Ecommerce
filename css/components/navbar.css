@@ -8,8 +8,7 @@
 .promo-bar {
   background-color: var(--primary);
   color: #EDE8DE;
-  text-align: center;
-  padding: 9px 20px;
+  padding: 8px 20px;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -19,9 +18,88 @@
   border-bottom: 1px solid rgba(176, 141, 87, 0.2);
 }
 
+.promo-bar-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.promo-bar-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
 .promo-bar span {
   color: var(--accent);
   font-weight: 700;
+}
+
+/* Luxury Currency Selector */
+.currency-selector {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.currency-btn {
+  background: none;
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  color: #EDE8DE;
+  font-family: var(--font-family);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transition-fast);
+}
+
+.currency-btn:hover {
+  background: rgba(176, 141, 87, 0.15);
+  border-color: var(--accent);
+}
+
+.currency-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background-color: var(--primary);
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  min-width: 150px;
+  display: none;
+  flex-direction: column;
+  z-index: 102;
+  overflow: hidden;
+}
+
+.currency-dropdown.active {
+  display: flex;
+}
+
+.currency-dropdown button {
+  background: none;
+  border: none;
+  color: #EDE8DE;
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.currency-dropdown button:hover {
+  background-color: rgba(176, 141, 87, 0.2);
+  color: var(--accent);
 }
 
 /* Main Navigation Bar */

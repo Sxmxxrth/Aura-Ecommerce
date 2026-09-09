@@ -9,9 +9,23 @@
 </head>
 <body>
 
-  <!-- Top Announcement Promo Bar -->
+  <!-- Top Announcement Promo Bar with Luxury Currency Switcher -->
   <div class="promo-bar">
-    Atelier Season Capsule: Complimentary Worldwide Courier on Orders Over $100 — Use Code <span>ATELIER20</span>
+    <div class="promo-bar-container">
+      <div class="promo-bar-text">
+        Atelier Capsule • Complimentary Worldwide Courier on Orders Over $100 • Use Code <span>ATELIER20</span>
+      </div>
+      <div class="currency-selector">
+        <button class="currency-btn" onclick="window.__aura.toggleCurrencyDropdown()" aria-label="Currency Selector">
+          <span id="current-currency-label">USD ($)</span> ▾
+        </button>
+        <div class="currency-dropdown" id="currency-dropdown">
+          <button type="button" onclick="window.__aura.setCurrency('USD')">USD ($) — United States</button>
+          <button type="button" onclick="window.__aura.setCurrency('EUR')">EUR (€) — European Union</button>
+          <button type="button" onclick="window.__aura.setCurrency('GBP')">GBP (£) — United Kingdom</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Navigation Bar -->
@@ -59,7 +73,7 @@
 
   <!-- Main Content Container -->
   <main class="container">
-    <div class="collections-header">
+    <div class="collections-header reveal-on-scroll">
       <h1>Curated Editorial Capsules</h1>
       <p>Explore themed aesthetic portals tailored for women, men, and limited seasonal drops</p>
     </div>
@@ -68,12 +82,12 @@
     <div class="collections-grid">
       
       <!-- Card 1: Women's -->
-      <div class="collection-card">
+      <div class="collection-card reveal-on-scroll">
         <div class="collection-img-wrap">
           <img src="assets/images/collections/women.jpg" alt="Women’s Minimalist Elegance Capsule" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">3 Creations • Autumn Edit</span>
+          <span class="collection-meta">VOL. 01 • Women’s Atelier</span>
           <h3 class="collection-title">Women’s Minimalist Elegance</h3>
           <p class="collection-desc">Heavyweight bias-cut Mulberry silk gowns, double-faced virgin wool trenches, and cloud-soft knitwear sculpted for timeless layering.</p>
           <a href="shop.html?category=women" class="btn btn-primary" style="width: 100%;">Explore Women's Capsule →</a>
@@ -81,12 +95,12 @@
       </div>
 
       <!-- Card 2: Men's -->
-      <div class="collection-card">
+      <div class="collection-card reveal-on-scroll">
         <div class="collection-img-wrap">
           <img src="assets/images/collections/men.jpg" alt="Men’s Modern Sartorial Capsule" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">2 Creations • Sartorial Line</span>
+          <span class="collection-meta">VOL. 02 • Men’s Sartorial</span>
           <h3 class="collection-title">Men’s Modern Sartorial</h3>
           <p class="collection-desc">Half-canvas Italian wool blazers, two-ply Giza long-staple Egyptian cotton shirts, and refined contemporary staples.</p>
           <a href="shop.html?category=men" class="btn btn-primary" style="width: 100%;">Explore Men's Capsule →</a>
@@ -94,12 +108,12 @@
       </div>
 
       <!-- Card 3: Seasonal Capsule -->
-      <div class="collection-card">
+      <div class="collection-card reveal-on-scroll">
         <div class="collection-img-wrap">
           <img src="assets/images/collections/new-arrivals.jpg" alt="The Autumn / Winter Capsule Drop" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">Seasonal Limited Drop</span>
+          <span class="collection-meta">VOL. 03 • Seasonal Limited Drop</span>
           <h3 class="collection-title">The Autumn / Winter Drop</h3>
           <p class="collection-desc">Architectural outerwear, certified vegetable-tanned leather goods, and hypoallergenic Royal Alpaca textures tailored for climate resilience.</p>
           <a href="shop.html" class="btn btn-primary" style="width: 100%;">Explore Full Lookbook →</a>

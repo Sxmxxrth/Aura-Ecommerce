@@ -58,6 +58,16 @@ class CartService {
     this._notify();
   }
 
+  adjustQuantity(index, delta) {
+    if (this.items[index]) {
+      this.items[index].quantity += delta;
+      if (this.items[index].quantity <= 0) {
+        this.items.splice(index, 1);
+      }
+      this._notify();
+    }
+  }
+
   clear() {
     this.items = [];
     this._notify();

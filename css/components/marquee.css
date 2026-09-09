@@ -1,0 +1,57 @@
+/*
+  =============================================
+  LUXURY TICKER MARQUEE (marquee.css)
+  =============================================
+*/
+
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--primary);
+  color: #EDE8DE;
+  padding: 12px 0;
+  border-top: 1px solid rgba(176, 141, 87, 0.25);
+  border-bottom: 1px solid rgba(176, 141, 87, 0.25);
+  user-select: none;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 36px;
+  animation: marqueeScroll 28s linear infinite;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.marquee-item {
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #EDE8DE;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.marquee-item::after {
+  content: "◆";
+  font-size: 8px;
+  color: var(--accent);
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-strip:hover .marquee-content {
+  animation-play-state: paused;
+}

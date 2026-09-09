@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURA — Haute Couture &amp; Modern Luxury Fashion</title>
+  <title>AURA — Haute Couture &amp; Modern Luxury Maison</title>
   <meta name="description" content="Discover AURA: Haute couture tailoring, virgin wool outerwear, Mulberry silk garments, and luxury daily essentials." />
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
-  <!-- Top Announcement Promo Bar -->
+  <!-- Top Announcement Promo Bar with Luxury Currency Switcher -->
   <div class="promo-bar">
-    Atelier Season Capsule: Complimentary Worldwide Courier on Orders Over $100 — Use Code <span>ATELIER20</span>
+    <div class="promo-bar-container">
+      <div class="promo-bar-text">
+        Atelier Capsule • Complimentary Worldwide Courier on Orders Over $100 • Use Code <span>ATELIER20</span>
+      </div>
+      <div class="currency-selector">
+        <button class="currency-btn" onclick="window.__aura.toggleCurrencyDropdown()" aria-label="Currency Selector">
+          <span id="current-currency-label">USD ($)</span> ▾
+        </button>
+        <div class="currency-dropdown" id="currency-dropdown">
+          <button type="button" onclick="window.__aura.setCurrency('USD')">USD ($) — United States</button>
+          <button type="button" onclick="window.__aura.setCurrency('EUR')">EUR (€) — European Union</button>
+          <button type="button" onclick="window.__aura.setCurrency('GBP')">GBP (£) — United Kingdom</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Navigation Bar -->
@@ -61,7 +75,7 @@
   <main class="container">
     
     <!-- Hero Banner with Countdown Timer -->
-    <section class="hero">
+    <section class="hero reveal-on-scroll">
       <h1>Timeless Tailoring &amp; Everyday Elegance</h1>
       <p>Discover our inaugural capsule of double-faced virgin wool outerwear, structured Italian tailoring, and cloud-soft Royal Alpaca knitwear.</p>
       
@@ -91,9 +105,59 @@
       </div>
     </section>
 
+    <!-- Infinitely Scrolling Luxury Ticker Marquee -->
+    <div class="marquee-strip reveal-on-scroll" style="margin-bottom: clamp(36px, 6vw, 64px); border-radius: var(--radius-sm);">
+      <div class="marquee-content">
+        <span class="marquee-item">Paris Atelier</span>
+        <span class="marquee-item">Italian Virgin Wool</span>
+        <span class="marquee-item">22-Momme Mulberry Silk</span>
+        <span class="marquee-item">Peruvian Royal Alpaca</span>
+        <span class="marquee-item">New York Flagship</span>
+        <span class="marquee-item">Handcrafted Tailoring</span>
+        <span class="marquee-item">Milan Fashion House</span>
+        <span class="marquee-item">Complimentary Worldwide Courier</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Paris Atelier</span>
+        <span class="marquee-item">Italian Virgin Wool</span>
+        <span class="marquee-item">22-Momme Mulberry Silk</span>
+        <span class="marquee-item">Peruvian Royal Alpaca</span>
+        <span class="marquee-item">New York Flagship</span>
+        <span class="marquee-item">Handcrafted Tailoring</span>
+        <span class="marquee-item">Milan Fashion House</span>
+        <span class="marquee-item">Complimentary Worldwide Courier</span>
+      </div>
+    </div>
+
+    <!-- Editorial Craftsmanship Philosophy -->
+    <section class="reveal-on-scroll" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 44px); margin-bottom: clamp(36px, 6vw, 64px);">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 36px;">
+        <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent);">Maison Philosophy</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 4vw, 36px); font-weight: 500; margin: 8px 0 12px;">Quiet Luxury. Architectural Form.</h2>
+        <p style="color: var(--text-secondary); font-size: 14.5px; line-height: 1.7;">We reject fast disposable fashion in favor of generational wardrobe pieces created with traceable natural fibers and master tailoring techniques.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; text-align: center;">
+        <div style="padding: 20px; border-right: 1px solid var(--border-color);">
+          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">100%</div>
+          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Traceable Origin</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Virgin wool from Biella, Italy &amp; Royal Alpaca fibers from Arequipa, Peru.</p>
+        </div>
+        <div style="padding: 20px; border-right: 1px solid var(--border-color);">
+          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">Zero</div>
+          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Synthetic Fillers</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Pure unadulterated natural materials with zero microplastics or polyester blends.</p>
+        </div>
+        <div style="padding: 20px;">
+          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">10-Year</div>
+          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Atelier Guarantee</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Reinforced storm flaps, French seams, and complimentary repair services.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Trending Styles Section -->
     <section>
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <h2>Featured Capsule Creations</h2>
         <p>Handcrafted silhouettes sculpted with certified organic and virgin luxury materials</p>
       </div>
@@ -106,27 +170,46 @@
       </div>
     </section>
 
+    <!-- Press Acclaim Recognition Bar -->
+    <section class="reveal-on-scroll" style="background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-color); padding: clamp(28px, 4vw, 44px) 24px; margin-bottom: clamp(36px, 6vw, 64px); text-align: center;">
+      <span style="font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 20px;">Critical Acclaim &amp; Editorial Recognition</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">VOGUE</div>
+          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"A triumphant masterclass in architectural minimalism and timeless tailoring."</p>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">GQ</div>
+          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"The definitive uniform for the discerning contemporary gentleman."</p>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">HARPER'S BAZAAR</div>
+          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"Silks and wools that effortlessly rival Paris's most storied couture houses."</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Client Testimonials Section -->
     <section>
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <h2>Patrons &amp; Atelier Reviews</h2>
         <p>Refined impressions from our worldwide connoisseur community</p>
       </div>
 
       <div class="testimonials-grid">
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal-on-scroll">
           <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
           <p class="testimonial-quote">"The drape and weight of the double-breasted trench coat are phenomenal. Impeccable horn buttons and arrived in signature dust bag."</p>
           <div class="testimonial-author">Sarah Jenkins, New York</div>
         </div>
 
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal-on-scroll">
           <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
           <p class="testimonial-quote">"The Royal Alpaca knit has an exquisite hand-feel. Exceptionally warm, utterly soft, and fits with effortless fluidity."</p>
           <div class="testimonial-author">Alex Rivera, London</div>
         </div>
 
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal-on-scroll">
           <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
           <p class="testimonial-quote">"Sleek mobile navigation, flawless checkout, and rapid insured delivery. The tailoring rivals traditional European heritage houses."</p>
           <div class="testimonial-author">Chloe Dubois, Paris</div>
@@ -135,7 +218,7 @@
     </section>
 
     <!-- Newsletter VIP Section -->
-    <section class="newsletter-box">
+    <section class="newsletter-box reveal-on-scroll">
       <h2>The Atelier Gazette</h2>
       <p>Subscribe to receive private invitations to seasonal drops, bespoke previews, and 20% off your inaugural order.</p>
       

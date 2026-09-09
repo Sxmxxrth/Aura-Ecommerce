@@ -9,10 +9,13 @@
 import { PRODUCTS_DATA } from "./data/products.data.js";
 import { cartService } from "./services/cart.service.js";
 import { wishlistService } from "./services/wishlist.service.js";
+import { currencyService } from "./services/currency.service.js";
 import { NavbarComponent } from "./components/navbar.component.js";
 import { CartDrawerComponent } from "./components/cart-drawer.component.js";
 import { CountdownComponent } from "./components/countdown.component.js";
 import { ToastComponent } from "./components/toast.component.js";
+import { SizeModalComponent } from "./components/size-modal.component.js";
+import { ScrollRevealComponent } from "./components/scroll-reveal.component.js";
 import { HomePage } from "./pages/home.page.js";
 import { ShopPage } from "./pages/shop.page.js";
 import { ProductPage } from "./pages/product.page.js";
@@ -31,17 +34,36 @@ window.__aura = {
     cartService.removeItem(index);
     ToastComponent.show("Item removed from your bag.");
   },
+  adjustQty: (index, delta) => {
+    cartService.adjustQuantity(index, delta);
+  },
   openCart: () => CartDrawerComponent.open(),
   closeCart: () => CartDrawerComponent.close(),
   toggleMobileMenu: () => NavbarComponent.toggleMobileMenu(),
   closeMobileMenu: () => NavbarComponent.closeMobileMenu(),
+  openSizeGuide: () => SizeModalComponent.open(),
+  closeSizeGuide: () => SizeModalComponent.close(),
+  toggleCurrencyDropdown: () => {
+    const dd = document.getElementById("currency-dropdown");
+    if (dd) dd.classList.toggle("active");
+  },
+  setCurrency: (code) => {
+    currencyService.setCurrency(code);
+    const dd = document.getElementById("currency-dropdown");
+    if (dd) dd.classList.remove("active");
+    const label = document.getElementById("current-currency-label");
+    if (label) label.textContent = `${code} (${currencyService.getCurrency().symbol})`;
+    ToastComponent.show(`Currency converted to ${code}.`);
+  },
   checkout: () => {
     const state = cartService.getState();
     if (state.items.length === 0) {
       ToastComponent.show("Your shopping bag is empty.");
       return;
     }
-    alert(`Thank you for shopping with AURA Maison.\n\nOrder Confirmed! Total: $${state.subtotal.toFixed(2)}\nComplimentary insured courier delivery has been initiated.`);
+    const curr = currencyService.getCurrency();
+    const converted = (state.subtotal * curr.rate).toFixed(2);
+    alert(`Thank you for acquiring from AURA Maison.\n\nAtelier Order Confirmed! Total: ${curr.symbol}${converted}\nComplimentary insured courier delivery has been initiated.`);
     cartService.clear();
     CartDrawerComponent.close();
   },
@@ -71,7 +93,22 @@ document.addEventListener("DOMContentLoaded", () => {
   NavbarComponent.init();
   CartDrawerComponent.init();
   CountdownComponent.init();
+  SizeModalComponent.init();
+  ScrollRevealComponent.init();
   HomePage.init();
   ShopPage.init();
   ProductPage.init();
+
+  // Set initial currency label
+  const initialCurr = currencyService.getCurrency();
+  const label = document.getElementById("current-currency-label");
+  if (label) label.textContent = `${initialCurr.code} (${initialCurr.symbol})`;
+
+  // Close currency dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".currency-selector")) {
+      const dd = document.getElementById("currency-dropdown");
+      if (dd) dd.classList.remove("active");
+    }
+  });
 });

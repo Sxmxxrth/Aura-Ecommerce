@@ -9,9 +9,23 @@
 </head>
 <body>
 
-  <!-- Top Announcement Promo Bar -->
+  <!-- Top Announcement Promo Bar with Luxury Currency Switcher -->
   <div class="promo-bar">
-    Atelier Season Capsule: Complimentary Worldwide Courier on Orders Over $100 — Use Code <span>ATELIER20</span>
+    <div class="promo-bar-container">
+      <div class="promo-bar-text">
+        Atelier Capsule • Complimentary Worldwide Courier on Orders Over $100 • Use Code <span>ATELIER20</span>
+      </div>
+      <div class="currency-selector">
+        <button class="currency-btn" onclick="window.__aura.toggleCurrencyDropdown()" aria-label="Currency Selector">
+          <span id="current-currency-label">USD ($)</span> ▾
+        </button>
+        <div class="currency-dropdown" id="currency-dropdown">
+          <button type="button" onclick="window.__aura.setCurrency('USD')">USD ($) — United States</button>
+          <button type="button" onclick="window.__aura.setCurrency('EUR')">EUR (€) — European Union</button>
+          <button type="button" onclick="window.__aura.setCurrency('GBP')">GBP (£) — United Kingdom</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Navigation Bar -->
@@ -59,13 +73,26 @@
 
   <!-- Main Content Container -->
   <main class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border-color);">
       <div>
         <h1 style="font-size: clamp(26px, 4vw, 36px); font-weight: 500; color: var(--primary); letter-spacing: 0.5px;">Haute Couture Catalog</h1>
         <p style="color: var(--text-secondary); margin-top: 4px; font-size: 14px; letter-spacing: 0.2px;">Filter by capsule collection or search across the entire maison</p>
       </div>
-      <div id="shop-product-count" style="font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted);">
-        Showing 6 creations
+      
+      <!-- Catalog Controls: Sort & Grid View Toggle -->
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <select id="sort-select" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 11.5px; font-family: var(--font-family); font-weight: 600; letter-spacing: 0.5px; background: white; color: var(--primary); cursor: pointer;" aria-label="Sort Creations">
+          <option value="featured">Sort: Atelier Curated</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Alphabetical: A to Z</option>
+        </select>
+        <button id="grid-toggle-btn" class="btn btn-secondary" style="padding: 8px 14px; font-size: 11px; min-height: 36px;" aria-label="Toggle Grid Density">
+          ▦ View Compact
+        </button>
+        <div id="shop-product-count" style="font-size: 11.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted);">
+          Showing 6 creations
+        </div>
       </div>
     </div>
 
