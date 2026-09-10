@@ -37,9 +37,11 @@
 
 .collections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: clamp(20px, 3.5vw, 36px);
   margin-bottom: 50px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .collection-card {

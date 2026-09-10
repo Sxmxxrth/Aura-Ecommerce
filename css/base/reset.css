@@ -10,9 +10,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -22,7 +29,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 ::selection {
@@ -37,6 +43,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
   letter-spacing: -0.01em;
   line-height: 1.15;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -47,6 +55,7 @@ a {
 
 button, input, textarea, select {
   font-family: var(--font-family);
+  max-width: 100%;
 }
 
 img {
@@ -55,10 +64,11 @@ img {
   display: block;
 }
 
-/* Fluid Container with generous luxury margins */
+/* Fluid Container with strict horizontal bounds */
 .container {
   width: 100%;
   max-width: 1260px;
   margin: 0 auto;
   padding: clamp(24px, 5vw, 44px) clamp(16px, 4vw, 32px);
+  overflow-x: hidden;
 }

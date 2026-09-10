@@ -9,8 +9,8 @@ export const PRODUCTS_DATA = [
     id: 1,
     name: "Classic Beige Trench Coat",
     category: "women",
-    price: 120,
-    oldPrice: 150,
+    price: 9999,
+    oldPrice: 12499,
     image: "assets/images/products/trench-coat-1.jpg",
     images: [
       "assets/images/products/trench-coat-1.jpg",
@@ -23,8 +23,8 @@ export const PRODUCTS_DATA = [
     id: 2,
     name: "Men's Tailored Wool Blazer",
     category: "men",
-    price: 140,
-    oldPrice: 175,
+    price: 11499,
+    oldPrice: 14499,
     image: "assets/images/products/wool-blazer-1.jpg",
     images: [
       "assets/images/products/wool-blazer-1.jpg",
@@ -36,8 +36,8 @@ export const PRODUCTS_DATA = [
     id: 3,
     name: "Silk Evening Slip Dress",
     category: "women",
-    price: 95,
-    oldPrice: 120,
+    price: 7999,
+    oldPrice: 9999,
     image: "assets/images/products/silk-dress-1.jpg",
     images: [
       "assets/images/products/silk-dress-1.jpg",
@@ -49,7 +49,7 @@ export const PRODUCTS_DATA = [
     id: 4,
     name: "Cozy Alpaca Knit Sweater",
     category: "women",
-    price: 85,
+    price: 6999,
     oldPrice: null,
     image: "assets/images/products/knit-sweater-1.jpg",
     images: [
@@ -62,8 +62,8 @@ export const PRODUCTS_DATA = [
     id: 5,
     name: "Casual Poplin Cotton Shirt",
     category: "men",
-    price: 55,
-    oldPrice: 70,
+    price: 4499,
+    oldPrice: 5799,
     image: "assets/images/products/poplin-shirt-1.jpg",
     images: [
       "assets/images/products/poplin-shirt-1.jpg",
@@ -75,8 +75,8 @@ export const PRODUCTS_DATA = [
     id: 6,
     name: "Genuine Leather Tote Bag",
     category: "accessories",
-    price: 110,
-    oldPrice: 130,
+    price: 8999,
+    oldPrice: 10799,
     image: "assets/images/products/leather-tote-1.jpg",
     images: [
       "assets/images/products/leather-tote-1.jpg",

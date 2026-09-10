@@ -304,24 +304,39 @@
 @media (max-width: 768px) {
   .pdp-container {
     grid-template-columns: 1fr;
-    padding: 18px;
-    gap: 22px;
+    padding: 16px;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .pdp-gallery {
     position: static;
+    width: 100%;
   }
 
   .pdp-main-img-wrap {
     max-height: 400px;
+    width: 100%;
+  }
+
+  .pdp-thumbs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 8px;
+    width: 100%;
   }
 
   .pdp-thumb {
-    width: 64px;
-    height: 78px;
+    width: 60px;
+    height: 74px;
   }
 
   .pdp-title {
     font-size: 24px;
+  }
+
+  .reviews-box {
+    padding: 18px 14px;
   }
 }

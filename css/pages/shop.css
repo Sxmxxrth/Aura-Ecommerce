@@ -124,31 +124,28 @@
     display: none;
   }
 
-  /* Smooth Horizontal Scrolling Category Pills on Mobile */
+  /* Clean Wrap-around Category Chips on Mobile (Zero Horizontal Scroll) */
   .filter-list {
     flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    gap: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .filter-list::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+    gap: 8px;
+    width: 100%;
   }
 
   .filter-btn {
     white-space: nowrap;
     width: auto;
-    padding: 9px 18px;
+    padding: 8px 14px;
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
     background-color: var(--bg-surface);
-    font-size: 12px;
+    font-size: 11.5px;
     letter-spacing: 0.5px;
-    flex-shrink: 0;
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    justify-content: center;
   }
 
   .filter-btn.active {

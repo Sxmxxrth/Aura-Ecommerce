@@ -17,10 +17,8 @@ export class CartDrawerComponent {
     const updateView = (state) => {
       if (!listEl || !totalEl) return;
 
-      const curr = currencyService.getCurrency();
-      const threshold = APP_CONFIG.freeShippingThreshold * curr.rate;
-      const subtotalConverted = state.subtotal * curr.rate;
-      const needed = threshold - subtotalConverted;
+      const threshold = APP_CONFIG.freeShippingThreshold;
+      const needed = threshold - state.subtotal;
 
       if (shippingNoticeEl) {
         if (state.items.length === 0) {
@@ -30,7 +28,7 @@ export class CartDrawerComponent {
           shippingNoticeEl.innerHTML = `<span style="color: var(--success); font-weight: 600;">Complimentary Worldwide Courier Unlocked</span>`;
         } else {
           shippingNoticeEl.style.display = "block";
-          shippingNoticeEl.innerHTML = `Add <strong style="color: var(--accent);">${curr.symbol}${needed.toFixed(2)}</strong> more for <strong>Complimentary Delivery</strong>`;
+          shippingNoticeEl.innerHTML = `Add <strong style="color: var(--accent);">${currencyService.format(needed)}</strong> more for <strong>Complimentary Delivery</strong>`;
         }
       }
 
@@ -43,7 +41,7 @@ export class CartDrawerComponent {
             <a href="shop.html" onclick="window.__aura.closeCart()" class="btn btn-primary" style="font-size: 11px; padding: 12px 24px;">Explore Catalog →</a>
           </div>
         `;
-        totalEl.textContent = `${curr.symbol}0.00`;
+        totalEl.textContent = "₹0";
         return;
       }
 
@@ -73,7 +71,6 @@ export class CartDrawerComponent {
     };
 
     cartService.subscribe(updateView);
-    currencyService.subscribe(() => updateView(cartService.getState()));
   }
 
   static open() {

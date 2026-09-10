@@ -9,21 +9,11 @@
 </head>
 <body>
 
-  <!-- Top Announcement Promo Bar with Luxury Currency Switcher -->
+  <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
     <div class="promo-bar-container">
       <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Worldwide Courier on Orders Over $100 • Use Code <span>ATELIER20</span>
-      </div>
-      <div class="currency-selector">
-        <button class="currency-btn" onclick="window.__aura.toggleCurrencyDropdown()" aria-label="Currency Selector">
-          <span id="current-currency-label">USD ($)</span> ▾
-        </button>
-        <div class="currency-dropdown" id="currency-dropdown">
-          <button type="button" onclick="window.__aura.setCurrency('USD')">USD ($) — United States</button>
-          <button type="button" onclick="window.__aura.setCurrency('EUR')">EUR (€) — European Union</button>
-          <button type="button" onclick="window.__aura.setCurrency('GBP')">GBP (£) — United Kingdom</button>
-        </div>
+        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
       </div>
     </div>
   </div>
@@ -74,34 +64,52 @@
   <!-- Main Content Container -->
   <main class="container">
     
-    <!-- Hero Banner with Countdown Timer -->
+    <!-- Elevated Haute Couture Hero Banner with Countdown Timer -->
     <section class="hero reveal-on-scroll">
-      <h1>Timeless Tailoring &amp; Everyday Elegance</h1>
-      <p>Discover our inaugural capsule of double-faced virgin wool outerwear, structured Italian tailoring, and cloud-soft Royal Alpaca knitwear.</p>
-      
-      <div class="hero-actions">
-        <a href="shop.html" class="btn btn-primary">Shop New Capsule →</a>
-        <a href="collections.html" class="btn btn-hero-ghost">Explore Lookbooks</a>
+      <div class="hero-capsule-tag">
+        <span>✦</span> INAUGURAL CAPSULE N° 01 • AUTUMN / WINTER 2026 <span>✦</span>
       </div>
 
-      <!-- Countdown Timer Box -->
-      <div class="countdown-box">
-        <div class="time-item">
-          <span id="cd-days">02</span>
-          <small>Days</small>
+      <h1>Architecture of <span class="hero-italic">Modern Silhouette</span></h1>
+      <p>Double-faced Italian virgin wool, fluid 22-momme Mulberry silk, and structured architectural tailoring. Sculpted for a life of quiet luxury.</p>
+      
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary">Explore Inaugural Capsule →</a>
+        <a href="collections.html" class="btn btn-hero-ghost">View Runway Lookbook 📖</a>
+      </div>
+
+      <!-- Haute Couture Countdown Console -->
+      <div class="hero-countdown-wrapper">
+        <div class="countdown-label">
+          <span class="pulse-beacon"></span> PRIVATE ATELIER ACCESS ENDS IN:
         </div>
-        <div class="time-item">
-          <span id="cd-hours">12</span>
-          <small>Hours</small>
+        <div class="countdown-box">
+          <div class="time-item">
+            <span id="cd-days">02</span>
+            <small>Days</small>
+          </div>
+          <div class="time-item">
+            <span id="cd-hours">12</span>
+            <small>Hours</small>
+          </div>
+          <div class="time-item">
+            <span id="cd-mins">45</span>
+            <small>Mins</small>
+          </div>
+          <div class="time-item">
+            <span id="cd-secs">30</span>
+            <small>Secs</small>
+          </div>
         </div>
-        <div class="time-item">
-          <span id="cd-mins">45</span>
-          <small>Mins</small>
-        </div>
-        <div class="time-item">
-          <span id="cd-secs">30</span>
-          <small>Secs</small>
-        </div>
+      </div>
+
+      <!-- Hero Trust Highlight Bar -->
+      <div class="hero-trust-bar">
+        <span>✦ Handcrafted in Italy &amp; France</span>
+        <span class="hero-trust-divider">•</span>
+        <span>✦ 100% Certified Traceable Fibers</span>
+        <span class="hero-trust-divider">•</span>
+        <span>✦ Complimentary Insured Courier</span>
       </div>
     </section>
 
@@ -136,18 +144,18 @@
         <p style="color: var(--text-secondary); font-size: 14.5px; line-height: 1.7;">We reject fast disposable fashion in favor of generational wardrobe pieces created with traceable natural fibers and master tailoring techniques.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; text-align: center;">
-        <div style="padding: 20px; border-right: 1px solid var(--border-color);">
+      <div class="craftsmanship-grid">
+        <div class="craftsmanship-col">
           <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">100%</div>
           <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Traceable Origin</h4>
           <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Virgin wool from Biella, Italy &amp; Royal Alpaca fibers from Arequipa, Peru.</p>
         </div>
-        <div style="padding: 20px; border-right: 1px solid var(--border-color);">
+        <div class="craftsmanship-col">
           <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">Zero</div>
           <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Synthetic Fillers</h4>
           <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Pure unadulterated natural materials with zero microplastics or polyester blends.</p>
         </div>
-        <div style="padding: 20px;">
+        <div class="craftsmanship-col">
           <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">10-Year</div>
           <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Atelier Guarantee</h4>
           <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Reinforced storm flaps, French seams, and complimentary repair services.</p>

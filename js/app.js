@@ -43,27 +43,13 @@ window.__aura = {
   closeMobileMenu: () => NavbarComponent.closeMobileMenu(),
   openSizeGuide: () => SizeModalComponent.open(),
   closeSizeGuide: () => SizeModalComponent.close(),
-  toggleCurrencyDropdown: () => {
-    const dd = document.getElementById("currency-dropdown");
-    if (dd) dd.classList.toggle("active");
-  },
-  setCurrency: (code) => {
-    currencyService.setCurrency(code);
-    const dd = document.getElementById("currency-dropdown");
-    if (dd) dd.classList.remove("active");
-    const label = document.getElementById("current-currency-label");
-    if (label) label.textContent = `${code} (${currencyService.getCurrency().symbol})`;
-    ToastComponent.show(`Currency converted to ${code}.`);
-  },
   checkout: () => {
     const state = cartService.getState();
     if (state.items.length === 0) {
       ToastComponent.show("Your shopping bag is empty.");
       return;
     }
-    const curr = currencyService.getCurrency();
-    const converted = (state.subtotal * curr.rate).toFixed(2);
-    alert(`Thank you for acquiring from AURA Maison.\n\nAtelier Order Confirmed! Total: ${curr.symbol}${converted}\nComplimentary insured courier delivery has been initiated.`);
+    alert(`Thank you for acquiring from AURA Maison.\n\nAtelier Order Confirmed! Total: ${currencyService.format(state.subtotal)}\nComplimentary insured courier delivery has been initiated.`);
     cartService.clear();
     CartDrawerComponent.close();
   },
@@ -98,17 +84,4 @@ document.addEventListener("DOMContentLoaded", () => {
   HomePage.init();
   ShopPage.init();
   ProductPage.init();
-
-  // Set initial currency label
-  const initialCurr = currencyService.getCurrency();
-  const label = document.getElementById("current-currency-label");
-  if (label) label.textContent = `${initialCurr.code} (${initialCurr.symbol})`;
-
-  // Close currency dropdown on outside click
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".currency-selector")) {
-      const dd = document.getElementById("currency-dropdown");
-      if (dd) dd.classList.remove("active");
-    }
-  });
 });
