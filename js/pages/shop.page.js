@@ -133,6 +133,9 @@ export class ShopPage {
               <img class="product-img-primary" src="${prod.image}" alt="${prod.name} Primary View" loading="lazy" />
               <img class="product-img-secondary" src="${secondaryImg}" alt="${prod.name} Secondary View" loading="lazy" />
             </a>
+            <button class="product-quick-view-btn" onclick="window.__aura.openQuickView(${prod.id})" aria-label="Quick View ${prod.name}">
+              Quick View
+            </button>
           </div>
           <div class="product-info">
             <span class="product-meta">${prod.category} Capsule</span>

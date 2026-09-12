@@ -30,6 +30,32 @@ export class ProductPage {
     document.getElementById("pdp-price").textContent = currencyService.format(prod.price);
     document.getElementById("pdp-desc").textContent = prod.desc;
 
+    // Breadcrumbs
+    const bcCat = document.getElementById("pdp-breadcrumb-cat");
+    const bcName = document.getElementById("pdp-breadcrumb-name");
+    if (bcCat) bcCat.textContent = `${prod.category} Capsule`;
+    if (bcName) bcName.textContent = prod.name;
+
+    // Mobile Sticky Bar Details
+    const stickyName = document.getElementById("sticky-bar-name");
+    const stickyPrice = document.getElementById("sticky-bar-price");
+    if (stickyName) stickyName.textContent = prod.name;
+    if (stickyPrice) stickyPrice.textContent = currencyService.format(prod.price);
+
+    // Mobile Sticky Bar Scroll Observer
+    const addBtn = document.getElementById("pdp-add-btn");
+    const stickyBar = document.getElementById("mobile-sticky-bar");
+    if (addBtn && stickyBar) {
+      window.addEventListener("scroll", () => {
+        const rect = addBtn.getBoundingClientRect();
+        if (rect.bottom < 0) {
+          stickyBar.classList.add("visible");
+        } else {
+          stickyBar.classList.remove("visible");
+        }
+      }, { passive: true });
+    }
+
     const mainImg = document.getElementById("pdp-main-img");
     if (mainImg) {
       mainImg.src = prod.image;
@@ -58,10 +84,9 @@ export class ProductPage {
     });
 
     // Add to Bag Button
-    const addBtn = document.getElementById("pdp-add-btn");
     if (addBtn) {
       addBtn.onclick = () => {
-        cartService.addItem(prod, 1);
+        cartService.addItem(prod, 1, ProductPage.currentSize);
         ToastComponent.show(`Added "${prod.name}" (Size ${ProductPage.currentSize}) to your bag.`);
         CartDrawerComponent.open();
       };

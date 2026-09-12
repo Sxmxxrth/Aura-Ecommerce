@@ -22,6 +22,10 @@
 @import url("./components/modal.css");
 @import url("./components/toast.css");
 @import url("./components/footer.css");
+@import url("./components/quick-view.css");
+@import url("./components/search-modal.css");
+@import url("./components/wishlist-drawer.css");
+@import url("./components/cursor.css");
 
 /* 3. Pages Layer */
 @import url("./pages/home.css");
