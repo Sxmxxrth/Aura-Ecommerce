@@ -23,6 +23,9 @@ export class CartDrawerComponent {
       const needed = threshold - state.subtotal;
       const progressPercent = Math.min(100, Math.round((state.subtotal / threshold) * 100));
 
+      const promoWrapper = document.getElementById("cart-promo-wrapper");
+      const breakdownEl = document.getElementById("cart-breakdown");
+
       if (shippingNoticeEl) {
         if (state.items.length === 0) {
           shippingNoticeEl.style.display = "none";
@@ -60,10 +63,16 @@ export class CartDrawerComponent {
         `;
         if (footerEl) footerEl.style.display = "none";
         if (totalEl) totalEl.textContent = "₹0";
+        if (promoWrapper) {
+          promoWrapper.innerHTML = '';
+          promoWrapper.style.display = 'none';
+        }
+        if (breakdownEl) breakdownEl.innerHTML = '';
         return;
       }
 
       if (footerEl) footerEl.style.display = "block";
+      if (promoWrapper) promoWrapper.style.display = "block";
 
       listEl.innerHTML = state.items.map((item, index) => `
         <div class="cart-item">
@@ -90,8 +99,6 @@ export class CartDrawerComponent {
         </div>
       `).join("");
 
-      // Update footer details: promo input, breakdown, and total
-      const promoWrapper = document.getElementById("cart-promo-wrapper");
       if (promoWrapper) {
         if (state.isPromoApplied) {
           promoWrapper.innerHTML = `
@@ -110,7 +117,6 @@ export class CartDrawerComponent {
         }
       }
 
-      const breakdownEl = document.getElementById("cart-breakdown");
       if (breakdownEl) {
         breakdownEl.innerHTML = `
           <div class="breakdown-row">
@@ -119,7 +125,7 @@ export class CartDrawerComponent {
           </div>
           ${state.isPromoApplied ? `
             <div class="breakdown-row discount-row">
-              <span>Privilege Privilege (-${state.discountPercent}%)</span>
+              <span>Atelier Privilege (-${state.discountPercent}%)</span>
               <span>-${currencyService.format(state.discountAmount)}</span>
             </div>
           ` : ""}

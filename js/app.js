@@ -71,7 +71,7 @@ window.__aura = {
       ToastComponent.show("Your shopping bag is empty.");
       return;
     }
-    const discountInfo = state.isPromoApplied ? `\nPrivilege Privilege (${state.discountPercent}% off): -${currencyService.format(state.discountAmount)}` : "";
+    const discountInfo = state.isPromoApplied ? `\nAtelier Privilege (${state.discountPercent}% off): -${currencyService.format(state.discountAmount)}` : "";
     alert(`Thank you for acquiring from AURA Maison.\n\nAtelier Order Confirmed!\nSubtotal: ${currencyService.format(state.subtotal)}${discountInfo}\nGrand Total: ${currencyService.format(state.finalTotal)}\n\nComplimentary insured courier delivery has been initiated.`);
     cartService.clear();
     CartDrawerComponent.close();

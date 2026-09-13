@@ -16,9 +16,8 @@ export class WishlistDrawerComponent {
     const listEl = document.getElementById("wishlist-items-list");
     if (!listEl) return;
 
-    const updateView = () => {
-      const items = wishlistService.getItems();
-      const products = PRODUCTS_DATA.filter(p => items.includes(p.id));
+    const updateView = (ids) => {
+      const products = PRODUCTS_DATA.filter(p => ids.includes(p.id));
 
       if (products.length === 0) {
         listEl.innerHTML = `
