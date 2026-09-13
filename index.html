@@ -4,32 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURA — Modern Fashion &amp; Clothing Brand</title>
-  <meta name="description" content="Discover AURA: Contemporary fashion, premium outerwear, Mulberry silk garments, and modern daily wardrobe essentials." />
+  <meta name="description" content="Shop modern fashion, jackets, blazers, knitwear, and dresses at AURA Clothing Brand." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    <div class="promo-bar-container">
-      <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
-      </div>
-    </div>
+    Special Offer: Free Delivery on orders over ₹3,000 • Use Code <span>SAVE20</span> for 20% Off
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- Main Navigation Bar -->
   <header class="navbar">
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
-    <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+    <!-- Mobile Hamburger Toggle Button -->
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <!-- Nav Links (Desktop row / Mobile slide-out drawer) -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="shop.html">Shop</a>
@@ -38,211 +34,177 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Cart & Wishlist Actions -->
+    <!-- Header Action Icons -->
     <div class="nav-actions">
-      <!-- Instant Search Trigger -->
-      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Modal Trigger -->
+      <button class="nav-icon-btn" onclick="openSearch()" aria-label="Search Products" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </button>
 
-      <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wishlist Drawer Trigger -->
+      <button class="nav-icon-btn" onclick="openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+
+      <!-- Shopping Cart Drawer Trigger -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
-
-      <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        <span class="nav-badge" id="wishlist-badge">0</span>
-      </button>
     </div>
   </header>
 
-  <!-- Mobile Nav Backdrop -->
-  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <!-- Mobile Navigation Backdrop -->
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
 
-  <!-- Main Content Container -->
+  <!-- Page Content Container -->
   <main class="container">
     
-    <!-- Elevated Haute Couture Hero Banner with Countdown Timer -->
-    <section class="hero reveal-on-scroll">
-      <div class="hero-capsule-tag">
-        <span>✦</span> INAUGURAL CAPSULE N° 01 • AUTUMN / WINTER 2026 <span>✦</span>
-      </div>
-
-      <h1>Architecture of <span class="hero-italic">Modern Silhouette</span></h1>
-      <p>Double-faced Italian virgin wool, fluid 22-momme Mulberry silk, and structured architectural tailoring. Sculpted for a life of quiet luxury.</p>
-      
-      <div class="hero-actions">
-        <a href="shop.html" class="btn btn-primary">Explore Inaugural Capsule →</a>
-        <a href="collections.html" class="btn btn-hero-ghost">View Runway Lookbook 📖</a>
-      </div>
-
-      <!-- Haute Couture Countdown Console -->
-      <div class="hero-countdown-wrapper">
-        <div class="countdown-label">
-          <span class="pulse-beacon"></span> PRIVATE ATELIER ACCESS ENDS IN:
+    <!-- Hero Banner with Promotional Offer & Countdown Timer -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="hero-eyebrow">New Season Collection 2026</span>
+        <h1 class="hero-title">Modern Style for Everyday Living</h1>
+        <p class="hero-subtitle">
+          Discover our curated collection of premium coats, tailored blazers, elegant slip dresses, and cozy knitwear made for effortless styling.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary">Shop Collection →</a>
+          <a href="collections.html" class="btn btn-secondary">Explore Portals</a>
         </div>
+
+        <!-- Promotional Flash Sale Countdown Timer -->
         <div class="countdown-box">
-          <div class="time-item">
-            <span id="cd-days">02</span>
-            <small>Days</small>
+          <span class="cd-label">⚡ Flash Sale: 20% Off Ends In</span>
+          <div class="countdown-grid">
+            <div class="countdown-item">
+              <strong id="cd-days">02</strong>
+              <small>Days</small>
+            </div>
+            <div class="countdown-item">
+              <strong id="cd-hours">12</strong>
+              <small>Hours</small>
+            </div>
+            <div class="countdown-item">
+              <strong id="cd-mins">45</strong>
+              <small>Mins</small>
+            </div>
+            <div class="countdown-item">
+              <strong id="cd-secs">30</strong>
+              <small>Secs</small>
+            </div>
           </div>
-          <div class="time-item">
-            <span id="cd-hours">12</span>
-            <small>Hours</small>
-          </div>
-          <div class="time-item">
-            <span id="cd-mins">45</span>
-            <small>Mins</small>
-          </div>
-          <div class="time-item">
-            <span id="cd-secs">30</span>
-            <small>Secs</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero Trust Highlight Bar -->
-      <div class="hero-trust-bar">
-        <span>✦ Handcrafted in Italy &amp; France</span>
-        <span class="hero-trust-divider">•</span>
-        <span>✦ 100% Certified Traceable Fibers</span>
-        <span class="hero-trust-divider">•</span>
-        <span>✦ Complimentary Insured Courier</span>
-      </div>
-    </section>
-
-    <!-- Infinitely Scrolling Luxury Ticker Marquee -->
-    <div class="marquee-strip reveal-on-scroll" style="margin-bottom: clamp(36px, 6vw, 64px); border-radius: var(--radius-sm);">
-      <div class="marquee-content">
-        <span class="marquee-item">Paris Atelier</span>
-        <span class="marquee-item">Italian Virgin Wool</span>
-        <span class="marquee-item">22-Momme Mulberry Silk</span>
-        <span class="marquee-item">Peruvian Royal Alpaca</span>
-        <span class="marquee-item">New York Flagship</span>
-        <span class="marquee-item">Handcrafted Tailoring</span>
-        <span class="marquee-item">Milan Fashion House</span>
-        <span class="marquee-item">Complimentary Worldwide Courier</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="marquee-item">Paris Atelier</span>
-        <span class="marquee-item">Italian Virgin Wool</span>
-        <span class="marquee-item">22-Momme Mulberry Silk</span>
-        <span class="marquee-item">Peruvian Royal Alpaca</span>
-        <span class="marquee-item">New York Flagship</span>
-        <span class="marquee-item">Handcrafted Tailoring</span>
-        <span class="marquee-item">Milan Fashion House</span>
-        <span class="marquee-item">Complimentary Worldwide Courier</span>
-      </div>
-    </div>
-
-    <!-- Editorial Craftsmanship Philosophy -->
-    <section class="reveal-on-scroll" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 44px); margin-bottom: clamp(36px, 6vw, 64px);">
-      <div style="text-align: center; max-width: 640px; margin: 0 auto 36px;">
-        <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent);">Maison Philosophy</span>
-        <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 4vw, 36px); font-weight: 500; margin: 8px 0 12px;">Quiet Luxury. Architectural Form.</h2>
-        <p style="color: var(--text-secondary); font-size: 14.5px; line-height: 1.7;">We reject fast disposable fashion in favor of generational wardrobe pieces created with traceable natural fibers and master tailoring techniques.</p>
-      </div>
-
-      <div class="craftsmanship-grid">
-        <div class="craftsmanship-col">
-          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">100%</div>
-          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Traceable Origin</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Virgin wool from Biella, Italy &amp; Royal Alpaca fibers from Arequipa, Peru.</p>
-        </div>
-        <div class="craftsmanship-col">
-          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">Zero</div>
-          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Synthetic Fillers</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Pure unadulterated natural materials with zero microplastics or polyester blends.</p>
-        </div>
-        <div class="craftsmanship-col">
-          <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 6px;">10-Year</div>
-          <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;">Atelier Guarantee</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Reinforced storm flaps, French seams, and complimentary repair services.</p>
         </div>
       </div>
     </section>
 
-    <!-- Trending Styles Section -->
-    <section>
-      <div class="section-header reveal-on-scroll">
-        <h2>Featured Capsule Creations</h2>
-        <p>Handcrafted silhouettes sculpted with certified organic and virgin luxury materials</p>
-      </div>
-
-      <!-- 4 Product Cards rendered dynamically by home.page.js -->
-      <div class="product-grid" id="home-products"></div>
-
-      <div style="text-align: center; margin-bottom: clamp(36px, 6vw, 64px);">
-        <a href="shop.html" class="btn btn-secondary" style="padding: 14px 32px;">Explore Full Catalog (6 Apparels) →</a>
-      </div>
-    </section>
-
-    <!-- Press Acclaim Recognition Bar -->
-    <section class="reveal-on-scroll" style="background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-color); padding: clamp(28px, 4vw, 44px) 24px; margin-bottom: clamp(36px, 6vw, 64px); text-align: center;">
-      <span style="font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 20px;">Critical Acclaim &amp; Editorial Recognition</span>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
-        <div>
-          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">VOGUE</div>
-          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"A triumphant masterclass in architectural minimalism and timeless tailoring."</p>
+    <!-- Trust Badges Strip -->
+    <section class="trust-strip">
+      <div class="trust-item">
+        <span class="trust-icon">🚚</span>
+        <div class="trust-text">
+          <h4>Free Shipping</h4>
+          <p>On all orders above ₹3,000</p>
         </div>
-        <div>
-          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">GQ</div>
-          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"The definitive uniform for the discerning contemporary gentleman."</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔄</span>
+        <div class="trust-text">
+          <h4>Easy 30-Day Returns</h4>
+          <p>Hassle-free return policy</p>
         </div>
-        <div>
-          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; letter-spacing: 3px; margin-bottom: 8px;">HARPER'S BAZAAR</div>
-          <p style="font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--text-secondary);">"Silks and wools that effortlessly rival Paris's most storied couture houses."</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔒</span>
+        <div class="trust-text">
+          <h4>Secure Checkout</h4>
+          <p>100% safe &amp; verified payments</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">✨</span>
+        <div class="trust-text">
+          <h4>Premium Quality</h4>
+          <p>Carefully selected fabrics</p>
         </div>
       </div>
     </section>
 
-    <!-- Client Testimonials Section -->
-    <section>
-      <div class="section-header reveal-on-scroll">
-        <h2>Patrons &amp; Atelier Reviews</h2>
-        <p>Refined impressions from our worldwide connoisseur community</p>
+    <!-- Featured Products Section -->
+    <section style="margin-bottom: 56px;">
+      <div class="section-header">
+        <h2>Trending Styles</h2>
+        <p>Our most popular clothing items loved by customers this week.</p>
       </div>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal-on-scroll">
-          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
-          <p class="testimonial-quote">"The drape and weight of the double-breasted trench coat are phenomenal. Impeccable horn buttons and arrived in signature dust bag."</p>
-          <div class="testimonial-author">Sarah Jenkins, New York</div>
+      <!-- Rendered dynamically by js/main.js -->
+      <div class="products-grid" id="home-products"></div>
+
+      <div style="text-align: center;">
+        <a href="shop.html" class="btn btn-secondary" style="padding: 12px 32px;">
+          View All Products →
+        </a>
+      </div>
+    </section>
+
+    <!-- Customer Reviews / Testimonials Section -->
+    <section style="margin-bottom: 56px;">
+      <div class="section-header">
+        <h2>What Our Customers Say</h2>
+        <p>Real feedback from shoppers who love our clothing and fit.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px;">
+          <div style="color: #f59e0b; margin-bottom: 8px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px;">(Verified Buyer)</span></div>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px; line-height: 1.6;">
+            "The trench coat exceeded my expectations. The fabric is heavy and warm, fits perfectly, and arrived nicely packaged in 3 days!"
+          </p>
+          <strong style="font-size: 14px;">Ananya Sharma</strong>
+          <div style="font-size: 12px; color: var(--text-muted);">Mumbai, India</div>
         </div>
 
-        <div class="testimonial-card reveal-on-scroll">
-          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
-          <p class="testimonial-quote">"The Royal Alpaca knit has an exquisite hand-feel. Exceptionally warm, utterly soft, and fits with effortless fluidity."</p>
-          <div class="testimonial-author">Alex Rivera, London</div>
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px;">
+          <div style="color: #f59e0b; margin-bottom: 8px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px;">(Verified Buyer)</span></div>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px; line-height: 1.6;">
+            "Ordered the tailored blazer for a conference. The cut is modern and comfortable to wear all day without feeling stiff."
+          </p>
+          <strong style="font-size: 14px;">Rahul Mehta</strong>
+          <div style="font-size: 12px; color: var(--text-muted);">Delhi, India</div>
         </div>
 
-        <div class="testimonial-card reveal-on-scroll">
-          <div class="product-rating">★★★★★ <span>(Verified Purchase)</span></div>
-          <p class="testimonial-quote">"Sleek mobile navigation, flawless checkout, and rapid insured delivery. The tailoring rivals traditional European heritage houses."</p>
-          <div class="testimonial-author">Chloe Dubois, Paris</div>
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px;">
+          <div style="color: #f59e0b; margin-bottom: 8px;">★★★★★ <span style="color: var(--text-muted); font-size: 12px;">(Verified Buyer)</span></div>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px; line-height: 1.6;">
+            "Super soft knit sweater! Kept me warm during winter trips and washed nicely without losing its shape. Definitely buying again."
+          </p>
+          <strong style="font-size: 14px;">Pooja Verma</strong>
+          <div style="font-size: 12px; color: var(--text-muted);">Bangalore, India</div>
         </div>
       </div>
     </section>
 
-    <!-- Newsletter VIP Section -->
-    <section class="newsletter-box reveal-on-scroll">
-      <h2>The Atelier Gazette</h2>
-      <p>Subscribe to receive private invitations to seasonal drops, bespoke previews, and 20% off your inaugural order.</p>
+    <!-- Newsletter Subscription Section -->
+    <section style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 40px 24px; text-align: center; margin-bottom: 56px;">
+      <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 8px;">Join the AURA Fashion Club</h2>
+      <p style="color: var(--text-muted); font-size: 14.5px; max-width: 500px; margin: 0 auto 20px;">
+        Subscribe to our newsletter to receive exclusive deals, style tips, and get 20% off your first purchase with promo code <strong>SAVE20</strong>.
+      </p>
       
-      <form class="newsletter-form" onsubmit="window.__aura.subscribeNewsletter(event)">
-        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email Address" />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+      <form onsubmit="subscribeNewsletter(event)" style="display: flex; gap: 8px; max-width: 440px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" placeholder="Enter your email address..." required style="flex: 1; min-width: 220px; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: #ffffff;" />
+        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Subscribe</button>
       </form>
     </section>
 
@@ -254,78 +216,79 @@
       <div class="footer-col">
         <h3>AURA<span>.</span></h3>
         <p>
-          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+          A modern clothing brand dedicated to accessible fashion, versatile everyday wear, and quality craftsmanship designed to last.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>The Maison</h4>
+        <h4>Shop &amp; Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Curated Collections</a></li>
-          <li><a href="about.html">About the Maison</a></li>
-          <li><a href="contact.html">Client Concierge</a></li>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="shop.html?category=new-arrivals">New Arrivals</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Client Services</h4>
+        <h4>Company &amp; Help</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Bespoke Fitting</a></li>
-          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
-          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
-          <li><a href="contact.html">Press &amp; Editorial</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">FAQs &amp; Shipping</a></li>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size &amp; Fit Guide</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Stay Updated</h4>
+        <p style="margin-bottom: 12px;">Sign up for special discounts and new collection drops.</p>
+        <form onsubmit="subscribeNewsletter(event)" class="footer-newsletter">
+          <input type="email" placeholder="Your email..." required />
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px;">Join Club</button>
+        </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
-      <div class="footer-badges">
-        <span>Complimentary Delivery</span>
-        <span>•</span>
-        <span>Authenticity Guaranteed</span>
-        <span>•</span>
-        <span>Atelier Concierge</span>
-      </div>
+      <div>&copy; 2026 AURA Clothing Brand. Built as a Modern Fashion E-Commerce Project.</div>
+      <div>Designed with HTML, CSS &amp; Vanilla JavaScript</div>
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
     <div class="drawer-header">
-      <h3>Shopping Bag</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+      <h3>Shopping Cart</h3>
+      <button class="drawer-close-btn" onclick="closeCart()" aria-label="Close Shopping Cart">&times;</button>
     </div>
-    <div id="cart-shipping-notice"></div>
-    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-body">
+      <div id="cart-shipping-notice"></div>
+      <div id="cart-items-list"></div>
+    </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-promo-wrapper"></div>
       <div id="cart-breakdown"></div>
       <div class="cart-total-row">
-        <span>Grand Total</span>
+        <span>Total:</span>
         <span id="cart-total-price">₹0</span>
       </div>
-      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
-      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
-        Proceed to Checkout →
-      </button>
+      <button class="btn btn-primary btn-checkout" onclick="checkout()">Proceed to Checkout</button>
     </div>
   </aside>
 
   <!-- Slide-out Wishlist Drawer -->
-  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="closeWishlist()"></div>
   <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
     <div class="drawer-header">
-      <h3>Saved Wishlist</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+      <h3>My Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="closeWishlist()" aria-label="Close Wishlist">&times;</button>
     </div>
     <div class="drawer-body" id="wishlist-items-list"></div>
   </aside>
 
-  <!-- Live Search Overlay -->
+  <!-- Interactive Search Modal -->
   <div class="search-modal-backdrop" id="search-modal-backdrop">
     <div class="search-modal-box">
       <div class="search-modal-header">
@@ -333,31 +296,85 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
-        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search jackets, shirts, dresses, blazers..." aria-label="Search Catalog" />
+        <button class="drawer-close-btn" onclick="closeSearch()" aria-label="Close Search">&times;</button>
       </div>
-      <div class="search-modal-results" id="search-modal-results"></div>
-      <div class="search-modal-footer">
-        <span>Instant Atelier Live Search</span>
-        <span>Press <kbd class="search-kbd">ESC</kbd> to close</span>
+      <div id="search-modal-results"></div>
+      <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border-color);">
+        <span>Press <strong>ESC</strong> to close</span>
+        <span>Type to filter instantly</span>
       </div>
     </div>
   </div>
 
   <!-- Quick View Modal -->
   <div class="quick-view-backdrop" id="quick-view-backdrop">
-    <div class="quick-view-modal">
-      <button class="quick-view-close" onclick="window.__aura.closeQuickView()" aria-label="Close Quick View">&times;</button>
+    <div class="quick-view-modal-box">
+      <button class="quick-view-close" onclick="closeQuickView()" aria-label="Close Quick View">&times;</button>
       <div id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div class="size-modal-backdrop" id="size-modal-backdrop">
+    <div class="size-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Size &amp; Fit Guide</h3>
+        <button class="drawer-close-btn" onclick="closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Use this standard sizing chart to find your ideal fit. Measurements are in inches.
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest / Bust</th>
+            <th>Waist</th>
+            <th>Hips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>32 – 34"</td>
+            <td>24 – 26"</td>
+            <td>34 – 36"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>35 – 37"</td>
+            <td>27 – 29"</td>
+            <td>37 – 39"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38 – 40"</td>
+            <td>30 – 32"</td>
+            <td>40 – 42"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>41 – 43"</td>
+            <td>33 – 35"</td>
+            <td>43 – 45"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>44 – 46"</td>
+            <td>36 – 38"</td>
+            <td>46 – 48"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Product Data Catalog -->
+  <!-- JavaScript Files -->
   <script src="js/products.js"></script>
-  <!-- Master Application Script -->
   <script src="js/main.js"></script>
 </body>
 </html>

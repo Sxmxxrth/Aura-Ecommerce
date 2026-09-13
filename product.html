@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Details — AURA Fashion</title>
-  <meta name="description" content="View product specifications, craftsmanship, sizing guide, and customer reviews for AURA clothing." />
+  <title>Product Details — AURA</title>
+  <meta name="description" content="View product specifications, sizes, colors, and customer reviews." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    <div class="promo-bar-container">
-      <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
-      </div>
-    </div>
+    Special Offer: Free Delivery on orders over ₹3,000 • Use Code <span>SAVE20</span> for 20% Off
   </div>
 
   <!-- Navigation Bar -->
@@ -23,170 +19,156 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <!-- Nav Links -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
+      <a href="shop.html" class="active">Shop</a>
       <a href="collections.html">Collections</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Cart & Wishlist Actions -->
+    <!-- Header Actions -->
     <div class="nav-actions">
-      <!-- Instant Search Trigger -->
-      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Trigger -->
+      <button class="nav-icon-btn" onclick="openSearch()" aria-label="Search Products" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </button>
 
-      <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wishlist Trigger -->
+      <button class="nav-icon-btn" onclick="openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+
+      <!-- Cart Trigger -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
-
-      <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        <span class="nav-badge" id="wishlist-badge">0</span>
-      </button>
     </div>
   </header>
 
   <!-- Mobile Nav Backdrop -->
-  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
 
   <!-- Main Content Container -->
   <main class="container">
-    <!-- Editorial Breadcrumb Navigation -->
-    <nav class="pdp-breadcrumbs" aria-label="Breadcrumb" style="margin-bottom: 20px; font-size: 11px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-      <a href="index.html" style="color: inherit; text-decoration: none;">Maison</a>
+    
+    <!-- Breadcrumb trail -->
+    <nav class="pdp-breadcrumbs" aria-label="Breadcrumbs">
+      <a href="index.html">Home</a>
       <span>/</span>
-      <a href="shop.html" style="color: inherit; text-decoration: none;">Catalog</a>
+      <a href="shop.html">Shop</a>
       <span>/</span>
-      <span id="pdp-breadcrumb-cat" style="color: inherit;">Capsule</span>
+      <span id="pdp-breadcrumb-cat" style="text-transform: capitalize;">Women</span>
       <span>/</span>
-      <span id="pdp-breadcrumb-name" style="color: var(--primary); font-weight: 600;">Creation</span>
+      <strong id="pdp-breadcrumb-name" style="color: var(--text-dark);">Product Name</strong>
     </nav>
 
-    <!-- Product Details Two-Column Layout -->
-    <div class="pdp-container">
-      <!-- Left: Main Photo & Thumbnails -->
+    <!-- Product Display Grid -->
+    <div class="pdp-grid">
+      
+      <!-- Left Column: Image Gallery -->
       <div class="pdp-gallery">
-        <div class="pdp-main-img-wrap">
-          <img src="" id="pdp-main-img" class="pdp-main-img" alt="Product Angle Main View" />
+        <div class="pdp-main-image-wrap">
+          <img id="pdp-main-img" src="" alt="Product Image" />
         </div>
-        <div class="pdp-thumbs" id="pdp-thumbs"></div>
+        <div class="pdp-thumbs-row" id="pdp-thumbs"></div>
       </div>
 
-      <!-- Right: Info, Price, Description, Sizes & Button -->
-      <div>
-        <span id="pdp-category" class="pdp-category-chip">Capsule</span>
-        <h1 id="pdp-title" class="pdp-title">Creation Name</h1>
+      <!-- Right Column: Product Options & Details -->
+      <div class="pdp-info">
+        <span class="pdp-category-badge" id="pdp-category">WOMEN</span>
+        <h1 class="pdp-title" id="pdp-title">Loading Product...</h1>
         
         <div class="product-rating" style="margin-bottom: 12px;">
-          ★★★★★ <span style="color: var(--text-muted);">(48 Verified Reviews)</span>
+          ★★★★★ <span style="color: var(--text-muted); font-size: 13px;">(4.9 • 38 Reviews)</span>
         </div>
 
         <div class="pdp-price" id="pdp-price">₹0</div>
         
-        <p id="pdp-desc" class="pdp-desc">
-          Creation specifications and craftsmanship notes.
+        <p class="pdp-desc" id="pdp-desc">
+          High quality clothing item crafted with care.
         </p>
 
-        <!-- Color Selection Header -->
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 18px 0 10px;">
-          <div class="option-title" style="margin: 0;">Select Colorway</div>
-          <span id="pdp-selected-color" style="font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 0.5px;">Camel Beige</span>
+        <!-- Color Selection -->
+        <div class="option-block">
+          <label>Color: <strong id="pdp-selected-color" style="color: var(--primary);">Default</strong></label>
+          <div class="color-options-row" id="pdp-color-selector"></div>
         </div>
 
-        <!-- Color Swatch Options -->
-        <div class="color-selector" id="pdp-color-selector" style="display: flex; gap: 12px; align-items: center; margin-bottom: 18px;">
-          <!-- Dynamically populated by product.page.js -->
+        <!-- Size Selection -->
+        <div class="option-block">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+            <label style="margin: 0;">Select Size</label>
+            <button type="button" onclick="openSizeGuide()" style="color: var(--accent); font-size: 12.5px; font-weight: 600; text-decoration: underline;">
+              📐 View Size Guide
+            </button>
+          </div>
+          <div class="size-options-row" id="pdp-size-selector"></div>
         </div>
 
-        <!-- Sizing Header with Size Guide Trigger -->
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 18px 0 10px;">
-          <div class="option-title" style="margin: 0;">Select Garment Size</div>
-          <button type="button" onclick="window.__aura.openSizeGuide()" style="background: none; border: none; color: var(--accent); font-size: 11.5px; font-weight: 600; letter-spacing: 0.5px; text-decoration: underline; cursor: pointer;">
-            📐 Size &amp; Fit Guide
-          </button>
+        <!-- Stock notice -->
+        <div class="stock-notice" id="pdp-stock-notice">
+          In Stock: Ready to dispatch
         </div>
 
-        <!-- Size Options -->
-        <div class="size-selector">
-          <button class="size-option" type="button">XS</button>
-          <button class="size-option active" type="button">S</button>
-          <button class="size-option" type="button">M</button>
-          <button class="size-option" type="button">L</button>
-          <button class="size-option" type="button">XL</button>
-        </div>
-
-        <!-- Stock Scarcity Notice -->
-        <div id="pdp-stock-notice" style="font-size: 12px; color: var(--text-secondary); margin-bottom: 18px; display: flex; align-items: center; gap: 6px;">
-          <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--warning); display: inline-block;"></span>
-          Atelier Stock: Limited quantities available in Size S
-        </div>
-
-        <!-- Add to Bag Button -->
-        <button class="btn btn-primary" id="pdp-add-btn" style="width: 100%; padding: 16px;">
-          Add to Shopping Bag
+        <!-- Add to Cart CTA -->
+        <button type="button" class="btn btn-primary pdp-add-btn" id="pdp-add-btn">
+          Add to Shopping Cart
         </button>
 
-        <!-- Trust Badges -->
-        <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-secondary);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            <span>Complimentary Courier</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-secondary);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-            <span>30-Day Atelier Returns</span>
-          </div>
+        <!-- Perks strip -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid var(--border-color); font-size: 13px; color: var(--text-muted);">
+          <div>🚚 <strong>Free Shipping</strong> above ₹3,000</div>
+          <div>🔄 <strong>30-Day</strong> Easy Returns</div>
         </div>
 
-        <!-- Accordion Specifications System -->
+        <!-- Accordion Details -->
         <div class="pdp-accordions">
           <div class="accordion-item active">
-            <button class="accordion-header" type="button">
-              <span>Artisanal Tailoring &amp; Fabric Provenance</span>
-              <span>+</span>
+            <button type="button" class="accordion-header">
+              <span>Fabric &amp; Care Details</span>
+              <span class="icon">+</span>
             </button>
             <div class="accordion-body">
-              Crafted from certified organic natural fibers. Features reinforced storm seams, horn buttons, hand-burnished edges, and structured half-canvas construction that contours to your frame over time.
+              Crafted from carefully selected natural and blended fabrics for maximum comfort, durability, and easy maintenance. We recommend gentle cycle washing or dry cleaning for outerwear.
             </div>
           </div>
+
           <div class="accordion-item">
-            <button class="accordion-header" type="button">
-              <span>Complimentary Delivery &amp; White-Glove Returns</span>
-              <span>+</span>
+            <button type="button" class="accordion-header">
+              <span>Shipping &amp; Delivery</span>
+              <span class="icon">+</span>
             </button>
             <div class="accordion-body">
-              Every creation arrives enclosed within our signature FSC-certified archival box and breathable cotton garment bag. Includes complimentary insured courier transit and 30-day global returns.
+              Orders are prepared and dispatched within 24–48 hours. Standard domestic delivery takes 3–5 business days with full online tracking updates sent via email or SMS.
             </div>
           </div>
+
           <div class="accordion-item">
-            <button class="accordion-header" type="button">
-              <span>Sustainability &amp; Provenance Guarantee</span>
-              <span>+</span>
+            <button type="button" class="accordion-header">
+              <span>Authenticity Guarantee</span>
+              <span class="icon">+</span>
             </button>
             <div class="accordion-body">
-              100% microplastic-free garment construction. Oeko-Tex certified non-toxic dye baths and zero-waste fabric layout ensuring sustainable generational luxury.
+              All AURA garments are 100% authentic and undergo strict quality checks before shipping. Comes with original brand tags and protective dust packaging.
             </div>
           </div>
         </div>
@@ -194,60 +176,66 @@
       </div>
     </div>
 
-    <!-- Related Cross-Sell: Pairs Wonderfully With -->
-    <section style="margin-top: clamp(40px, 6vw, 70px);">
+    <!-- Related Cross-Sell Products -->
+    <section style="margin-bottom: 56px;">
       <div class="section-header">
-        <h2>Complete the Silhouette</h2>
-        <p>Curated capsule companions tailored to complement this piece</p>
+        <h2>You May Also Like</h2>
+        <p>Similar styles recommended by our stylists to complete your outfit.</p>
       </div>
-      <div class="product-grid" id="related-products" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));"></div>
+      <div class="products-grid" id="related-products"></div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="reviews-box">
-      <div class="reviews-header">
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
         <div>
-          <h2>Patron Reviews</h2>
-          <p style="color: var(--text-secondary); font-size: 13.5px; margin-top: 4px;">4.9 / 5.0 Average Rating based on verified atelier orders</p>
+          <h3 style="font-size: 20px;">Customer Reviews</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted);">Based on verified customer feedback</p>
         </div>
-      </div>
-      
-      <div id="reviews-list">
-        <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <strong class="review-author">Jessica Taylor</strong>
-            <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"The material is extraordinarily soft with a rich, substantial drape. Fits true to size and the cut is wonderfully relaxed yet refined."</p>
-        </div>
-        <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <strong class="review-author">Daniel R.</strong>
-            <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"Remarkable tailoring. Looks identical to the editorial photographs and was packaged sustainably in signature box."</p>
+        <div style="font-size: 20px; font-weight: 700; color: #f59e0b;">
+          4.9 ★★★★★
         </div>
       </div>
 
-      <!-- Review Submission Form -->
-      <form class="review-form" id="review-form" onsubmit="window.__aura.submitReview(event)">
-        <h3>Submit Patron Review</h3>
-        <input type="text" id="rev-name" placeholder="Your Name or Initial" required aria-label="Your Name" />
-        <textarea id="rev-comment" rows="3" placeholder="Share your experience regarding drape, fabric weight, and silhouette..." required aria-label="Review Content"></textarea>
-        <button type="submit" class="btn btn-primary" style="padding: 13px 28px;">Submit Review</button>
+      <!-- Reviews list -->
+      <div id="reviews-list">
+        <div class="review-item">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong class="review-author">Meera Kapoor</strong>
+            <span style="color: #f59e0b; font-size: 13px;">★★★★★</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px;">"The quality is fantastic! Fits true to size, stitching is very neat, and it looks even better in person than in the photos."</p>
+        </div>
+
+        <div class="review-item">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong class="review-author">Karan Singhania</strong>
+            <span style="color: #f59e0b; font-size: 13px;">★★★★★</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 14px;">"Loved the fabric weight and drape. Delivered quickly to Mumbai in very clean packaging. Great shopping experience."</p>
+        </div>
+      </div>
+
+      <!-- Add Review Form -->
+      <form class="review-form" onsubmit="submitReview(event)">
+        <h4>Write a Customer Review</h4>
+        <input type="text" id="rev-name" placeholder="Your Name" required aria-label="Reviewer name" />
+        <textarea id="rev-comment" rows="3" placeholder="Share your thoughts about fit, material quality, and comfort..." required aria-label="Review comment"></textarea>
+        <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Submit Review</button>
       </form>
     </section>
 
-    <!-- Mobile Floating Sticky Quick Buy Bar -->
+    <!-- Mobile Sticky Buy Bar -->
     <div class="mobile-sticky-buy-bar" id="mobile-sticky-bar">
-      <div class="sticky-bar-info">
-        <strong id="sticky-bar-name">Creation Name</strong>
-        <span id="sticky-bar-price">₹0</span>
+      <div>
+        <strong id="sticky-bar-name" style="font-size: 13.5px; display: block; max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Product</strong>
+        <span id="sticky-bar-price" style="font-size: 13px; font-weight: 700; color: var(--accent);">₹0</span>
       </div>
-      <button class="btn btn-primary" onclick="document.getElementById('pdp-add-btn').click()" style="padding: 10px 18px; font-size: 11px; min-height: 40px;">
-        Add to Bag →
+      <button type="button" class="btn btn-primary" onclick="document.getElementById('pdp-add-btn').click()" style="padding: 10px 18px; font-size: 12.5px;">
+        Add to Cart
       </button>
     </div>
+
   </main>
 
   <!-- Site Footer -->
@@ -256,78 +244,79 @@
       <div class="footer-col">
         <h3>AURA<span>.</span></h3>
         <p>
-          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+          A modern clothing brand dedicated to accessible fashion, versatile everyday wear, and quality craftsmanship designed to last.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>The Maison</h4>
+        <h4>Shop &amp; Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Curated Collections</a></li>
-          <li><a href="about.html">About the Maison</a></li>
-          <li><a href="contact.html">Client Concierge</a></li>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="shop.html?category=new-arrivals">New Arrivals</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Client Services</h4>
+        <h4>Company &amp; Help</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Bespoke Fitting</a></li>
-          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
-          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
-          <li><a href="contact.html">Press &amp; Editorial</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">FAQs &amp; Shipping</a></li>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size &amp; Fit Guide</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="margin-bottom: 12px;">Get 20% off your first order with code SAVE20.</p>
+        <form onsubmit="subscribeNewsletter(event)" class="footer-newsletter">
+          <input type="email" placeholder="Your email..." required />
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px;">Join Club</button>
+        </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
-      <div class="footer-badges">
-        <span>Complimentary Delivery</span>
-        <span>•</span>
-        <span>Authenticity Guaranteed</span>
-        <span>•</span>
-        <span>Atelier Concierge</span>
-      </div>
+      <div>&copy; 2026 AURA Clothing Brand. Built as a Modern Fashion E-Commerce Project.</div>
+      <div>Designed with HTML, CSS &amp; Vanilla JavaScript</div>
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
     <div class="drawer-header">
-      <h3>Shopping Bag</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+      <h3>Shopping Cart</h3>
+      <button class="drawer-close-btn" onclick="closeCart()" aria-label="Close Shopping Cart">&times;</button>
     </div>
-    <div id="cart-shipping-notice"></div>
-    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-body">
+      <div id="cart-shipping-notice"></div>
+      <div id="cart-items-list"></div>
+    </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-promo-wrapper"></div>
       <div id="cart-breakdown"></div>
       <div class="cart-total-row">
-        <span>Grand Total</span>
+        <span>Total:</span>
         <span id="cart-total-price">₹0</span>
       </div>
-      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
-      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
-        Proceed to Checkout →
-      </button>
+      <button class="btn btn-primary btn-checkout" onclick="checkout()">Proceed to Checkout</button>
     </div>
   </aside>
 
   <!-- Slide-out Wishlist Drawer -->
-  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="closeWishlist()"></div>
   <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
     <div class="drawer-header">
-      <h3>Saved Wishlist</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+      <h3>My Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="closeWishlist()" aria-label="Close Wishlist">&times;</button>
     </div>
     <div class="drawer-body" id="wishlist-items-list"></div>
   </aside>
 
-  <!-- Live Search Overlay -->
+  <!-- Search Modal -->
   <div class="search-modal-backdrop" id="search-modal-backdrop">
     <div class="search-modal-box">
       <div class="search-modal-header">
@@ -335,23 +324,73 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
-        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search jackets, shirts, dresses, blazers..." aria-label="Search Catalog" />
+        <button class="drawer-close-btn" onclick="closeSearch()" aria-label="Close Search">&times;</button>
       </div>
-      <div class="search-modal-results" id="search-modal-results"></div>
-      <div class="search-modal-footer">
-        <span>Instant Atelier Live Search</span>
-        <span>Press <kbd class="search-kbd">ESC</kbd> to close</span>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div class="size-modal-backdrop" id="size-modal-backdrop">
+    <div class="size-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Size &amp; Fit Guide</h3>
+        <button class="drawer-close-btn" onclick="closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
       </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Use this sizing chart to find your best fit.
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest / Bust</th>
+            <th>Waist</th>
+            <th>Hips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>32 – 34"</td>
+            <td>24 – 26"</td>
+            <td>34 – 36"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>35 – 37"</td>
+            <td>27 – 29"</td>
+            <td>37 – 39"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38 – 40"</td>
+            <td>30 – 32"</td>
+            <td>40 – 42"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>41 – 43"</td>
+            <td>33 – 35"</td>
+            <td>43 – 45"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>44 – 46"</td>
+            <td>36 – 38"</td>
+            <td>46 – 48"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Product Data Catalog -->
+  <!-- JavaScript Files -->
   <script src="js/products.js"></script>
-  <!-- Master Application Script -->
   <script src="js/main.js"></script>
 </body>
 </html>

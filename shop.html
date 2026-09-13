@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop All Products — AURA Fashion</title>
-  <meta name="description" content="Browse the complete collection of AURA clothing, wool blazers, Mulberry silk dresses, knitwear, and leather accessories." />
+  <title>Shop Clothing Catalog — AURA</title>
+  <meta name="description" content="Browse our complete catalog of coats, blazers, shirts, dresses, knitwear, and accessories." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    <div class="promo-bar-container">
-      <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
-      </div>
-    </div>
+    Special Offer: Free Delivery on orders over ₹3,000 • Use Code <span>SAVE20</span> for 20% Off
   </div>
 
   <!-- Navigation Bar -->
@@ -23,13 +19,13 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <!-- Nav Links -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="shop.html" class="active">Shop</a>
@@ -38,97 +34,80 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Cart & Wishlist Actions -->
+    <!-- Header Action Icons -->
     <div class="nav-actions">
-      <!-- Instant Search Trigger -->
-      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Trigger -->
+      <button class="nav-icon-btn" onclick="openSearch()" aria-label="Search Products" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </button>
 
-      <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wishlist Trigger -->
+      <button class="nav-icon-btn" onclick="openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+
+      <!-- Cart Trigger -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
-
-      <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        <span class="nav-badge" id="wishlist-badge">0</span>
-      </button>
     </div>
   </header>
 
   <!-- Mobile Nav Backdrop -->
-  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
 
   <!-- Main Content Container -->
   <main class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border-color);">
+    
+    <!-- Shop Header Controls -->
+    <div class="shop-header">
       <div>
-        <h1 style="font-size: clamp(26px, 4vw, 36px); font-weight: 500; color: var(--primary); letter-spacing: 0.5px;">Haute Couture Catalog</h1>
-        <p style="color: var(--text-secondary); margin-top: 4px; font-size: 14px; letter-spacing: 0.2px;">Filter by capsule collection or search across the entire maison</p>
+        <h1 style="font-size: 28px; font-weight: 800; color: var(--text-dark);">All Clothing &amp; Apparel</h1>
+        <p style="color: var(--text-muted); font-size: 14px;" id="shop-product-count">Showing 6 products</p>
       </div>
-      
-      <!-- Catalog Controls: Sort & Grid View Toggle -->
-      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-        <select id="sort-select" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 11.5px; font-family: var(--font-family); font-weight: 600; letter-spacing: 0.5px; background: white; color: var(--primary); cursor: pointer;" aria-label="Sort Creations">
-          <option value="featured">Sort: Atelier Curated</option>
+
+      <div class="shop-controls">
+        <!-- Keyword Search Input -->
+        <input type="text" id="search-box" placeholder="Filter by name..." aria-label="Search within catalog" />
+
+        <!-- Sort Select -->
+        <select id="sort-select" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Alphabetical: A to Z</option>
+          <option value="name-asc">Name: A to Z</option>
         </select>
-        <button id="grid-toggle-btn" class="btn btn-secondary" style="padding: 8px 14px; font-size: 11px; min-height: 36px;" aria-label="Toggle Grid Density">
-          ▦ View Compact
+
+        <!-- Grid View Toggle -->
+        <button type="button" id="grid-toggle-btn" class="btn btn-secondary" style="padding: 8px 14px; font-size: 13px;">
+          ▦ Compact Grid
         </button>
-        <div id="shop-product-count" style="font-size: 11.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted);">
-          Showing 6 creations
-        </div>
       </div>
     </div>
 
-    <div class="shop-layout">
-      <!-- Sidebar Filters (Horizontal scrolling pills on mobile) -->
-      <aside class="shop-filters-sidebar">
-        <!-- Search Box -->
-        <div class="filter-box">
-          <h3>Search Catalog</h3>
-          <div class="search-input-wrap">
-            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" class="search-input" id="search-box" placeholder="Search trench, blazer, silk..." aria-label="Search Catalog" />
-          </div>
-        </div>
-
-        <!-- Categories Filter -->
-        <div class="filter-box">
-          <h3>Capsule Selection</h3>
-          <ul class="filter-list">
-            <li><button class="filter-btn active" data-category="all" onclick="window.__aura.filterCategory('all', this)"><span>All Creations</span> <span>(6)</span></button></li>
-            <li><button class="filter-btn" data-category="new-arrivals" onclick="window.__aura.filterCategory('new-arrivals', this)"><span>New Arrivals</span> <span>(4)</span></button></li>
-            <li><button class="filter-btn" data-category="women" onclick="window.__aura.filterCategory('women', this)"><span>Women’s Capsule</span> <span>(3)</span></button></li>
-            <li><button class="filter-btn" data-category="men" onclick="window.__aura.filterCategory('men', this)"><span>Men’s Sartorial</span> <span>(2)</span></button></li>
-            <li><button class="filter-btn" data-category="accessories" onclick="window.__aura.filterCategory('accessories', this)"><span>Leather &amp; Goods</span> <span>(1)</span></button></li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- Products Grid rendered dynamically by shop.page.js -->
-      <section>
-        <div class="product-grid" id="shop-products"></div>
-      </section>
+    <!-- Category Filter Pills -->
+    <div class="filter-pills-row">
+      <button type="button" class="filter-btn active" data-category="all" onclick="filterCategory('all', this)">All Items (6)</button>
+      <button type="button" class="filter-btn" data-category="new-arrivals" onclick="filterCategory('new-arrivals', this)">New Arrivals (4)</button>
+      <button type="button" class="filter-btn" data-category="women" onclick="filterCategory('women', this)">Women's Wear (3)</button>
+      <button type="button" class="filter-btn" data-category="men" onclick="filterCategory('men', this)">Men's Wear (2)</button>
+      <button type="button" class="filter-btn" data-category="accessories" onclick="filterCategory('accessories', this)">Accessories (1)</button>
     </div>
+
+    <!-- Product Grid: Populated dynamically by js/main.js -->
+    <div class="products-grid" id="shop-products"></div>
+
   </main>
 
   <!-- Site Footer -->
@@ -137,78 +116,79 @@
       <div class="footer-col">
         <h3>AURA<span>.</span></h3>
         <p>
-          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+          A modern clothing brand dedicated to accessible fashion, versatile everyday wear, and quality craftsmanship designed to last.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>The Maison</h4>
+        <h4>Shop &amp; Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Curated Collections</a></li>
-          <li><a href="about.html">About the Maison</a></li>
-          <li><a href="contact.html">Client Concierge</a></li>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="shop.html?category=new-arrivals">New Arrivals</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Client Services</h4>
+        <h4>Company &amp; Help</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Bespoke Fitting</a></li>
-          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
-          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
-          <li><a href="contact.html">Press &amp; Editorial</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">FAQs &amp; Shipping</a></li>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size &amp; Fit Guide</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="margin-bottom: 12px;">Get 20% off your first order with code SAVE20.</p>
+        <form onsubmit="subscribeNewsletter(event)" class="footer-newsletter">
+          <input type="email" placeholder="Your email..." required />
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px;">Join Club</button>
+        </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
-      <div class="footer-badges">
-        <span>Complimentary Delivery</span>
-        <span>•</span>
-        <span>Authenticity Guaranteed</span>
-        <span>•</span>
-        <span>Atelier Concierge</span>
-      </div>
+      <div>&copy; 2026 AURA Clothing Brand. Built as a Modern Fashion E-Commerce Project.</div>
+      <div>Designed with HTML, CSS &amp; Vanilla JavaScript</div>
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
     <div class="drawer-header">
-      <h3>Shopping Bag</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+      <h3>Shopping Cart</h3>
+      <button class="drawer-close-btn" onclick="closeCart()" aria-label="Close Shopping Cart">&times;</button>
     </div>
-    <div id="cart-shipping-notice"></div>
-    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-body">
+      <div id="cart-shipping-notice"></div>
+      <div id="cart-items-list"></div>
+    </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-promo-wrapper"></div>
       <div id="cart-breakdown"></div>
       <div class="cart-total-row">
-        <span>Grand Total</span>
+        <span>Total:</span>
         <span id="cart-total-price">₹0</span>
       </div>
-      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
-      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
-        Proceed to Checkout →
-      </button>
+      <button class="btn btn-primary btn-checkout" onclick="checkout()">Proceed to Checkout</button>
     </div>
   </aside>
 
   <!-- Slide-out Wishlist Drawer -->
-  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="closeWishlist()"></div>
   <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
     <div class="drawer-header">
-      <h3>Saved Wishlist</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+      <h3>My Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="closeWishlist()" aria-label="Close Wishlist">&times;</button>
     </div>
     <div class="drawer-body" id="wishlist-items-list"></div>
   </aside>
 
-  <!-- Live Search Overlay -->
+  <!-- Search Modal -->
   <div class="search-modal-backdrop" id="search-modal-backdrop">
     <div class="search-modal-box">
       <div class="search-modal-header">
@@ -216,31 +196,81 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
-        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search jackets, shirts, dresses, blazers..." aria-label="Search Catalog" />
+        <button class="drawer-close-btn" onclick="closeSearch()" aria-label="Close Search">&times;</button>
       </div>
-      <div class="search-modal-results" id="search-modal-results"></div>
-      <div class="search-modal-footer">
-        <span>Instant Atelier Live Search</span>
-        <span>Press <kbd class="search-kbd">ESC</kbd> to close</span>
-      </div>
+      <div id="search-modal-results"></div>
     </div>
   </div>
 
   <!-- Quick View Modal -->
   <div class="quick-view-backdrop" id="quick-view-backdrop">
-    <div class="quick-view-modal">
-      <button class="quick-view-close" onclick="window.__aura.closeQuickView()" aria-label="Close Quick View">&times;</button>
+    <div class="quick-view-modal-box">
+      <button class="quick-view-close" onclick="closeQuickView()" aria-label="Close Quick View">&times;</button>
       <div id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div class="size-modal-backdrop" id="size-modal-backdrop">
+    <div class="size-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Size &amp; Fit Guide</h3>
+        <button class="drawer-close-btn" onclick="closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
+      </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Use this sizing chart to find your best fit.
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest / Bust</th>
+            <th>Waist</th>
+            <th>Hips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>32 – 34"</td>
+            <td>24 – 26"</td>
+            <td>34 – 36"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>35 – 37"</td>
+            <td>27 – 29"</td>
+            <td>37 – 39"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38 – 40"</td>
+            <td>30 – 32"</td>
+            <td>40 – 42"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>41 – 43"</td>
+            <td>33 – 35"</td>
+            <td>43 – 45"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>44 – 46"</td>
+            <td>36 – 38"</td>
+            <td>46 – 48"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Product Data Catalog -->
+  <!-- JavaScript Files -->
   <script src="js/products.js"></script>
-  <!-- Master Application Script -->
   <script src="js/main.js"></script>
 </body>
 </html>

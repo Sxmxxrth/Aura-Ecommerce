@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curated Collections — AURA Fashion</title>
-  <meta name="description" content="Explore AURA curated fashion collections: Women's Collection, Men's Sartorial, and Autumn / Winter seasonal drops." />
+  <title>Curated Collections — AURA</title>
+  <meta name="description" content="Explore AURA curated fashion collections for Women, Men, and New Arrivals." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    <div class="promo-bar-container">
-      <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
-      </div>
-    </div>
+    Special Offer: Free Delivery on orders over ₹3,000 • Use Code <span>SAVE20</span> for 20% Off
   </div>
 
   <!-- Navigation Bar -->
@@ -23,13 +19,13 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <!-- Nav Links -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
@@ -38,89 +34,93 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Cart & Wishlist Actions -->
+    <!-- Header Actions -->
     <div class="nav-actions">
-      <!-- Instant Search Trigger -->
-      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Trigger -->
+      <button class="nav-icon-btn" onclick="openSearch()" aria-label="Search Products" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </button>
 
-      <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wishlist Trigger -->
+      <button class="nav-icon-btn" onclick="openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+
+      <!-- Cart Trigger -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
-
-      <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        <span class="nav-badge" id="wishlist-badge">0</span>
-      </button>
     </div>
   </header>
 
   <!-- Mobile Nav Backdrop -->
-  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
 
   <!-- Main Content Container -->
   <main class="container">
-    <div class="collections-header reveal-on-scroll">
-      <h1>Curated Editorial Capsules</h1>
-      <p>Explore themed aesthetic portals tailored for women, men, and limited seasonal drops</p>
+    
+    <div style="text-align: center; padding: 40px 0 20px;">
+      <h1 style="font-size: 32px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px;">Featured Fashion Collections</h1>
+      <p style="color: var(--text-muted); font-size: 15px; max-width: 600px; margin: 0 auto;">
+        Explore our curated style categories designed for contemporary men, women, and this season's freshest drops.
+      </p>
     </div>
 
     <!-- 3 Collection Cards Grid -->
     <div class="collections-grid">
       
-      <!-- Card 1: Women's -->
-      <div class="collection-card reveal-on-scroll">
+      <!-- Card 1: Women's Collection -->
+      <div class="collection-card">
         <div class="collection-img-wrap">
-          <img src="assets/images/collections/women.jpg" alt="Women’s Minimalist Elegance Capsule" />
+          <img src="assets/images/collections/women.jpg" alt="Women's Collection" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">VOL. 01 • Women’s Atelier</span>
-          <h3 class="collection-title">Women’s Minimalist Elegance</h3>
-          <p class="collection-desc">Heavyweight bias-cut Mulberry silk gowns, double-faced virgin wool trenches, and cloud-soft knitwear sculpted for timeless layering.</p>
-          <a href="shop.html?category=women" class="btn btn-primary" style="width: 100%;">Explore Women's Capsule →</a>
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">COLLECTION 01</span>
+          <h3>Women's Everyday Elegance</h3>
+          <p>Sophisticated slip dresses, tailored wool trench coats, and cozy knit sweaters designed for effortless versatility.</p>
+          <a href="shop.html?category=women" class="btn btn-primary" style="width: 100%;">Shop Women's →</a>
         </div>
       </div>
 
-      <!-- Card 2: Men's -->
-      <div class="collection-card reveal-on-scroll">
+      <!-- Card 2: Men's Collection -->
+      <div class="collection-card">
         <div class="collection-img-wrap">
-          <img src="assets/images/collections/men.jpg" alt="Men’s Modern Sartorial Capsule" />
+          <img src="assets/images/collections/men.jpg" alt="Men's Collection" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">VOL. 02 • Men’s Sartorial</span>
-          <h3 class="collection-title">Men’s Modern Sartorial</h3>
-          <p class="collection-desc">Half-canvas Italian wool blazers, two-ply Giza long-staple Egyptian cotton shirts, and refined contemporary staples.</p>
-          <a href="shop.html?category=men" class="btn btn-primary" style="width: 100%;">Explore Men's Capsule →</a>
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">COLLECTION 02</span>
+          <h3>Men's Modern Tailoring</h3>
+          <p>Sharp wool blazers, premium poplin cotton shirts, and refined wardrobe staples for work and weekend wear.</p>
+          <a href="shop.html?category=men" class="btn btn-primary" style="width: 100%;">Shop Men's →</a>
         </div>
       </div>
 
-      <!-- Card 3: Seasonal Capsule -->
-      <div class="collection-card reveal-on-scroll">
+      <!-- Card 3: New Arrivals Drop -->
+      <div class="collection-card">
         <div class="collection-img-wrap">
-          <img src="assets/images/collections/new-arrivals.jpg" alt="The Autumn / Winter Capsule Drop" />
+          <img src="assets/images/collections/new-arrivals.jpg" alt="New Arrivals Season Drop" />
         </div>
         <div class="collection-info">
-          <span class="collection-meta">VOL. 03 • Seasonal Limited Drop</span>
-          <h3 class="collection-title">The Autumn / Winter Drop</h3>
-          <p class="collection-desc">Architectural outerwear, certified vegetable-tanned leather goods, and hypoallergenic Royal Alpaca textures tailored for climate resilience.</p>
-          <a href="shop.html?category=new-arrivals" class="btn btn-primary" style="width: 100%;">Explore New Arrivals Drop →</a>
+          <span style="font-size: 11.5px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">COLLECTION 03</span>
+          <h3>New Season Arrivals</h3>
+          <p>Our freshest clothing drop featuring updated colorways, lightweight outerwear, and genuine leather tote bags.</p>
+          <a href="shop.html?category=new-arrivals" class="btn btn-primary" style="width: 100%;">Shop New Arrivals →</a>
         </div>
       </div>
 
     </div>
+
   </main>
 
   <!-- Site Footer -->
@@ -129,78 +129,79 @@
       <div class="footer-col">
         <h3>AURA<span>.</span></h3>
         <p>
-          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+          A modern clothing brand dedicated to accessible fashion, versatile everyday wear, and quality craftsmanship designed to last.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>The Maison</h4>
+        <h4>Shop &amp; Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Curated Collections</a></li>
-          <li><a href="about.html">About the Maison</a></li>
-          <li><a href="contact.html">Client Concierge</a></li>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="shop.html?category=new-arrivals">New Arrivals</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Client Services</h4>
+        <h4>Company &amp; Help</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Bespoke Fitting</a></li>
-          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
-          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
-          <li><a href="contact.html">Press &amp; Editorial</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">FAQs &amp; Shipping</a></li>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size &amp; Fit Guide</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="margin-bottom: 12px;">Get 20% off your first order with code SAVE20.</p>
+        <form onsubmit="subscribeNewsletter(event)" class="footer-newsletter">
+          <input type="email" placeholder="Your email..." required />
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px;">Join Club</button>
+        </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
-      <div class="footer-badges">
-        <span>Complimentary Delivery</span>
-        <span>•</span>
-        <span>Authenticity Guaranteed</span>
-        <span>•</span>
-        <span>Atelier Concierge</span>
-      </div>
+      <div>&copy; 2026 AURA Clothing Brand. Built as a Modern Fashion E-Commerce Project.</div>
+      <div>Designed with HTML, CSS &amp; Vanilla JavaScript</div>
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
     <div class="drawer-header">
-      <h3>Shopping Bag</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+      <h3>Shopping Cart</h3>
+      <button class="drawer-close-btn" onclick="closeCart()" aria-label="Close Shopping Cart">&times;</button>
     </div>
-    <div id="cart-shipping-notice"></div>
-    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-body">
+      <div id="cart-shipping-notice"></div>
+      <div id="cart-items-list"></div>
+    </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-promo-wrapper"></div>
       <div id="cart-breakdown"></div>
       <div class="cart-total-row">
-        <span>Grand Total</span>
+        <span>Total:</span>
         <span id="cart-total-price">₹0</span>
       </div>
-      <div class="cart-tax-note">Complimentary signature packaging &amp; insured courier delivery included</div>
-      <button class="btn btn-primary" style="width: 100%; padding: 15px;" onclick="window.__aura.checkout()">
-        Proceed to Checkout →
-      </button>
+      <button class="btn btn-primary btn-checkout" onclick="checkout()">Proceed to Checkout</button>
     </div>
   </aside>
 
   <!-- Slide-out Wishlist Drawer -->
-  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="closeWishlist()"></div>
   <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
     <div class="drawer-header">
-      <h3>Saved Wishlist</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+      <h3>My Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="closeWishlist()" aria-label="Close Wishlist">&times;</button>
     </div>
     <div class="drawer-body" id="wishlist-items-list"></div>
   </aside>
 
-  <!-- Live Search Overlay -->
+  <!-- Search Modal -->
   <div class="search-modal-backdrop" id="search-modal-backdrop">
     <div class="search-modal-box">
       <div class="search-modal-header">
@@ -208,23 +209,73 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
-        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search jackets, shirts, dresses, blazers..." aria-label="Search Catalog" />
+        <button class="drawer-close-btn" onclick="closeSearch()" aria-label="Close Search">&times;</button>
       </div>
-      <div class="search-modal-results" id="search-modal-results"></div>
-      <div class="search-modal-footer">
-        <span>Instant Atelier Live Search</span>
-        <span>Press <kbd class="search-kbd">ESC</kbd> to close</span>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div class="size-modal-backdrop" id="size-modal-backdrop">
+    <div class="size-modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Size &amp; Fit Guide</h3>
+        <button class="drawer-close-btn" onclick="closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
       </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Use this sizing chart to find your best fit.
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest / Bust</th>
+            <th>Waist</th>
+            <th>Hips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>32 – 34"</td>
+            <td>24 – 26"</td>
+            <td>34 – 36"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>35 – 37"</td>
+            <td>27 – 29"</td>
+            <td>37 – 39"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38 – 40"</td>
+            <td>30 – 32"</td>
+            <td>40 – 42"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>41 – 43"</td>
+            <td>33 – 35"</td>
+            <td>43 – 45"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>44 – 46"</td>
+            <td>36 – 38"</td>
+            <td>46 – 48"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Product Data Catalog -->
+  <!-- JavaScript Files -->
   <script src="js/products.js"></script>
-  <!-- Master Application Script -->
   <script src="js/main.js"></script>
 </body>
 </html>

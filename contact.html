@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — Client Support &amp; Concierge — AURA</title>
-  <meta name="description" content="Connect with the AURA client concierge for order inquiries, boutique fittings, or support." />
+  <title>Contact Customer Support — AURA</title>
+  <meta name="description" content="Get in touch with AURA clothing customer support for questions regarding orders, sizing, or returns." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Top Announcement Promo Bar -->
   <div class="promo-bar">
-    <div class="promo-bar-container">
-      <div class="promo-bar-text">
-        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
-      </div>
-    </div>
+    Special Offer: Free Delivery on orders over ₹3,000 • Use Code <span>SAVE20</span> for 20% Off
   </div>
 
   <!-- Navigation Bar -->
@@ -23,13 +19,13 @@
     <a href="index.html" class="logo">AURA<span>.</span></a>
     
     <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <!-- Nav Links -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
@@ -38,185 +34,181 @@
       <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <!-- Cart & Wishlist Actions -->
+    <!-- Header Actions -->
     <div class="nav-actions">
-      <!-- Instant Search Trigger -->
-      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Trigger -->
+      <button class="nav-icon-btn" onclick="openSearch()" aria-label="Search Products" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </button>
 
-      <!-- Shopping Bag Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Wishlist Trigger -->
+      <button class="nav-icon-btn" onclick="openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+
+      <!-- Cart Trigger -->
+      <button class="nav-icon-btn" onclick="openCart()" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="nav-badge" id="cart-badge">0</span>
       </button>
-
-      <!-- Wishlist Button -->
-      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        <span class="nav-badge" id="wishlist-badge">0</span>
-      </button>
     </div>
   </header>
 
   <!-- Mobile Nav Backdrop -->
-  <div class="nav-backdrop" id="nav-backdrop"></div>
+  <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
 
   <!-- Main Content Container -->
   <main class="container">
     
-    <!-- Hero Section -->
-    <section class="contact-hero reveal-on-scroll">
-      <span class="contact-eyebrow">Atelier Concierge &amp; Private Client Services</span>
-      <h1>Direct Dialogue with the Maison.</h1>
-      <p>Whether requesting a private salon appointment, bespoke measurements, or order assistance, our dedicated client advisors are at your service.</p>
-    </section>
+    <!-- Hero Header -->
+    <div style="text-align: center; padding: 48px 0 20px; max-width: 650px; margin: 0 auto;">
+      <span style="font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase;">CUSTOMER SUPPORT</span>
+      <h1 style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--text-dark); margin: 8px 0 12px;">We're Here to Help</h1>
+      <p style="color: var(--text-muted); font-size: 15px; line-height: 1.6;">
+        Have a question about an order, sizing recommendation, or return? Reach out to our customer support team and we'll reply within a few hours.
+      </p>
+    </div>
 
-    <!-- Two-Column Contact Layout -->
+    <!-- Contact Layout Grid -->
     <div class="contact-layout">
       
-      <!-- Left: Concierge Inquiry Form -->
-      <section class="concierge-form-card reveal-on-scroll">
-        <h2>Inquire with the Atelier</h2>
-        <p>Complete the details below and an atelier liaison will respond within 4 hours.</p>
+      <!-- Left Column: Contact Form -->
+      <section class="contact-card">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 6px;">Send Us a Message</h2>
+        <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px;">Fill in the form below and we'll be in touch promptly.</p>
 
-        <form id="contact-form" onsubmit="window.__aura.submitContact(event)">
-          <div class="contact-form-grid">
-            <div class="form-group">
-              <label for="contact-name">Full Name</label>
-              <input type="text" id="contact-name" placeholder="e.g. Eleanor Vance" required />
-            </div>
-
-            <div class="form-group">
-              <label for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" placeholder="e.g. eleanor@vance.com" required />
-            </div>
-
-            <div class="form-group">
-              <label for="contact-phone">Telephone (Optional)</label>
-              <input type="tel" id="contact-phone" placeholder="+91 / +1 / +44 ..." />
-            </div>
-
-            <div class="form-group">
-              <label for="contact-topic">Inquiry Nature</label>
-              <select id="contact-topic" required>
-                <option value="fitting">Private Salon Fitting Appointment</option>
-                <option value="bespoke">Bespoke Tailoring &amp; Sizing Request</option>
-                <option value="order">Order &amp; Insured Courier Assistance</option>
-                <option value="press">Press, Editorial &amp; Styling Inquiries</option>
-                <option value="general">General Maison Inquiries</option>
-              </select>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="contact-message">Your Message or Appointment Preference</label>
-              <textarea id="contact-message" rows="5" placeholder="Detail your garment preferences, preferred date and time for private fitting, or inquiry specifications..." required></textarea>
-            </div>
+        <form id="contact-form" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <label for="contact-name">Full Name *</label>
+            <input type="text" id="contact-name" placeholder="e.g. Rahul Sharma" required />
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">
-            Transmit to Atelier Concierge &rarr;
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" placeholder="e.g. rahul@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-phone">Phone Number (Optional)</label>
+            <input type="tel" id="contact-phone" placeholder="+91 98765 43210" />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-topic">What can we help you with? *</label>
+            <select id="contact-topic" required>
+              <option value="order">Order Tracking &amp; Delivery</option>
+              <option value="sizing">Sizing &amp; Fit Recommendations</option>
+              <option value="returns">Exchange &amp; Returns Request</option>
+              <option value="product">Product Inquiries &amp; Stock</option>
+              <option value="feedback">General Feedback</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Your Message *</label>
+            <textarea id="contact-message" rows="4" placeholder="How can we assist you with your order?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px;">
+            Send Message →
           </button>
         </form>
       </section>
 
-      <!-- Right: Global Atelier Boutiques & Direct Channels -->
-      <aside class="salons-panel reveal-on-scroll">
-        <h2>Atelier Salons</h2>
-        <p>Experience private consultations and preview archive capsules in our global salons.</p>
-
-        <div class="salon-item">
-          <div class="salon-city">Paris Flagship</div>
-          <div class="salon-name">Maison de Couture Saint-Honoré</div>
-          <div class="salon-address">24 Rue du Faubourg Saint-Honoré, 75008 Paris, France</div>
-          <div class="salon-hours">Monday – Saturday: 10:00 – 19:30 CET</div>
-        </div>
-
-        <div class="salon-item">
-          <div class="salon-city">Mumbai Salon</div>
-          <div class="salon-name">Colaba Waterfront Atelier</div>
-          <div class="salon-address">Suite 4, Walton Road, Colaba, Mumbai 400005, India</div>
-          <div class="salon-hours">Monday – Saturday: 10:30 – 20:00 IST</div>
-        </div>
-
-        <div class="salon-item">
-          <div class="salon-city">Milan Showroom</div>
-          <div class="salon-name">Montenapoleone Suite</div>
-          <div class="salon-address">Via Montenapoleone 14, 20121 Milano, Italy</div>
-          <div class="salon-hours">By Private Appointment Only</div>
-        </div>
-
-        <!-- Direct Channels Card -->
-        <div class="direct-contact-box">
-          <h4>Direct Concierge Assistance</h4>
-          <div class="direct-link-row">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>Email: <a href="mailto:concierge@auramaison.com">concierge@auramaison.com</a></span>
+      <!-- Right Column: Direct Info -->
+      <aside>
+        <div class="contact-card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 18px; margin-bottom: 16px;">Direct Contact Details</h3>
+          
+          <div style="margin-bottom: 16px;">
+            <strong style="display: block; font-size: 13px; color: var(--text-muted); text-transform: uppercase;">Customer Support Email</strong>
+            <a href="mailto:support@auraclothing.com" style="font-weight: 600; color: var(--primary);">support@auraclothing.com</a>
           </div>
-          <div class="direct-link-row">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>Private Line: <a href="tel:+919820012345">+91 98200 12345</a></span>
+
+          <div style="margin-bottom: 16px;">
+            <strong style="display: block; font-size: 13px; color: var(--text-muted); text-transform: uppercase;">Helpline Number</strong>
+            <a href="tel:+919820012345" style="font-weight: 600; color: var(--primary);">+91 98200 12345</a>
           </div>
+
+          <div style="margin-bottom: 16px;">
+            <strong style="display: block; font-size: 13px; color: var(--text-muted); text-transform: uppercase;">Support Hours</strong>
+            <span style="font-size: 14px; color: var(--text-dark);">Monday – Saturday: 9:00 AM – 7:00 PM IST</span>
+          </div>
+
+          <div>
+            <strong style="display: block; font-size: 13px; color: var(--text-muted); text-transform: uppercase;">Headquarters</strong>
+            <span style="font-size: 14px; color: var(--text-dark);">AURA Apparel Studio, Colaba, Mumbai 400005, India</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="font-size: 18px; margin-bottom: 12px;">Quick Help</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+            Need immediate answers? Check our FAQ section below or consult our Size Guide before placing an order.
+          </p>
+          <button type="button" class="btn btn-secondary" onclick="openSizeGuide()" style="width: 100%;">
+            📐 Open Size Guide
+          </button>
         </div>
       </aside>
 
     </div>
 
-    <!-- Client Care FAQ Accordion Section -->
-    <section class="contact-faq" id="faq">
-      <div class="contact-faq-header reveal-on-scroll">
-        <span class="contact-eyebrow">Client Care</span>
-        <h2>Frequently Addressed Inquiries</h2>
-        <p style="color: var(--text-secondary); font-size: 14px;">Instant clarity on orders, sizing, and bespoke care.</p>
+    <!-- FAQ Accordion Section -->
+    <section style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 36px; margin-bottom: 56px;" id="faq">
+      <div class="section-header" style="margin-bottom: 28px;">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions about orders, shipping, and returns.</p>
       </div>
 
-      <div class="faq-list">
-        <div class="faq-item reveal-on-scroll">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="faq-item">
           <button type="button" class="faq-trigger" onclick="this.parentElement.classList.toggle('active')">
-            <span>What are the courier delivery timelines and insurance terms?</span>
-            <span class="faq-icon">+</span>
+            <span>How much is shipping and when will my order arrive?</span>
+            <span>+</span>
           </button>
           <div class="faq-body">
-            All AURA shipments travel via dedicated temperature-regulated, insured express courier. Domestic orders across India arrive within 2–4 business days. International dispatches are delivered within 3–5 business days. Every package requires signature on receipt.
+            Shipping is completely FREE on all orders above ₹3,000. For smaller orders, standard shipping is ₹199. Orders are usually delivered within 3 to 5 business days across major cities in India.
           </div>
         </div>
 
-        <div class="faq-item reveal-on-scroll">
+        <div class="faq-item">
           <button type="button" class="faq-trigger" onclick="this.parentElement.classList.toggle('active')">
-            <span>How does the 30-day atelier return and exchange process work?</span>
-            <span class="faq-icon">+</span>
+            <span>What is your 30-day return and exchange policy?</span>
+            <span>+</span>
           </button>
           <div class="faq-body">
-            We offer complimentary reverse courier pickup within 30 days of acquisition. Garments must remain unworn, with security tags intact, in their original presentation box. Exchanges for alternate sizes or bespoke tailoring adjustments are prioritized.
+            If you are not completely satisfied with your size or style, you can request an exchange or return within 30 days of delivery. Items must be unworn with original tags attached.
           </div>
         </div>
 
-        <div class="faq-item reveal-on-scroll">
+        <div class="faq-item">
           <button type="button" class="faq-trigger" onclick="this.parentElement.classList.toggle('active')">
-            <span>Can I request bespoke size adjustments or personalized alterations?</span>
-            <span class="faq-icon">+</span>
+            <span>How do I use my 20% off discount promo code?</span>
+            <span>+</span>
           </button>
           <div class="faq-body">
-            Yes. Our master tailors accommodate bespoke hem lengths, sleeve tapering, and custom lining requests. Submit your measurements through the concierge form above or visit any of our flagship salons for a personal fitting.
+            Open your shopping cart drawer, type code <strong>SAVE20</strong> into the promo code field, and click Apply. The 20% discount will immediately be subtracted from your total!
           </div>
         </div>
 
-        <div class="faq-item reveal-on-scroll">
+        <div class="faq-item">
           <button type="button" class="faq-trigger" onclick="this.parentElement.classList.toggle('active')">
-            <span>How should I care for virgin wool and 22-momme Mulberry silk creations?</span>
-            <span class="faq-icon">+</span>
+            <span>How do I know which size will fit me best?</span>
+            <span>+</span>
           </button>
           <div class="faq-body">
-            We recommend specialized eco-friendly green dry cleaning for wool coats and blazers. Mulberry silk gowns may be gently hand-steamed or professionally cared for. Each piece includes a cedar hanger and breathable organic cotton dust cover.
+            Click on the "View Size Guide" link on any product page or in the navigation menu to see our measurement chart covering Chest, Waist, and Hip guidelines.
           </div>
         </div>
       </div>
@@ -230,75 +222,79 @@
       <div class="footer-col">
         <h3>AURA<span>.</span></h3>
         <p>
-          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+          A modern clothing brand dedicated to accessible fashion, versatile everyday wear, and quality craftsmanship designed to last.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4>The Maison</h4>
+        <h4>Shop &amp; Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Catalog</a></li>
-          <li><a href="collections.html">Curated Collections</a></li>
-          <li><a href="about.html">About the Maison</a></li>
-          <li><a href="contact.html">Client Concierge</a></li>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="shop.html?category=new-arrivals">New Arrivals</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Client Services</h4>
+        <h4>Company &amp; Help</h4>
         <ul class="footer-links">
-          <li><a href="contact.html">Bespoke Fitting</a></li>
-          <li><a href="#faq">Insured Courier &amp; Returns</a></li>
-          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
-          <li><a href="contact.html">Press &amp; Editorial</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">FAQs &amp; Shipping</a></li>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size &amp; Fit Guide</a></li>
         </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="margin-bottom: 12px;">Get 20% off your first order with code SAVE20.</p>
+        <form onsubmit="subscribeNewsletter(event)" class="footer-newsletter">
+          <input type="email" placeholder="Your email..." required />
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px;">Join Club</button>
+        </form>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
-      <div class="footer-badges">
-        <span>Complimentary Delivery</span>
-        <span>•</span>
-        <span>Authenticity Guaranteed</span>
-        <span>•</span>
-        <span>Atelier Concierge</span>
-      </div>
+      <div>&copy; 2026 AURA Clothing Brand. Built as a Modern Fashion E-Commerce Project.</div>
+      <div>Designed with HTML, CSS &amp; Vanilla JavaScript</div>
     </div>
   </footer>
 
   <!-- Slide-out Shopping Cart Drawer -->
-  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
     <div class="drawer-header">
-      <h3>Shopping Bag</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+      <h3>Shopping Cart</h3>
+      <button class="drawer-close-btn" onclick="closeCart()" aria-label="Close Shopping Cart">&times;</button>
     </div>
-    <div id="cart-shipping-notice"></div>
-    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-body">
+      <div id="cart-shipping-notice"></div>
+      <div id="cart-items-list"></div>
+    </div>
     <div class="drawer-footer" id="cart-drawer-footer">
-      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-promo-wrapper"></div>
       <div id="cart-breakdown"></div>
       <div class="cart-total-row">
-        <span>Grand Total</span>
+        <span>Total:</span>
         <span id="cart-total-price">₹0</span>
       </div>
-      <button class="btn btn-primary btn-checkout" onclick="window.__aura.checkout()">Acquire Creations &bull; Checkout</button>
+      <button class="btn btn-primary btn-checkout" onclick="checkout()">Proceed to Checkout</button>
     </div>
   </aside>
 
-  <!-- Wishlist Drawer -->
-  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <!-- Slide-out Wishlist Drawer -->
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="closeWishlist()"></div>
   <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
     <div class="drawer-header">
-      <h3>Saved Wishlist</h3>
-      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+      <h3>My Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="closeWishlist()" aria-label="Close Wishlist">&times;</button>
     </div>
     <div class="drawer-body" id="wishlist-items-list"></div>
   </aside>
 
-  <!-- Interactive Search Modal Overlay -->
+  <!-- Search Modal -->
   <div class="search-modal-backdrop" id="search-modal-backdrop">
     <div class="search-modal-box">
       <div class="search-modal-header">
@@ -306,80 +302,73 @@
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
-        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search jackets, shirts, dresses, blazers..." aria-label="Search Catalog" />
+        <button class="drawer-close-btn" onclick="closeSearch()" aria-label="Close Search">&times;</button>
       </div>
-      <div class="search-modal-results" id="search-modal-results"></div>
-      <div class="search-modal-footer">
-        <span>Press <strong>ESC</strong> to dismiss</span>
-        <span>Real-time Atelier Search</span>
-      </div>
+      <div id="search-modal-results"></div>
     </div>
   </div>
 
-  <!-- Size Modal Component -->
+  <!-- Size Guide Modal -->
   <div class="size-modal-backdrop" id="size-modal-backdrop">
     <div class="size-modal-box">
-      <div class="size-modal-header">
-        <h3>Atelier Size &amp; Fit Guide</h3>
-        <button class="size-modal-close" onclick="window.__aura.closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Size &amp; Fit Guide</h3>
+        <button class="drawer-close-btn" onclick="closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
       </div>
-      <div class="size-modal-body">
-        <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">
-          All AURA garments are cut with architectural precision. Use our measurements below for an immaculate tailored drape.
-        </p>
-        <table class="size-table">
-          <thead>
-            <tr>
-              <th>Size</th>
-              <th>Chest / Bust</th>
-              <th>Waist</th>
-              <th>Hips</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>XS</strong></td>
-              <td>32 – 34"</td>
-              <td>24 – 26"</td>
-              <td>34 – 36"</td>
-            </tr>
-            <tr>
-              <td><strong>S</strong></td>
-              <td>35 – 37"</td>
-              <td>27 – 29"</td>
-              <td>37 – 39"</td>
-            </tr>
-            <tr>
-              <td><strong>M</strong></td>
-              <td>38 – 40"</td>
-              <td>30 – 32"</td>
-              <td>40 – 42"</td>
-            </tr>
-            <tr>
-              <td><strong>L</strong></td>
-              <td>41 – 43"</td>
-              <td>33 – 35"</td>
-              <td>43 – 45"</td>
-            </tr>
-            <tr>
-              <td><strong>XL</strong></td>
-              <td>44 – 46"</td>
-              <td>36 – 38"</td>
-              <td>46 – 48"</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Use this sizing chart to find your best fit.
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest / Bust</th>
+            <th>Waist</th>
+            <th>Hips</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong></td>
+            <td>32 – 34"</td>
+            <td>24 – 26"</td>
+            <td>34 – 36"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong></td>
+            <td>35 – 37"</td>
+            <td>27 – 29"</td>
+            <td>37 – 39"</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>38 – 40"</td>
+            <td>30 – 32"</td>
+            <td>40 – 42"</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td>41 – 43"</td>
+            <td>33 – 35"</td>
+            <td>43 – 45"</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong></td>
+            <td>44 – 46"</td>
+            <td>36 – 38"</td>
+            <td>46 – 48"</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <!-- Toast Notification System -->
+  <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Product Data Catalog -->
+  <!-- JavaScript Files -->
   <script src="js/products.js"></script>
-  <!-- Master Application Script -->
   <script src="js/main.js"></script>
 </body>
 </html>

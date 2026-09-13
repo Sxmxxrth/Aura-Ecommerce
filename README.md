@@ -63,7 +63,7 @@ ecommerce/
 | 2 | **Product Listing with Category Filters** | ✅ Complete | Interactive category filtering (**All**, **New Arrivals**, **Women**, **Men**, **Accessories**), dynamic URL parameter detection (`?category=women`), and sort options. |
 | 3 | **Product Detail Page (PDP)** | ✅ Complete | Dynamic loading based on `?id=`, interactive thumbnail image switcher, color swatch picker, size selector, and related cross-sell items. |
 | 4 | **Search Functionality (Frontend)** | ✅ Complete | Dual-mode search: inline catalog search filter on `shop.html` + global instant keyboard shortcut search modal (`/` or `Cmd+K`) across all pages. |
-| 5 | **Add to Cart (Frontend Only)** | ✅ Complete | Slide-out cart drawer with item count badge, quantity increment/decrement, remove button, `localStorage` persistence, free shipping progress bar (`₹5,000` threshold), and promo discount code engine (`SAVE20` / `ATELIER20` for 20% off). |
+| 5 | **Add to Cart (Frontend Only)** | ✅ Complete | Slide-out cart drawer with item count badge, quantity increment/decrement, remove button, `localStorage` persistence, free shipping progress bar (`₹3,000` threshold), and promo discount code engine (`SAVE20` / `ATELIER20` for 20% off). |
 | 6 | **Wishlist Button (Frontend Only)** | ✅ Complete | Heart toggle button on all product cards and PDP, persistent `localStorage` synchronization, count badge, slide-out Wishlist Drawer, and "Move to Bag" button. |
 | 7 | **Size and Color Selection** | ✅ Complete | Interactive color swatches with active ring highlights and size buttons (XS to XL) available on both PDP and the Quick View modal. |
 | 8 | **Customer Reviews Section** | ✅ Complete | Star rating breakdown, verified patron reviews list, and a working submission form (`submitReview`) that dynamically prepends new reviews to the list with toast feedback. |
@@ -120,7 +120,7 @@ If you prefer running a local server:
 ## 🏷️ Test Coupons & Promo Codes
 - Code: `SAVE20` — Gives 20% discount on entire cart.
 - Code: `ATELIER20` — Gives 20% discount on entire cart.
-- Free shipping automatically applies on orders over `₹5,000`.
+- Free shipping automatically applies on orders over `₹3,000`.
 
 ---
 
