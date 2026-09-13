@@ -63,6 +63,19 @@ function getStorage(key, fallbackValue) {
 }
 
 /**
+ * Safely escape untrusted text to prevent XSS attacks
+ */
+function escapeHtml(str) {
+  if (str === null || str === undefined) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+/**
  * Write data safely to localStorage with JSON stringify
  */
 function setStorage(key, value) {
@@ -127,12 +140,21 @@ function saveCart(cartItems) {
 /**
  * Add a product to the cart with specified size and color
  */
-function addToCart(productId, size = "M", color = null, quantity = 1) {
+function addToCart(productId, size = null, color = null, quantity = 1) {
   const product = (window.PRODUCTS || []).find(p => p.id === Number(productId));
   if (!product) return;
 
   const chosenColor = color || (product.colors && product.colors[0] ? product.colors[0].name : "Standard");
-  const chosenSize = size || "M";
+  
+  // Intelligently select size based on product catalog specification
+  let chosenSize = size;
+  if (!chosenSize) {
+    if (product.sizes && product.sizes.length > 0) {
+      chosenSize = product.sizes.includes("M") ? "M" : product.sizes[0];
+    } else {
+      chosenSize = "M";
+    }
+  }
 
   const cart = getCart();
   // Check if identical item (same ID, size, and color) is already in the cart
@@ -341,14 +363,14 @@ function renderCart() {
     if (promoCode) {
       promoWrapper.innerHTML = `
         <div class="promo-applied-badge">
-          <span>✦ Code <strong>${promoCode}</strong> (-${discountPercent}%) Applied</span>
+          <span>✦ Code <strong>${escapeHtml(promoCode)}</strong> (-${discountPercent}%) Applied</span>
           <button onclick="removePromo()" class="promo-remove-btn" title="Remove code">✕</button>
         </div>
       `;
     } else {
       promoWrapper.innerHTML = `
         <div class="promo-input-row">
-          <input type="text" id="cart-promo-input" placeholder="Promo Code (SAVE20)" aria-label="Promo Code" />
+          <input type="text" id="cart-promo-input" placeholder="Promo Code (SAVE20)" aria-label="Promo Code" onkeydown="if(event.key==='Enter'){event.preventDefault();applyPromo();}" />
           <button onclick="applyPromo()" class="promo-apply-btn">Apply</button>
         </div>
       `;
@@ -548,7 +570,7 @@ function renderWishlist() {
 function moveWishlistToCart(productId) {
   const prod = (window.PRODUCTS || []).find(p => p.id === Number(productId));
   if (prod) {
-    addToCart(prod.id, "M");
+    addToCart(prod.id);
     toggleWishlist(prod.id);
   }
 }
@@ -618,10 +640,11 @@ function renderSearchResults(query) {
     : allProducts.slice(0, 4);
 
   if (matched.length === 0) {
+    const safeQuery = escapeHtml(query);
     resultsContainer.innerHTML = `
       <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
         <div style="font-size: 28px; margin-bottom: 8px;">🔍</div>
-        <p style="font-size: 14px; color: var(--primary);">No results found for "${query}"</p>
+        <p style="font-size: 14px; color: var(--primary);">No results found for "${safeQuery}"</p>
         <span style="font-size: 12px;">Try searching for "coat", "trench", "blazer", or "silk"</span>
       </div>
     `;
@@ -936,7 +959,8 @@ function initShopPage() {
   // Read ?category= query parameter from URL (e.g. shop.html?category=women)
   const params = new URLSearchParams(window.location.search);
   if (params.has("category")) {
-    const cat = params.get("category").toLowerCase();
+    let cat = params.get("category").toLowerCase();
+    if (cat === "new") cat = "new-arrivals";
     shopActiveCategory = cat;
     const targetBtn = document.querySelector(`.filter-btn[data-category="${cat}"]`);
     if (targetBtn) {
@@ -980,6 +1004,22 @@ function filterCategory(categoryName, clickedBtn) {
   renderShop();
 }
 
+/**
+ * Reset all shop filters, clear the search box, and re-render catalog
+ */
+function resetShopFilters() {
+  const searchInput = document.getElementById("search-box");
+  if (searchInput) searchInput.value = "";
+  shopActiveCategory = "all";
+  shopSortBy = "featured";
+  const sortSelect = document.getElementById("sort-select");
+  if (sortSelect) sortSelect.value = "featured";
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  const allBtn = document.querySelector('.filter-btn[data-category="all"]');
+  if (allBtn) allBtn.classList.add("active");
+  renderShop();
+}
+
 function renderShop() {
   const container = document.getElementById("shop-products");
   if (!container) return;
@@ -1019,7 +1059,7 @@ function renderShop() {
     container.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
         <p style="font-size: 16px; margin-bottom: 8px; color: var(--primary);">No products found matching your criteria.</p>
-        <button class="btn btn-secondary" onclick="filterCategory('all', document.querySelector('[data-category=all]'))" style="margin-top: 10px;">
+        <button class="btn btn-secondary" onclick="resetShopFilters()" style="margin-top: 10px;">
           Reset Filters
         </button>
       </div>
@@ -1106,18 +1146,33 @@ function initProductPage() {
     });
   }
 
-  // Sizing buttons
-  document.querySelectorAll(".size-option").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".size-option").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      pdpCurrentSize = btn.textContent.trim();
-      const stockEl = document.getElementById("pdp-stock-notice");
-      if (stockEl) {
-        stockEl.textContent = `Atelier Stock: Limited quantities available in Size ${pdpCurrentSize}`;
-      }
+  // Sizing buttons (dynamically populated according to product specification)
+  const sizeContainer = document.getElementById("pdp-size-selector") || document.querySelector(".size-selector");
+  const availableSizes = (prod.sizes && prod.sizes.length > 0) ? prod.sizes : ["XS", "S", "M", "L", "XL"];
+  pdpCurrentSize = availableSizes[0];
+
+  if (sizeContainer) {
+    sizeContainer.innerHTML = availableSizes.map((size, idx) => `
+      <button class="size-option ${idx === 0 ? 'active' : ''}" type="button">${size}</button>
+    `).join("");
+
+    sizeContainer.querySelectorAll(".size-option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        sizeContainer.querySelectorAll(".size-option").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        pdpCurrentSize = btn.textContent.trim();
+        const stockEl = document.getElementById("pdp-stock-notice");
+        if (stockEl) {
+          stockEl.textContent = `Atelier Stock: Limited quantities available in Size ${pdpCurrentSize}`;
+        }
+      });
     });
-  });
+  }
+
+  const stockEl = document.getElementById("pdp-stock-notice");
+  if (stockEl) {
+    stockEl.textContent = `Atelier Stock: Limited quantities available in Size ${pdpCurrentSize}`;
+  }
 
   // Add to Bag Button
   const addBtn = document.getElementById("pdp-add-btn");
@@ -1202,14 +1257,16 @@ function submitReview(event) {
   if (name && comment) {
     const list = document.getElementById("reviews-list");
     if (list) {
+      const safeName = escapeHtml(name);
+      const safeComment = escapeHtml(comment);
       const item = document.createElement("div");
       item.className = "review-item";
       item.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <strong class="review-author">${name}</strong>
+          <strong class="review-author">${safeName}</strong>
           <span style="color: var(--accent); font-size: 13px;">★★★★★</span>
         </div>
-        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"${comment}"</p>
+        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">"${safeComment}"</p>
       `;
       list.prepend(item);
     }
@@ -1266,6 +1323,8 @@ window.__aura = {
   closeMobileMenu,
   filterCategory,
   changeImage: changePdpImage,
+  resetShopFilters,
+  escapeHtml,
   submitReview,
   subscribeNewsletter,
   submitContact
@@ -1296,6 +1355,8 @@ window.closeSizeGuide = closeSizeGuide;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
 window.filterCategory = filterCategory;
+window.resetShopFilters = resetShopFilters;
+window.escapeHtml = escapeHtml;
 window.changePdpImage = changePdpImage;
 window.submitReview = submitReview;
 window.subscribeNewsletter = subscribeNewsletter;
