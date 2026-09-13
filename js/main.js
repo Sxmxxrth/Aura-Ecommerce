@@ -68,6 +68,21 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// Render vector SVG star icon
+function renderStarSvg(fill = "#f59e0b", size = 13) {
+  return `<svg class="star-icon" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill}" stroke="${fill}" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+}
+
+// Render rating stars using vector SVGs
+function renderStars(rating = 5, count = null) {
+  const countStars = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
+  const starsHtml = Array(countStars).fill(renderStarSvg()).join("");
+  if (count !== null && count !== undefined) {
+    return `<div class="product-rating">${starsHtml} <span>(${count})</span></div>`;
+  }
+  return `<div class="product-rating">${starsHtml}</div>`;
+}
+
 // ============================================================================
 // 3. LOCAL STORAGE DATA HELPERS (CART & WISHLIST)
 // ============================================================================
@@ -276,7 +291,13 @@ function renderCart() {
   if (cart.length === 0) {
     list.innerHTML = `
       <div class="empty-cart-state">
-        <div class="empty-cart-icon">🛒</div>
+        <div class="empty-cart-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </div>
         <h3>Your shopping cart is empty</h3>
         <p>Looks like you haven't added any clothing items yet.</p>
         <a href="shop.html" class="btn btn-primary" onclick="closeCart()">Browse Shop</a>
@@ -302,7 +323,10 @@ function renderCart() {
         <div class="shipping-bar-wrap">
           <div class="shipping-bar-fill" style="width: 100%;"></div>
         </div>
-        <div class="shipping-text unlocked">🎉 Congratulations! You have unlocked FREE Delivery!</div>
+        <div class="shipping-text unlocked">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Free Delivery Unlocked on this order!
+        </div>
       `;
     } else {
       shippingNotice.innerHTML = `
@@ -348,8 +372,13 @@ function renderCart() {
     if (promoCode) {
       promoWrapper.innerHTML = `
         <div class="promo-applied-badge">
-          <span>🏷️ Code <strong>${escapeHtml(promoCode)}</strong> (-${CONFIG.discountPercentage}%) Applied</span>
-          <button type="button" onclick="removePromo()" class="promo-remove-btn" title="Remove promo code">✕</button>
+          <span style="display:inline-flex; align-items:center; gap:5px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            Code <strong>${escapeHtml(promoCode)}</strong> (-${CONFIG.discountPercentage}%) Applied
+          </span>
+          <button type="button" onclick="removePromo()" class="promo-remove-btn" title="Remove promo code" aria-label="Remove promo code">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
       `;
     } else {
@@ -511,7 +540,11 @@ function renderWishlist() {
   if (products.length === 0) {
     listEl.innerHTML = `
       <div class="empty-cart-state">
-        <div class="empty-cart-icon">🤍</div>
+        <div class="empty-cart-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
         <h3>Your wishlist is empty</h3>
         <p>Save items you like by clicking the heart icon on any product.</p>
         <a href="shop.html" class="btn btn-primary" onclick="closeWishlist()">Explore Shop</a>
@@ -833,9 +866,7 @@ function createProductCardHtml(product) {
         <h3 class="product-name">
           <a href="product.html?id=${product.id}">${product.name}</a>
         </h3>
-        <div class="product-rating">
-          ★★★★★ <span>(${product.reviewsCount || 24})</span>
-        </div>
+        ${renderStars(product.rating || 5, product.reviewsCount || 24)}
         <div class="product-price">
           ${formatPrice(product.price)}
           ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ""}
@@ -973,7 +1004,12 @@ function renderShopProducts() {
   if (filtered.length === 0) {
     container.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
-        <div style="font-size: 32px; margin-bottom: 12px;">🔍</div>
+        <div style="margin-bottom: 12px; color: var(--text-muted);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
         <h3 style="margin-bottom: 8px;">No products found</h3>
         <p style="color: #64748b; margin-bottom: 16px;">Try adjusting your search terms or filters.</p>
         <button type="button" class="btn btn-secondary" onclick="resetShopFilters()">Reset All Filters</button>
@@ -1156,7 +1192,7 @@ function submitReview(event) {
       item.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <strong class="review-author">${escapeHtml(name)}</strong>
-          <span style="color: #f59e0b; font-size: 13px;">★★★★★</span>
+          ${renderStars(5)}
         </div>
         <p style="color: #64748b; font-size: 14px; line-height: 1.6;">"${escapeHtml(comment)}"</p>
       `;
@@ -1169,12 +1205,100 @@ function submitReview(event) {
   }
 }
 
-// Submit contact form on Contact page
+// ============================================================================
+// 11. CUSTOMER CARE INFO MODALS (Shipping, Returns, FAQ)
+// ============================================================================
+
+function openShippingInfo() {
+  showInfoModal("Shipping Information", `
+    <div style="margin-bottom: 12px;">
+      <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--text-dark);">Fast &amp; Reliable Delivery</h4>
+      <p>We deliver across all serviceable pin codes in India with trusted courier partners.</p>
+    </div>
+    <ul style="padding-left: 18px; margin-bottom: 14px; line-height: 1.8;">
+      <li><strong>Standard Shipping:</strong> ₹199 (FREE on all orders above ₹3,000)</li>
+      <li><strong>Delivery Time:</strong> 3 to 5 business days across major cities</li>
+      <li><strong>Dispatch:</strong> Orders placed before 2:00 PM are dispatched same-day</li>
+      <li><strong>Tracking:</strong> Complete real-time tracking link sent via SMS and email</li>
+    </ul>
+  `);
+}
+
+function openReturnPolicy() {
+  showInfoModal("30-Day Return & Exchange Policy", `
+    <div style="margin-bottom: 12px;">
+      <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--text-dark);">Hassle-Free Return Guarantee</h4>
+      <p>If you are not 100% satisfied with your fit or color, we make returns simple:</p>
+    </div>
+    <ul style="padding-left: 18px; margin-bottom: 14px; line-height: 1.8;">
+      <li><strong>30-Day Window:</strong> Returns or size exchanges accepted within 30 days</li>
+      <li><strong>Condition:</strong> Items must be unworn and unwashed with original tags attached</li>
+      <li><strong>Doorstep Pickup:</strong> Free reverse pickup arranged from your address</li>
+      <li><strong>Quick Refunds:</strong> Refunds processed directly to your original payment within 48 hours</li>
+    </ul>
+  `);
+}
+
+function openFaqModal() {
+  showInfoModal("Frequently Asked Questions", `
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div>
+        <strong style="display: block; color: var(--text-dark); margin-bottom: 4px;">How do I use my 20% discount code?</strong>
+        <p>Open your Shopping Cart drawer, enter promo code <code>SAVE20</code>, and click Apply to see instant savings.</p>
+      </div>
+      <div>
+        <strong style="display: block; color: var(--text-dark); margin-bottom: 4px;">How do I check my size before ordering?</strong>
+        <p>Click "View Size Guide" on any product page or in the footer to view our detailed measurement chart.</p>
+      </div>
+      <div>
+        <strong style="display: block; color: var(--text-dark); margin-bottom: 4px;">How can I track my order?</strong>
+        <p>Once dispatched, you will receive a tracking link with live updates directly on your registered contact number.</p>
+      </div>
+    </div>
+  `);
+}
+
+function showInfoModal(title, htmlContent) {
+  let modal = document.getElementById("info-modal-backdrop");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "info-modal-backdrop";
+    modal.className = "size-modal-backdrop";
+    modal.innerHTML = `
+      <div class="size-modal-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 id="info-modal-title" style="font-size: 18px;"></h3>
+          <button class="drawer-close-btn" onclick="closeInfoModal()" aria-label="Close modal">&times;</button>
+        </div>
+        <div id="info-modal-body" style="font-size: 14px; color: var(--text-muted); line-height: 1.6;"></div>
+      </div>
+    `;
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeInfoModal();
+    });
+    document.body.appendChild(modal);
+  }
+
+  const titleEl = document.getElementById("info-modal-title");
+  const bodyEl = document.getElementById("info-modal-body");
+  if (titleEl) titleEl.textContent = title;
+  if (bodyEl) bodyEl.innerHTML = htmlContent;
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeInfoModal() {
+  const modal = document.getElementById("info-modal-backdrop");
+  if (modal) modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// Submit contact form (fallback helper)
 function submitContact(event) {
-  event.preventDefault();
+  if (event) event.preventDefault();
   const name = document.getElementById("contact-name") ? document.getElementById("contact-name").value : "there";
-  showToast(`Thank you, ${name}! Your message has been sent. We'll reply soon.`);
-  event.target.reset();
+  showToast(`Thank you, ${name}! Your inquiry has been received.`);
+  if (event && event.target && event.target.reset) event.target.reset();
 }
 
 // Submit newsletter subscription
@@ -1255,6 +1379,10 @@ window.addQuickViewToCart = addQuickViewToCart;
 
 window.openSizeGuide = openSizeGuide;
 window.closeSizeGuide = closeSizeGuide;
+window.openShippingInfo = openShippingInfo;
+window.openReturnPolicy = openReturnPolicy;
+window.openFaqModal = openFaqModal;
+window.closeInfoModal = closeInfoModal;
 window.toggleMobileMenu = toggleMobileMenu;
 window.closeMobileMenu = closeMobileMenu;
 
@@ -1290,6 +1418,10 @@ window.__aura = {
   addQuickViewToBag: addQuickViewToCart,
   openSizeGuide,
   closeSizeGuide,
+  openShippingInfo,
+  openReturnPolicy,
+  openFaqModal,
+  closeInfoModal,
   toggleMobileMenu,
   closeMobileMenu,
   filterCategory,

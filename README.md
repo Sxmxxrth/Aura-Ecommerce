@@ -24,8 +24,6 @@ ecommerce/
 ├── shop.html                   # 2. Shop Catalog & Filtering Page
 ├── product.html                # 3. Product Details Page (Dynamic via ?id=)
 ├── collections.html            # 4. Curated Collections Page
-├── about.html                  # 5. About Us & Brand Philosophy Page
-├── contact.html                # 6. Contact & Customer Support Page
 ├── README.md                   # Complete Project Documentation & Assignment Report
 ├── css/
 │   ├── style.css               # Clean, comprehensive master stylesheet
@@ -42,16 +40,14 @@ ecommerce/
 
 ---
 
-## 📄 Pages Manifest (All 6 Pages Included)
+## 📄 Pages Manifest (All 4 Core Pages)
 
 | # | Page Name | File Path | Key Features & Implementation |
 |---|-----------|-----------|-------------------------------|
-| 1 | **Home** | `index.html` | Top announcement bar, sticky navigation, hero banner with promotional offer, 48-hour promotional countdown timer, trust badges, infinite scrolling marquee, featured products grid, customer testimonials, and newsletter subscription form. |
+| 1 | **Home** | `index.html` | Top announcement bar, sticky navigation, hero banner with promotional offer, 48-hour promotional countdown timer, trust badges with vector SVGs, featured products grid, customer testimonials with vector SVG stars, and modern newsletter card. |
 | 2 | **Shop** | `shop.html` | Full 6-item product catalog with live search input, category filter buttons (**All**, **New Arrivals**, **Women**, **Men**, **Accessories**), sort dropdown (Featured, Price: Low to High, Price: High to Low, Name: A to Z), grid density toggle (compact/normal), and real-time counter. |
-| 3 | **Product Details** | `product.html` | Dynamically loads garment details via URL parameter (`?id=1` to `?id=6`), breadcrumb trail, multi-angle thumbnail gallery, interactive color swatches, size selection buttons with size guide modal trigger, stock indicator, accordion specifications, related products, verified patron reviews, interactive review submission form, and mobile sticky purchase bar. |
-| 4 | **Collections** | `collections.html` | Themed editorial portals for **Women's Minimalist Elegance**, **Men's Modern Sartorial**, and **New Arrivals (Autumn / Winter Drop)** with direct links to filtered shop views. |
-| 5 | **About Us** | `about.html` | Brand origin story, 4 core craftsmanship pillars (Material Purity, Master Tailoring, Conscious Deceleration, Lifetime Guarantee), and sustainable atelier metrics. |
-| 6 | **Contact** | `contact.html` | Client concierge inquiry form with validation and live toast confirmation, global flagship salon addresses (Paris, Mumbai, New York), direct support lines, and an interactive FAQ accordion. |
+| 3 | **Product Details** | `product.html` | Dynamically loads garment details via URL parameter (`?id=1` to `?id=6`), breadcrumb trail, multi-angle thumbnail gallery, interactive color swatches, size selection buttons with size guide modal trigger, stock indicator, accordion specifications, related products, verified patron reviews with SVG stars, interactive review submission form, and mobile sticky purchase bar. |
+| 4 | **Collections** | `collections.html` | Themed portals for **Women's Minimalist Elegance**, **Men's Modern Sartorial**, and **New Arrivals (Autumn / Winter Drop)** with direct links to filtered shop views. |
 
 ---
 
@@ -66,18 +62,18 @@ ecommerce/
 | 5 | **Add to Cart (Frontend Only)** | ✅ Complete | Slide-out cart drawer with item count badge, quantity increment/decrement, remove button, `localStorage` persistence, free shipping progress bar (`₹3,000` threshold), and promo discount code engine (`SAVE20` / `ATELIER20` for 20% off). |
 | 6 | **Wishlist Button (Frontend Only)** | ✅ Complete | Heart toggle button on all product cards and PDP, persistent `localStorage` synchronization, count badge, slide-out Wishlist Drawer, and "Move to Bag" button. |
 | 7 | **Size and Color Selection** | ✅ Complete | Interactive color swatches with active ring highlights and size buttons (XS to XL) available on both PDP and the Quick View modal. |
-| 8 | **Customer Reviews Section** | ✅ Complete | Star rating breakdown, verified patron reviews list, and a working submission form (`submitReview`) that dynamically prepends new reviews to the list with toast feedback. |
+| 8 | **Customer Reviews Section** | ✅ Complete | Star rating breakdown, verified patron reviews list, and a working submission form (`submitReview`) that dynamically prepends new reviews to the list with toast feedback and SVG stars. |
 | 9 | **Newsletter Subscription** | ✅ Complete | Email input form with format validation, promo code confirmation, and auto-dismissing toast notifications. |
 | 10 | **Responsive Navigation** | ✅ Complete | Desktop horizontal navigation bar and mobile hamburger toggle menu with smooth slide-in navigation drawer and backdrop. |
-| 11 | **Footer with Quick Links** | ✅ Complete | 3-column structured footer with links to all 6 pages, client care services, size guide modal trigger, social badges, and copyright statement. |
+| 11 | **Footer with Quick Links** | ✅ Complete | Clean 3-column footer with brand overview, social vector SVG links, shop navigation, and interactive Customer Care modals (Size Guide, Shipping Information, Return Policy, FAQs). |
 
 ---
 
 ## 🎨 UI Design & Styling Details
 
 - **Minimalist Fashion Palette:** Clean obsidian black (`#0F1014`), brushed gold/bronze (`#B08D57`), museum warm ivory (`#FAF8F5`), and gallery white (`#FFFFFF`).
-- **Typography Pairing:** Classic serif *Cormorant Garamond* for titles and editorial elegance, paired with geometric sans-serif *Montserrat* for readable body text.
-- **Native Browser Cursor:** Standard, clean, and responsive browser cursor everywhere (custom lagging magnetic cursor removed to ensure natural accessibility and zero mouse latency).
+- **100% Vector SVG Icons:** Zero emojis or emoticons; all icons, rating stars, and badges rendered using crisp, scalable inline vector SVGs.
+- **Native Browser Cursor:** Standard, clean, and responsive browser cursor everywhere (zero mouse latency).
 - **Product Card Hover Effects:** Secondary angle dissolve effect on hover, smooth card elevation, and quick-action overlay buttons.
 - **Mobile Responsive:** 100% responsive across desktop, tablet, and mobile devices (tested down to 320px width) with zero horizontal overflow.
 - **Currency:** Standardized in Indian Rupees (`₹`) formatted with `toLocaleString("en-IN")`.
