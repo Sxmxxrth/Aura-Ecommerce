@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — The House &amp; Philosophy — AURA Maison</title>
+  <meta name="description" content="Discover the story, craftsmanship pillars, and sustainable ethos behind AURA Maison de Couture." />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Promo Bar -->
+  <div class="promo-bar">
+    <div class="promo-bar-container">
+      <div class="promo-bar-text">
+        Atelier Capsule • Complimentary Courier on Orders Over ₹5,000 • Use Code <span>ATELIER20</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="logo">AURA<span>.</span></a>
+    
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburger-btn" onclick="window.__aura.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nav Links (Desktop row / Mobile drawer) -->
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="collections.html">Collections</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Cart & Wishlist Actions -->
+    <div class="nav-actions">
+      <!-- Instant Search Trigger -->
+      <button class="nav-icon-btn" onclick="window.__aura.openSearch()" aria-label="Search Catalog" title="Search (Press /)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <!-- Shopping Bag Button -->
+      <button class="nav-icon-btn" onclick="window.__aura.openCart()" aria-label="View Shopping Bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="nav-badge" id="cart-badge">0</span>
+      </button>
+
+      <!-- Wishlist Button -->
+      <button class="nav-icon-btn" onclick="window.__aura.openWishlist()" aria-label="View Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="nav-badge" id="wishlist-badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Backdrop -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="about-hero reveal-on-scroll">
+      <span class="about-eyebrow">L'Histoire &amp; Philosophie</span>
+      <h1>The Architecture of Quiet Luxury.</h1>
+      <p>"True luxury does not clamor for attention; it commands presence through silence, proportion, and exceptional material weight."</p>
+    </section>
+
+    <!-- Editorial Narrative Grid -->
+    <section class="about-story-grid">
+      <div class="about-story-media reveal-on-scroll">
+        <img src="assets/images/hero-banner.jpg" alt="AURA Atelier Craftsmanship and Design Studio" />
+      </div>
+      <div class="about-story-content reveal-on-scroll">
+        <h2>Born in Paris. Tailored for Eternity.</h2>
+        <p>
+          Founded in 2026, AURA Maison was created as a radical antidote to the ephemeral velocity of disposable fashion. We reject excessive seasonal cycles in favor of permanent architectural capsules—garments constructed with uncompromising discipline, timeless silhouettes, and generational resilience.
+        </p>
+        <p>
+          Every seam, hem, and horn button is an exercise in deliberate restraint. By partnering directly with historic family-owned mills in Biella, Como, and artisanal tailors across Europe and India, we preserve heritage tailoring traditions while engineering clothing for modern connoisseurs.
+        </p>
+        <p>
+          Our creations are designed not merely to be worn, but to be inhabited, cherished, and handed down across generations.
+        </p>
+        <div style="margin-top: 24px;">
+          <a href="shop.html" class="btn btn-primary">Discover the Creations →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four Pillars Grid -->
+    <section class="about-pillars">
+      <div class="about-pillars-header reveal-on-scroll">
+        <span class="about-eyebrow">The Four Pillars</span>
+        <h2>Uncompromising Standards of the Atelier</h2>
+        <p style="color: var(--text-secondary); font-size: 14.5px;">The non-negotiable principles that guide every sketch, pattern cut, and stitch.</p>
+      </div>
+
+      <div class="about-pillars-grid">
+        <div class="pillar-card reveal-on-scroll">
+          <span class="pillar-number">01</span>
+          <h3>Virgin Material Purity</h3>
+          <p>We source exclusively certified unadulterated fibers: 22-momme Mulberry silk, hypoallergenic Peruvian Royal Alpaca, long-staple Giza cotton, and double-faced virgin wool blends with tactile richness.</p>
+        </div>
+
+        <div class="pillar-card reveal-on-scroll">
+          <span class="pillar-number">02</span>
+          <h3>Master Hand-Tailoring</h3>
+          <p>Half-canvas internal construction molds organically to the patron's frame over time. Hand-finished buttonholes, horn fasteners, and edge-burnished full-grain leather establish unrivaled longevity.</p>
+        </div>
+
+        <div class="pillar-card reveal-on-scroll">
+          <span class="pillar-number">03</span>
+          <h3>Conscious Deceleration</h3>
+          <p>We produce in strictly capped micro-batches to eliminate deadstock. All packaging is 100% plastic-free, utilizing recycled unbleached fiber cartons and reusable organic cotton dust wraps.</p>
+        </div>
+
+        <div class="pillar-card reveal-on-scroll">
+          <span class="pillar-number">04</span>
+          <h3>The Lifetime Promise</h3>
+          <p>Every piece acquired from AURA includes access to our Atelier Care Program: complimentary lifetime seam reinforcement, minor repairs, and circular care guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atelier Statistics Strip -->
+    <section class="about-stats-strip reveal-on-scroll">
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Certified Ethical Fibers</p>
+      </div>
+      <div class="stat-item">
+        <h3>42h</h3>
+        <p>Hand-Tailoring Per Trench</p>
+      </div>
+      <div class="stat-item">
+        <h3>0%</h3>
+        <p>Single-Use Plastics</p>
+      </div>
+      <div class="stat-item">
+        <h3>18k+</h3>
+        <p>Patrons Worldwide</p>
+      </div>
+    </section>
+
+    <!-- Director Note / Manifesto -->
+    <section class="about-manifesto reveal-on-scroll">
+      <p class="manifesto-quote">
+        "We believe clothing should quiet the world, not add noise to it. When fabric and proportion align in pure harmony, you don't merely dress—you exist with effortless authority."
+      </p>
+      <div class="manifesto-signature">Atelier Creative Direction</div>
+      <div class="manifesto-title">AURA Maison de Couture • Paris &amp; Mumbai</div>
+      <div style="margin-top: 32px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="collections.html" class="btn btn-primary">Explore Portals</a>
+        <a href="contact.html" class="btn btn-secondary">Contact Concierge</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>AURA<span>.</span></h3>
+        <p>
+          A luxury maison dedicated to timeless craftsmanship, sustainable virgin fabrics, architectural silhouettes, and enduring comfort.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Maison</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Catalog</a></li>
+          <li><a href="collections.html">Curated Collections</a></li>
+          <li><a href="about.html">About the Maison</a></li>
+          <li><a href="contact.html">Client Concierge</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Bespoke Fitting</a></li>
+          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
+          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
+          <li><a href="contact.html">Press &amp; Editorial</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 AURA Maison de Couture. All Rights Reserved.</div>
+      <div class="footer-badges">
+        <span>Complimentary Delivery</span>
+        <span>•</span>
+        <span>Authenticity Guaranteed</span>
+        <span>•</span>
+        <span>Atelier Concierge</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="window.__aura.closeCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <h3>Shopping Bag</h3>
+      <button class="drawer-close-btn" onclick="window.__aura.closeCart()" aria-label="Close Shopping Bag">&times;</button>
+    </div>
+    <div id="cart-shipping-notice"></div>
+    <div class="drawer-body" id="cart-items-list"></div>
+    <div class="drawer-footer" id="cart-drawer-footer">
+      <div id="cart-promo-wrapper" class="promo-section"></div>
+      <div id="cart-breakdown"></div>
+      <div class="cart-total-row">
+        <span>Grand Total</span>
+        <span id="cart-total-price">₹0</span>
+      </div>
+      <button class="btn btn-primary btn-checkout" onclick="window.__aura.checkout()">Acquire Creations &bull; Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <div class="drawer-backdrop" id="wishlist-backdrop" onclick="window.__aura.closeWishlist()"></div>
+  <aside class="wishlist-drawer" id="wishlist-drawer" aria-label="Wishlist Drawer">
+    <div class="drawer-header">
+      <h3>Saved Wishlist</h3>
+      <button class="drawer-close-btn" onclick="window.__aura.closeWishlist()" aria-label="Close Wishlist">&times;</button>
+    </div>
+    <div class="drawer-body" id="wishlist-items-list"></div>
+  </aside>
+
+  <!-- Interactive Search Modal Overlay -->
+  <div class="search-modal-backdrop" id="search-modal-backdrop">
+    <div class="search-modal-box">
+      <div class="search-modal-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-modal-input" id="search-modal-input" placeholder="Search creations, coats, silk, wool..." aria-label="Search Catalog" />
+        <button class="search-modal-close" onclick="window.__aura.closeSearch()" aria-label="Close Search">&times;</button>
+      </div>
+      <div class="search-modal-results" id="search-modal-results"></div>
+      <div class="search-modal-footer">
+        <span>Press <strong>ESC</strong> to dismiss</span>
+        <span>Real-time Atelier Search</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Size Modal Component -->
+  <div class="size-modal-backdrop" id="size-modal-backdrop">
+    <div class="size-modal-box">
+      <div class="size-modal-header">
+        <h3>Atelier Size &amp; Fit Guide</h3>
+        <button class="size-modal-close" onclick="window.__aura.closeSizeGuide()" aria-label="Close Size Guide">&times;</button>
+      </div>
+      <div class="size-modal-body">
+        <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">
+          All AURA garments are cut with architectural precision. Use our measurements below for an immaculate tailored drape.
+        </p>
+        <table class="size-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Chest / Bust</th>
+              <th>Waist</th>
+              <th>Hips</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>XS</strong></td>
+              <td>32 – 34"</td>
+              <td>24 – 26"</td>
+              <td>34 – 36"</td>
+            </tr>
+            <tr>
+              <td><strong>S</strong></td>
+              <td>35 – 37"</td>
+              <td>27 – 29"</td>
+              <td>37 – 39"</td>
+            </tr>
+            <tr>
+              <td><strong>M</strong></td>
+              <td>38 – 40"</td>
+              <td>30 – 32"</td>
+              <td>40 – 42"</td>
+            </tr>
+            <tr>
+              <td><strong>L</strong></td>
+              <td>41 – 43"</td>
+              <td>33 – 35"</td>
+              <td>43 – 45"</td>
+            </tr>
+            <tr>
+              <td><strong>XL</strong></td>
+              <td>44 – 46"</td>
+              <td>36 – 38"</td>
+              <td>46 – 48"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Master JavaScript Application Bootstrap -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

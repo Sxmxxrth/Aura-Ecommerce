@@ -80,7 +80,7 @@ export class CartDrawerComponent {
           <div class="cart-item-details">
             <div class="cart-item-title">${item.name}</div>
             <div class="cart-item-meta" style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
-              Size: <strong style="color: var(--primary);">${item.size || 'M'}</strong>
+              Size: <strong style="color: var(--primary);">${item.size || 'M'}</strong> • Color: <strong style="color: var(--primary);">${item.color || 'Signature'}</strong>
             </div>
             <div class="cart-item-qty">
               <span>Qty: <strong>${item.quantity}</strong></span>

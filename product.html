@@ -32,8 +32,10 @@
     <!-- Nav Links (Desktop row / Mobile drawer) -->
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop Catalog</a>
+      <a href="shop.html">Shop</a>
       <a href="collections.html">Collections</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <!-- Cart & Wishlist Actions -->
@@ -106,6 +108,17 @@
         <p id="pdp-desc" class="pdp-desc">
           Creation specifications and craftsmanship notes.
         </p>
+
+        <!-- Color Selection Header -->
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 18px 0 10px;">
+          <div class="option-title" style="margin: 0;">Select Colorway</div>
+          <span id="pdp-selected-color" style="font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 0.5px;">Camel Beige</span>
+        </div>
+
+        <!-- Color Swatch Options -->
+        <div class="color-selector" id="pdp-color-selector" style="display: flex; gap: 12px; align-items: center; margin-bottom: 18px;">
+          <!-- Dynamically populated by product.page.js -->
+        </div>
 
         <!-- Sizing Header with Size Guide Trigger -->
         <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 18px 0 10px;">
@@ -248,11 +261,23 @@
       </div>
 
       <div class="footer-col">
-        <h4>Explore</h4>
+        <h4>The Maison</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop Catalog</a></li>
           <li><a href="collections.html">Curated Collections</a></li>
+          <li><a href="about.html">About the Maison</a></li>
+          <li><a href="contact.html">Client Concierge</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Bespoke Fitting</a></li>
+          <li><a href="contact.html#faq">Insured Courier &amp; Returns</a></li>
+          <li><a href="javascript:void(0)" onclick="window.__aura.openSizeGuide()">Size &amp; Fit Guide</a></li>
+          <li><a href="contact.html">Press &amp; Editorial</a></li>
         </ul>
       </div>
     </div>

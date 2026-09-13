@@ -13,6 +13,7 @@ import { CartDrawerComponent } from "./cart-drawer.component.js";
 export class QuickViewComponent {
   static currentProduct = null;
   static selectedSize = "M";
+  static selectedColor = "Signature";
 
   static init() {
     // Backdrop close handler
@@ -37,6 +38,7 @@ export class QuickViewComponent {
 
     QuickViewComponent.currentProduct = prod;
     QuickViewComponent.selectedSize = "M";
+    QuickViewComponent.selectedColor = (prod.colors && prod.colors.length > 0) ? prod.colors[0].name : "Signature";
 
     const backdrop = document.getElementById("quick-view-backdrop");
     const container = document.getElementById("quick-view-content");
@@ -58,6 +60,21 @@ export class QuickViewComponent {
         </div>
         <p class="quick-view-desc">${prod.desc}</p>
         
+        <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; display: flex; justify-content: space-between;">
+          <span>Select Colorway</span>
+          <span id="quick-view-color-label" style="color: var(--primary); text-transform: none;">${QuickViewComponent.selectedColor}</span>
+        </div>
+        <div class="color-selector" style="display: flex; gap: 10px; margin-bottom: 14px;">
+          ${(prod.colors || []).map((c, idx) => `
+            <button type="button" class="color-swatch-btn ${idx === 0 ? 'active' : ''}" 
+                    data-color="${c.name}" 
+                    title="${c.name}" 
+                    onclick="window.__aura.selectQuickViewColor('${c.name}', this)">
+              <span class="color-swatch-inner" style="background-color: ${c.hex};"></span>
+            </button>
+          `).join("")}
+        </div>
+
         <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;">
           Select Size
         </div>
@@ -90,11 +107,22 @@ export class QuickViewComponent {
     if (btnEl) btnEl.classList.add("active");
   }
 
+  static selectColor(color, btnEl) {
+    QuickViewComponent.selectedColor = color;
+    const label = document.getElementById("quick-view-color-label");
+    if (label) label.textContent = color;
+    const parent = btnEl ? btnEl.parentElement : null;
+    if (parent) {
+      parent.querySelectorAll(".color-swatch-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+    }
+  }
+
   static addToBag() {
     if (!QuickViewComponent.currentProduct) return;
     const prod = QuickViewComponent.currentProduct;
-    cartService.addItem(prod, 1, QuickViewComponent.selectedSize);
-    ToastComponent.show(`Added "${prod.name}" (Size ${QuickViewComponent.selectedSize}) to your bag.`);
+    cartService.addItem(prod, 1, QuickViewComponent.selectedSize, QuickViewComponent.selectedColor);
+    ToastComponent.show(`Added "${prod.name}" (${QuickViewComponent.selectedColor} • Size ${QuickViewComponent.selectedSize}) to your bag.`);
     QuickViewComponent.close();
     CartDrawerComponent.open();
   }

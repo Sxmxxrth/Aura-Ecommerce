@@ -59,6 +59,7 @@ window.__aura = {
   openQuickView: (id) => QuickViewComponent.open(id),
   closeQuickView: () => QuickViewComponent.close(),
   selectQuickViewSize: (size, el) => QuickViewComponent.selectSize(size, el),
+  selectQuickViewColor: (color, el) => QuickViewComponent.selectColor(color, el),
   addQuickViewToBag: () => QuickViewComponent.addToBag(),
   openSearch: () => SearchModalComponent.open(),
   closeSearch: () => SearchModalComponent.close(),
@@ -101,6 +102,12 @@ window.__aura = {
       ToastComponent.show(`Welcome to the Atelier Circle. Privilege code ATELIER20 has been verified.`);
       input.value = "";
     }
+  },
+  submitContact: (e) => {
+    e.preventDefault();
+    const name = document.getElementById("contact-name") ? document.getElementById("contact-name").value : "Patron";
+    ToastComponent.show(`Thank you, ${name}. Your inquiry has reached the Atelier Concierge.`);
+    e.target.reset();
   }
 };
 

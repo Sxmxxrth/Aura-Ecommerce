@@ -80,7 +80,14 @@ export class ShopPage {
     const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
     let filtered = PRODUCTS_DATA.filter(prod => {
-      const matchCat = (ShopPage.category === "all" || prod.category === ShopPage.category);
+      let matchCat = false;
+      if (ShopPage.category === "all") {
+        matchCat = true;
+      } else if (ShopPage.category === "new-arrivals" || ShopPage.category === "new") {
+        matchCat = !!prod.isNew;
+      } else {
+        matchCat = (prod.category === ShopPage.category);
+      }
       const matchSearch = prod.name.toLowerCase().includes(query) || prod.desc.toLowerCase().includes(query);
       return matchCat && matchSearch;
     });

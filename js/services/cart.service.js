@@ -56,8 +56,9 @@ class CartService {
     };
   }
 
-  addItem(product, quantity = 1, size = "M") {
-    const existing = this.items.find(i => i.id === product.id && i.size === size);
+  addItem(product, quantity = 1, size = "M", color = null) {
+    const selectedColor = color || (product.colors && product.colors[0] ? product.colors[0].name : "Signature");
+    const existing = this.items.find(i => i.id === product.id && i.size === size && i.color === selectedColor);
     if (existing) {
       existing.quantity += quantity;
     } else {
@@ -68,6 +69,7 @@ class CartService {
         image: product.image,
         category: product.category,
         size: size,
+        color: selectedColor,
         quantity: quantity
       });
     }

@@ -13,6 +13,7 @@ import { SizeModalComponent } from "../components/size-modal.component.js";
 
 export class ProductPage {
   static currentSize = "S";
+  static currentColor = "Signature";
   static currentProduct = null;
 
   static init() {
@@ -70,6 +71,32 @@ export class ProductPage {
       `).join("");
     }
 
+    // Color Selection Setup
+    ProductPage.currentColor = (prod.colors && prod.colors.length > 0) ? prod.colors[0].name : "Signature";
+    const colorLabel = document.getElementById("pdp-selected-color");
+    if (colorLabel) colorLabel.textContent = ProductPage.currentColor;
+
+    const colorContainer = document.getElementById("pdp-color-selector");
+    if (colorContainer && prod.colors) {
+      colorContainer.innerHTML = prod.colors.map((c, idx) => `
+        <button type="button" class="color-swatch-btn ${idx === 0 ? 'active' : ''}" 
+                data-color="${c.name}" 
+                title="${c.name}" 
+                aria-label="Select color ${c.name}">
+          <span class="color-swatch-inner" style="background-color: ${c.hex};"></span>
+        </button>
+      `).join("");
+
+      colorContainer.querySelectorAll(".color-swatch-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          colorContainer.querySelectorAll(".color-swatch-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          ProductPage.currentColor = btn.getAttribute("data-color");
+          if (colorLabel) colorLabel.textContent = ProductPage.currentColor;
+        });
+      });
+    }
+
     // Size Selection Handler
     document.querySelectorAll(".size-option").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -86,8 +113,8 @@ export class ProductPage {
     // Add to Bag Button
     if (addBtn) {
       addBtn.onclick = () => {
-        cartService.addItem(prod, 1, ProductPage.currentSize);
-        ToastComponent.show(`Added "${prod.name}" (Size ${ProductPage.currentSize}) to your bag.`);
+        cartService.addItem(prod, 1, ProductPage.currentSize, ProductPage.currentColor);
+        ToastComponent.show(`Added "${prod.name}" (${ProductPage.currentColor} • Size ${ProductPage.currentSize}) to your bag.`);
         CartDrawerComponent.open();
       };
     }
